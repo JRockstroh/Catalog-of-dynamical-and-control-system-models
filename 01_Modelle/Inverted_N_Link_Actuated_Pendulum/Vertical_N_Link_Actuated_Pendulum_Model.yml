@@ -1,0 +1,40 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:      
+type: Model                        
+name: Inverted N Link Actuated Pendulum                           
+short_description: Inverted Pendulum with N masses and an actuator at every link
+creator: Jonathan Rockstroh   
+creation_date: 21.05.2021
+editor_list:
+    - 
+notes: 
+external_references:    
+    -> Dann, C. and Neumann, G. and Peters, J.; "Policy Evaluation with Temporal Differences:A Survey and Comparison", Journal of Machine Learning Research 15, pp. 809-883, 2014
+tag_list: 
+    - State_Dimension_(*)
+    - Time_Continuity
+    - Time_Variance
+    - Nonlinear
+input_domain_list:            
+    - Physical             
+state_domain_list: 
+    -
+output_domain_list:
+    - Physical  
+model_graphics_file: 
+
+  
+
+
+
+
+
+
+
+
+
+
+

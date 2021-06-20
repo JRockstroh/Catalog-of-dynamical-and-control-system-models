@@ -1,0 +1,41 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:     
+type: Model                      
+name: N Trailer Problem                           
+short_description: Chain of N trailers with kingpin hitching.
+creator: Jonathan Rockstroh   
+creation_date: 21.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:    
+    -> C. Altafini; The general n-trailer problem conversion into chained form, 37th IEEE Conference on Decision and Control, 1998, pp. 3129-3130 vol.3, 1998, doi; 10.1109/CDC.1998.757991
+tag_list: must
+    - State_Dimension_(*)
+    - Time_Variant
+    - Time_Continuity
+    - Nonlinear_System
+input_domain_list: 
+    - physical          
+state_domain_list: 
+    -
+output_domain_list: 
+    -   
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

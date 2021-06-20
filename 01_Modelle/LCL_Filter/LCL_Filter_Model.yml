@@ -1,0 +1,31 @@
+---
+
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                        
+name: LCL Filter                           
+short_description: Output filter between electrical inverters and utility grid to supress high current ripple
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:   
+    -> Cui, M. and Yao, R.; INPUT-OUTPUT FEEDBACK LINEARIZATION CONTROL
+        OF GRID-CONNECTED INVERTER WITH LCL FILTER, IEEE 2013 
+tag_list: must
+    - State_Dimension_(*)
+    - State_Space_System
+    - Time_Variance
+    - Time_Continuity
+    - Stability
+input_domain_list:           
+    - electrical            
+state_domain_list:            
+    - eleectrical
+output_domain_list:              
+    - electrical  
+model_graphics_file: 
+    
+
+  

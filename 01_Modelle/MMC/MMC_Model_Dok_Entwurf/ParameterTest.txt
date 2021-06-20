@@ -1,0 +1,28 @@
+DC voltage
+v_{DC}
+300
+V
+grid Voltage
+v_g
+235
+V
+angular speed
+\omega
+2\pi\cdot50
+Hz
+arm inductance
+L_z
+1.2
+mH
+mutual inductance
+M_z
+0.94
+mH
+load resistance
+R
+26
+\Omega
+load inductance
+L
+3
+mH

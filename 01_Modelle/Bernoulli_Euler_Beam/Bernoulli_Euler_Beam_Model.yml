@@ -1,0 +1,41 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                        
+name: Euler-Bernoulli Beam                           
+short_description: describes a beam which nearly fullfil the bernoulli assumptions
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:   
+    -> Wei, Q. and Wang, L.; Exponential stabilisation of Euler–Bernoulli beam
+       with uncertain disturbance, International Journal of Control; vol. 94, issue 6, pp. 1622-1629, 2021, DOI;
+       10.1080/00207179.2019.1662094
+tag_list: 
+    - State_Dimension_(*)
+    - PDE_System
+input_domain_list: 
+    - physical       
+state_domain_list: 
+    -
+output_domain_list: 
+    -
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

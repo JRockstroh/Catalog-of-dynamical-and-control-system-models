@@ -1,0 +1,39 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                        
+name: Brockett Integrator                           
+short_description: 
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:           
+    -> Brockett, R. W.; Asymptotic Stability and feedback stabilization, 1983
+tag_list: 
+    - State_Dimension_(*)
+    - Artificial_Domain
+input_domain_list: 
+    - artificial           
+state_domain_list:
+    -
+output_domain_list:              
+    - artificial
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

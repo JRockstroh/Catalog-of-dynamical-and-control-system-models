@@ -1,0 +1,68 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+%< > ... dummy content zur Veranschaulichung
+
+\begin{document}
+	\part*{Model Documentation of the:}
+	\section*{Heisenberg Flywheel} % MUST - Add Model Name 
+	
+	%%%%%%%%%%%%%%%%%%%%%% NOMENCLATURE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Nomenclature} % MUST
+	\subsection{Nomenclature for Model Equations} % MUST
+	
+	%variables for model equations
+	\begin{tabular}{ll}
+		$x, ~$ & Position of the mass \\
+		$\theta$ & angle \\
+		$I$ & moment of inertia of the flywheel \\
+		$m$ & mass \\
+		$\tau$ & torque \\
+		$v$ & velocity of mass along the rod	
+	\end{tabular}
+
+	
+	%%%%%%%%%%%%%%%%%%%%%% MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Model Equations} % MUST
+	
+	\begin{subequations}
+	\begin{align}
+		\dot{x} &= \tau 	\\ 
+		\dot{y} &=  v	\\
+		\dot{\theta} &= \alpha y \tau - \alpha x v   
+	\end{align}
+	\end{subequations}
+	with $\alpha$ = $-\frac{I}{m}$
+
+	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent
+	Inputs: $v,~\tau$ 
+	\\
+	Parameters: $m$ % variables with constant, predefined value
+	
+	%%%%%%%%%%%%%%%%%%%%%% ASSUMPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\subsection{Assumptions} % MAY 
+		\begin{enumerate} %possible list type for the Assumptions - mögliche Formatierung für die Annahmen
+			\item Mass m is a pointmass
+			\item rod, which connecting m to the flywheel is massless
+			\item joint, which connects the flywheel to the table is frictionless and doesn't exert torque on the system
+		\end{enumerate}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{thebibliography}{10}		
+		\bibitem{BaZo20}Bagagiolo, F.; Zopello, M.: 
+		\textit{Hysteresis and Controllability of affine driftless systems: some case studies}, p. 10, mmnp-journal 2020
+	\end{thebibliography}
+
+\end{document}

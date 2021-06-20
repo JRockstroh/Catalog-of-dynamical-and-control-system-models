@@ -1,0 +1,61 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+%< > ... dummy content zur Veranschaulichung
+
+\begin{document}
+	\part*{Model Documentation of the:}
+	\section*{Roessler Attractor - Equation 1 of 1979} % MUST - Add Model Name 
+	
+	%%%%%%%%%%%%%%%%%%%%%% NOMENCLATURE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Nomenclature} % MUST
+	\subsection{Nomenclature for Model Equations} % MUST
+	
+	%variables for model equations
+	\begin{tabular}{ll}
+		$a,~b,~c$ & constants		
+	\end{tabular}
+	
+	%%%%%%%%%%%%%%%%%%%%%% MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Model Equations} % MUST
+	
+	\begin{subequations}
+	\begin{align}
+		\dot{x} &= - y - z	\\
+		\dot{y} &= x + ay \\
+		\dot{z} &= bx - cz + xz    
+	\end{align}
+	\end{subequations}
+
+	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent
+	Inputs: 
+	\\
+	Parameters: $a,~b,~c$ % variables with constant, predefined value
+	\\
+	Outputs: 
+	
+	%%%%%%%%%%%%%%%%%%%%%% EXEMPLARY PARAMETER VALUES %%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\subsection{Exemplary parameter values}
+	\input{parameters.tex}
+
+	
+	%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{thebibliography}{10}		
+		\bibitem{ROE79}Roessler, O. E.: 
+		\textit{Continuous chaos - four prototype equations}, Ann . NY Acad. Sci. 316, p. 381, 1979
+		\bibitem{GP05}Gaspard, P.: 
+		\textit{Roessler Systems, Encyclopedia of Nonlinear Science}, pp. 808-811, New York, 2005
+	\end{thebibliography}
+
+\end{document}

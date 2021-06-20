@@ -1,0 +1,41 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                       
+name: Hot Rolling Mill                           
+short_description: Hot Rolling Mill Model for producing strips by rolling slabs
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:    
+    -> Choi, I. S. and Rossiter, J. A. and Fleming, P. J.; An Applicanon of the Model based predictive control
+       in a Hot Rolling Mill, IFAC, Nancy, France 2004
+tag_list: 
+    - State_Dimension_(*)
+    - Time_Continuity
+    - Steel_Production
+input_domain_list: 
+    - physical           
+state_domain_list:            
+    -
+output_domain_list:              
+    - physical  
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

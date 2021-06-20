@@ -1,0 +1,42 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:     
+type: Model          
+name: Ebene Baumartige Pendelstrukur  # planar nth degree pendulum structure ?                          
+short_description: movement equations of a pendulum with n post-pendulums and one predecessesor pendulum and translatorical movement of the root mass 
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references: 
+    -> Krause, M.; Diplomarbeit Beitraege zu Modellbildung, Bewegungsplanung, Steuerung und Regelung von Schreitmaschinen, pp. 3-8, TU Dresden, 2008
+tag_list: 
+    - State_Dimension_(*)
+    - Nonlinear_System
+    - Time_Continuity
+    - Time_Invariant
+    - Linear_State_Space_System  # ??? Unsure
+input_domain_list: 
+    - physical           
+state_domain_list: 
+    - 
+output_domain_list: 
+    - physical  
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

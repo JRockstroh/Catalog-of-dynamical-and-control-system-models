@@ -1,0 +1,12 @@
+Spannung
+U
+50
+V
+Strom
+I
+2
+A
+Induktivitaet
+L
+1
+mH

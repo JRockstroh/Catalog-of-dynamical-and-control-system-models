@@ -15,7 +15,7 @@ from Model_Superclass import Model_Superclass
 
 try:
     # MODEL DEPENDENT, only adjust import file name
-    import model_parameters as params  
+    import pvtol_parameters as params  
 except ModuleNotFoundError:
     print("Didn't found default Parameter File. \
           Assuming that the System doesn't have parameters.")
@@ -38,9 +38,9 @@ class Model(Model_Superclass):
         super().__init__()
         
         # Define number of inputs -- MODEL DEPENDENT
-        self.u_dim = 1
+        self.u_dim = 2
         # Set fix system dimension if necessary
-        x_dim = 2
+        x_dim = 6
         # Set self.n
         self._set_dimension(x_dim)        
         # Create symbolic input vector
@@ -134,8 +134,50 @@ class Model(Model_Superclass):
                                                     numerical values at time t      
         :return:(function with 2 args - t, xx_nv) default input function 
         """ 
-        def uu_rhs(t, xx_nv):          
-            return []
+        m = self.pp_dict[self.pp_symb[2]]
+        T_raise = 2
+        T_left = T_raise + 2 + 2
+        T_right = T_left + 4
+        T_straight = T_right + 2
+        T_land = T_straight + 3
+        force = 15*m
+        force_lr = 12 *m
+        g_nv = self.pp_dict[self.pp_symb[0]]*m
+        # create symbolic polnomial functions for raise and land
+        poly1 = st.condition_poly(self.t_symb, (0, 0, 0, 0), 
+                                  (T_raise, force, 0, 0))
+        
+        poly_land = st.condition_poly(self.t_symb, (T_straight, g_nv, 0, 0), 
+                                      (T_land, 0, 0, 0))
+        
+        # create symbolic piecewise defined symbolic transition functions
+        transition_u1 = st.piece_wise((0, self.t_symb < 0), 
+                                      (poly1, self.t_symb < T_raise), 
+                                      (force, self.t_symb < T_raise + 2), 
+                                      (g_nv, self.t_symb < T_left),
+                                      (force_lr, self.t_symb < T_right),
+                                      (g_nv, self.t_symb < T_straight),
+                                      (poly_land, self.t_symb < T_land),
+                                      (0, True))
+        
+        transition_u2 = st.piece_wise((0, self.t_symb < 0), 
+                                      (poly1, self.t_symb < T_raise), 
+                                      (force, self.t_symb < T_raise + 2), 
+                                      (force_lr, self.t_symb < T_left),
+                                      (g_nv, self.t_symb < T_right),
+                                      (force_lr, self.t_symb < T_straight),
+                                      (poly_land, self.t_symb < T_land),
+                                      (0, True))
+        
+        # transform symbolic to numeric function 
+        transition_u1_func = st.expr_to_func(self.t_symb, transition_u1)
+        transition_u2_func = st.expr_to_func(self.t_symb, transition_u2)
+        
+        def uu_rhs(t, xx_nv):
+            u1 = transition_u1_func(t)
+            u2 = transition_u2_func(t)
+                      
+            return [u1, u2]
         
         return uu_rhs
 
@@ -149,14 +191,19 @@ class Model(Model_Superclass):
         """
         if self.dxx_dt_symb is not None:
             return self.dxx_dt_symb
-        x1, x2 = self.xx_symb  
+        x1, x2, x3, x4, x5, x6 = self.xx_symb
+        g, l, m, J = self.pp_symb      
         u1, u2 = self.uu_symb
         # create symbolic rhs functions
-        dx1_dt = ...
-        dx2_dt = ...
+        dx1_dt = x2
+        dx2_dt = -sp.sin(x5)/m * (u1 + u2)
+        dx3_dt = x4
+        dx4_dt = sp.cos(x5)/m * (u1 + u2) - g
+        dx5_dt = x6
+        dx6_dt = l/J * (u2 - u1)
         
         # put rhs functions into a vector
-        self.dxx_dt_symb = [dx1_dt, dx2_dt]
+        self.dxx_dt_symb = [dx1_dt, dx2_dt, dx3_dt, dx4_dt, dx5_dt, dx6_dt]
         
         return self.dxx_dt_symb
     

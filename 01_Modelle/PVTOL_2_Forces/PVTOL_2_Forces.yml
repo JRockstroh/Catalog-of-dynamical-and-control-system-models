@@ -16,7 +16,7 @@ external_references:
 tag_list: must
     - State_Dimension_(*)
     - Flatness_Based_Control
-    - Flat_Systeem
+    - Flat_System
     - Underactuated_System
 input_domain_list:            
     - Physical           

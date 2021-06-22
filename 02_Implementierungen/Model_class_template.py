@@ -11,7 +11,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from Model_Superclass import Model_Superclass
+from GenericModel import GenericModel
 
 try:
     # MODEL DEPENDENT, only adjust import file name
@@ -20,7 +20,7 @@ except ModuleNotFoundError:
     print("Didn't found default Parameter File. \
           Assuming that the System doesn't have parameters.")
 
-class Model(Model_Superclass): 
+class Model(GenericModel): 
     ## NOTE:
         # x_dim usw vllt als keywordargs definieren - Vermeidung von effektlosen, optionelen parametern
     def __init__(self, x_dim=None, u_func=None, pp=None):
@@ -33,8 +33,7 @@ class Model(Model_Superclass):
         :param pp:(vector or dict-type with floats>0) parameter values
         :return:
         """
-        # Initialize all Parameters of the Model-Object with None
-#??? zur besseren lesbarkeit die Variablen Initialisierung drin lassen?        
+        # Initialize all Parameters of the Model-Object with None      
         super().__init__()
         
         # Define number of inputs -- MODEL DEPENDENT

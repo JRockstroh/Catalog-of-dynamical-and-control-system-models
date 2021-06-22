@@ -11,7 +11,7 @@ from collections.abc import Mapping
 import warnings
 import abc
 
-class Model_Superclass:
+class GenericModel:
     t_symb = sp.Symbol('t')
     
     def __init__(self, x_dim=None, u_func=None, pp=None):

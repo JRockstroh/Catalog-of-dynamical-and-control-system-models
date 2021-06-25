@@ -140,9 +140,9 @@ class Model(GenericModel):
         T_right = T_left + 4
         T_straight = T_right + 2
         T_land = T_straight + 3
-        force = 15*m
-        force_lr = 12 *m
-        g_nv = self.pp_dict[self.pp_symb[0]]*m
+        force = 0.75*9.81*m
+        force_lr = 0.7*9.81*m
+        g_nv = 0.5*self.pp_dict[self.pp_symb[0]]*m
         # create symbolic polnomial functions for raise and land
         poly1 = st.condition_poly(self.t_symb, (0, 0, 0, 0), 
                                   (T_raise, force, 0, 0))
@@ -199,8 +199,8 @@ class Model(GenericModel):
         dx2_dt = -sp.sin(x5)/m * (u1 + u2)
         dx3_dt = x4
         dx4_dt = sp.cos(x5)/m * (u1 + u2) - g
-        dx5_dt = x6
-        dx6_dt = l/J * (u2 - u1)
+        dx5_dt = x6 *2*sp.pi/360
+        dx6_dt = l/J * (u2 - u1) *2*sp.pi/360
         
         # put rhs functions into a vector
         self.dxx_dt_symb = [dx1_dt, dx2_dt, dx3_dt, dx4_dt, dx5_dt, dx6_dt]

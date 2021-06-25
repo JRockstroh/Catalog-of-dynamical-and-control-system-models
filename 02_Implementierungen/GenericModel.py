@@ -7,7 +7,6 @@ Created on Thu Jun 17 13:55:35 2021
 
 import sympy as sp
 import symbtools as st
-from collections.abc import Mapping
 import warnings
 import abc
 
@@ -94,10 +93,9 @@ class GenericModel:
     def _create_individual_p_dict(self, pp, pp_symb=None):
         """
         :param pp:(list or dict) 
-        """
-# ??? Sinnvoll Instance-Abfrage auf Mapping zu setzen, wenn danach dict-spezifische Funktionen (keys(), items()) aufgerufen werden?     
+        """   
         # Check if pp is a dictionary type object        
-        if isinstance(pp, Mapping):
+        if isinstance(pp, dict):
             p_values = list(pp.values())
             # Check if parameter values are valid 
             self._validate_p_values(p_values)          
@@ -138,6 +136,11 @@ class GenericModel:
     def get_rhs_func(self):
         """
         :return:(function) rhs function for numerical solver
+        
+        === Note ===
+        A created rhs function is fixed in its parameter values. 
+        If parameter values are changed, this method needs to be execuded 
+        again to take over the changed values.
         """
         # transform symbolic function to numerical function
         dxx_dt_func = sp.Matrix(self.get_rhs_symbolic())
@@ -156,17 +159,8 @@ class GenericModel:
             """
             uu_nv = self.uu_func(t, xx_nv)
            
-            # convert uu_nv to list
-# ??? könnte auch einfach davon ausgehen, dass uu_func() eine Liste mit u_werten zurück gibt            
-            try:
-                uu_nv = list(uu_nv)
-            except TypeError:       
-            # uu_nv is not iteratable --> assume its scalar 
-            # and converts it to 1-element-list
-                uu_nv = [float(uu_nv)]
-            # uu_nv = list(uu_nv)  
             # combine numerical state and input vector
-            xxuu_nv = list(xx_nv) + uu_nv
+            xxuu_nv = tuple(xx_nv) + tuple(uu_nv)
             ### xxuu_nv = list(xx_nv) + list(uu_nv)           
             # evaluate function
             dxx_dt_nv = dxx_dt_func(*xxuu_nv)

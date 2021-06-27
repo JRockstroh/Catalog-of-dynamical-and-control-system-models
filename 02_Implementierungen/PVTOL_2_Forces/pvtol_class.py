@@ -7,9 +7,6 @@ Created on Wed Jun  9 13:33:34 2021
 
 import sympy as sp
 import symbtools as st
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from GenericModel import GenericModel
 

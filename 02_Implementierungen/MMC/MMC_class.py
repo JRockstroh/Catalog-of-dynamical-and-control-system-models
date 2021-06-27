@@ -9,9 +9,6 @@ import sympy as sp
 import symbtools as st
 from sympy import I
 import numpy as np
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from Model_Superclass import Model_Superclass
 

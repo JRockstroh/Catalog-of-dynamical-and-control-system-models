@@ -63,3 +63,5 @@ axs[1, 0].legend()
 #fig1.suptitle('', fontsize=16)
 fig1.subplots_adjust(hspace=0.5)
 fig1.show()
+
+print(model.pp_dict)

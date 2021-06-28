@@ -7,15 +7,22 @@ Created on Wed Jun  9 13:33:34 2021
 
 import sympy as sp
 import symbtools as st
+import importlib
 
 from GenericModel import GenericModel
 
-try:
-    # MODEL DEPENDENT, only adjust import file name
-    import pvtol_parameters as params  
-except ModuleNotFoundError:
-    print("Didn't found default Parameter File. \
-          Assuming that the System doesn't have parameters.")
+# Import parameter_file
+# Name of the parameter file without ending -- MODEL DEPENDENT
+parameter_file_name = 'pvtol_parameters'
+
+# try to find ModuleSpecs
+param_module = importlib.util.find_spec(parameter_file_name)
+# if ModuleSpecs are found, paramters_package can be loaded
+if param_module is not None:
+    params = importlib.import_module(parameter_file_name)
+
+
+
 
 class Model(GenericModel): 
     ## NOTE:
@@ -29,11 +36,10 @@ class Model(GenericModel):
                         - has no effect for autonomous systems    
         :param pp:(vector or dict-type with floats>0) parameter values
         :return:
-        """
-        # Initialize all Parameters of the Model-Object with None
-#??? zur besseren lesbarkeit die Variablen Initialisierung drin lassen?        
+        """       
+        # Initialize all Parameters of the Model-Object with None       
         super().__init__()
-        
+              
         # Define number of inputs -- MODEL DEPENDENT
         self.u_dim = 2
         # Set fix system dimension if necessary
@@ -46,6 +52,7 @@ class Model(GenericModel):
         self._create_symb_xx_xxuu()
         # Create parameter dict, subs_list and symbolic parameter vector
         self.set_parameters(pp)
+        print(self.pp_dict)
         # Create Symbolic parameter vector and subs list
         self._create_symb_pp()
         # Create Substitution list
@@ -62,19 +69,11 @@ class Model(GenericModel):
     def set_parameters(self, pp, x_dim=None):
         """
         :param pp:(vector or dict-type with floats>0) parameter values
-        """
-# ??? Können Parameter bei bestehendem Modell/System verändert werden?        
-        # Case: Parameters already got set
-        if self.pp_dict is not None:
-            return
-                
+        :param x_dim:(positive int)
+        """       
         # Case: Use Defautl Parameters
         if pp is None and x_dim is None:
-            try:
-                self.pp_dict = params.get_default_parameters()
-            except NameError:
-                self.pp_dict = {}
-                
+            self.pp_dict = params.get_default_parameters()
             return
         
         # Case: Use individual parameters, but parameter number + symbols 
@@ -87,6 +86,7 @@ class Model(GenericModel):
             self._create_individual_p_dict(pp, pp_symb)
             return
         
+    # - BEGIN: MODEL DEPENDENT PART -
         # Case: parameter number = f(x_dim) , x_dim != default dim
         # --> define symbolic parameters for n extendible System
         # and use individual parameter values in pp
@@ -95,10 +95,11 @@ class Model(GenericModel):
             pp_symb = None
             self._create_individual_p_dict(pp, pp_symb)
             return
+    # - END: MODEL DEPENDENT PART -
         
         # Case: individual x_dim but no individual parameters given 
         raise Exception("Individual Dimension given, but no individual \
-                        parameter vector pp given.")          
+                        parameter vector pp given.")           
 
 
     # ----------- VALIDATE PARAMETER VALUES ---------- #
@@ -203,4 +204,3 @@ class Model(GenericModel):
         self.dxx_dt_symb = [dx1_dt, dx2_dt, dx3_dt, dx4_dt, dx5_dt, dx6_dt]
         
         return self.dxx_dt_symb
-    

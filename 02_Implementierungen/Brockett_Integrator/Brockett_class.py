@@ -30,8 +30,7 @@ class Model(GenericModel):
         :param pp:(vector or dict-type with floats>0) parameter values
         :return:
         """
-        # Initialize all Parameters of the Model-Object with None
-#??? zur besseren lesbarkeit die Variablen Initialisierung drin lassen?        
+        # Initialize all Parameters of the Model-Object with None      
         super().__init__()
         
         # Define number of inputs -- MODEL DEPENDENT
@@ -62,14 +61,11 @@ class Model(GenericModel):
     def set_parameters(self, pp, x_dim=None):
         """
         :param pp:(vector or dict-type with floats>0) parameter values
-        """        
+        :param x_dim:(positive int)
+        """       
         # Case: Use Defautl Parameters
         if pp is None and x_dim is None:
-            try:
-                self.pp_dict = params.get_default_parameters()
-            except NameError:
-                self.pp_dict = {}
-                
+            self.pp_dict = params.get_default_parameters()
             return
         
         # Case: Use individual parameters, but parameter number + symbols 
@@ -82,6 +78,7 @@ class Model(GenericModel):
             self._create_individual_p_dict(pp, pp_symb)
             return
         
+    # - BEGIN: MODEL DEPENDENT PART -
         # Case: parameter number = f(x_dim) , x_dim != default dim
         # --> define symbolic parameters for n extendible System
         # and use individual parameter values in pp
@@ -90,10 +87,11 @@ class Model(GenericModel):
             pp_symb = None
             self._create_individual_p_dict(pp, pp_symb)
             return
+    # - END: MODEL DEPENDENT PART -
         
         # Case: individual x_dim but no individual parameters given 
         raise Exception("Individual Dimension given, but no individual \
-                        parameter vector pp given.")          
+                        parameter vector pp given.")            
 
 
     # ----------- VALIDATE PARAMETER VALUES ---------- #

@@ -9,17 +9,21 @@ import sympy as sp
 import symbtools as st
 from sympy import I
 import numpy as np
+import importlib
 
-from Model_Superclass import Model_Superclass
+from GenericModel import GenericModel
 
-try:
-    # MODEL DEPENDENT, only adjust import file name
-    import MMC_parameters as params  
-except ModuleNotFoundError:
-    print("Didn't found default Parameter File. \
-          Assuming that the System doesn't have parameters.")
+# Import parameter_file
+# Name of the parameter file without ending -- MODEL DEPENDENT
+parameter_file_name = 'MMC_parameters'
 
-class Model(Model_Superclass): 
+# try to find ModuleSpecs
+param_module = importlib.util.find_spec(parameter_file_name)
+# if ModuleSpecs are found, paramters_package can be loaded
+if param_module is not None:
+    params = importlib.import_module(parameter_file_name)
+
+class Model(GenericModel): 
     ## NOTE:
         # x_dim usw vllt als keywordargs definieren - Vermeidung von effektlosen, optionelen parametern
     def __init__(self, x_dim=None, u_func=None, pp=None):
@@ -64,19 +68,11 @@ class Model(Model_Superclass):
     def set_parameters(self, pp, x_dim=None):
         """
         :param pp:(vector or dict-type with floats>0) parameter values
-        """
-# ??? Können Parameter bei bestehendem Modell/System verändert werden?        
-        # Case: Parameters already got set
-        if self.pp_dict is not None:
-            return
-                
+        :param x_dim:(positive int)
+        """       
         # Case: Use Defautl Parameters
         if pp is None and x_dim is None:
-            try:
-                self.pp_dict = params.get_default_parameters()
-            except NameError:
-                self.pp_dict = {}
-                
+            self.pp_dict = params.get_default_parameters()
             return
         
         # Case: Use individual parameters, but parameter number + symbols 
@@ -89,6 +85,7 @@ class Model(Model_Superclass):
             self._create_individual_p_dict(pp, pp_symb)
             return
         
+    # - BEGIN: MODEL DEPENDENT PART -
         # Case: parameter number = f(x_dim) , x_dim != default dim
         # --> define symbolic parameters for n extendible System
         # and use individual parameter values in pp
@@ -97,10 +94,11 @@ class Model(Model_Superclass):
             pp_symb = None
             self._create_individual_p_dict(pp, pp_symb)
             return
+    # - END: MODEL DEPENDENT PART -
         
         # Case: individual x_dim but no individual parameters given 
         raise Exception("Individual Dimension given, but no individual \
-                        parameter vector pp given.")          
+                        parameter vector pp given.")            
 
 
     # ----------- VALIDATE PARAMETER VALUES ---------- #
@@ -218,7 +216,7 @@ class Model(Model_Superclass):
         
         di_dt = 1/L * (vy - (R + I *omega*L) *i - vg) 
         
-        dtheta_dt = omega
+        dtheta_dt = 2*sp.pi/360*omega
         
         # put rhs functions into a vector
         self.dxx_dt_symb = [des0_dt, ded0_dt, des_dt, ded_dt, diss_dt, 

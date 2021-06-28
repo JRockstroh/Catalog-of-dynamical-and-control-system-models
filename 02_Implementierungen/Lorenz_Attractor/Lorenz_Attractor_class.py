@@ -7,15 +7,19 @@ Created on Wed Jun  9 13:33:34 2021
 
 import sympy as sp
 import symbtools as st
+import importlib
 
 from GenericModel import GenericModel
 
-try:
-    # MODEL DEPENDENT, only adjust import file name
-    import lorenz_parameter as params
-except ModuleNotFoundError:
-    print("Didn't found default Parameter File. \
-          Assuming that the System doesn't have parameters.")
+# Import parameter_file
+# Name of the parameter file without ending -- MODEL DEPENDENT
+parameter_file_name = 'lorenz_parameter'
+
+# try to find ModuleSpecs
+param_module = importlib.util.find_spec(parameter_file_name)
+# if ModuleSpecs are found, paramters_package can be loaded
+if param_module is not None:
+    params = importlib.import_module(parameter_file_name)
 
 class Model(GenericModel): 
     ## NOTE:
@@ -62,7 +66,8 @@ class Model(GenericModel):
     def set_parameters(self, pp, x_dim=None):
         """
         :param pp:(vector or dict-type with floats>0) parameter values
-        """        
+        :param x_dim:(positive int)
+        """       
         # Case: Use Defautl Parameters
         if pp is None and x_dim is None:
             self.pp_dict = params.get_default_parameters()
@@ -78,6 +83,7 @@ class Model(GenericModel):
             self._create_individual_p_dict(pp, pp_symb)
             return
         
+    # - BEGIN: MODEL DEPENDENT PART -
         # Case: parameter number = f(x_dim) , x_dim != default dim
         # --> define symbolic parameters for n extendible System
         # and use individual parameter values in pp
@@ -86,6 +92,7 @@ class Model(GenericModel):
             pp_symb = None
             self._create_individual_p_dict(pp, pp_symb)
             return
+    # - END: MODEL DEPENDENT PART -
         
         # Case: individual x_dim but no individual parameters given 
         raise Exception("Individual Dimension given, but no individual \

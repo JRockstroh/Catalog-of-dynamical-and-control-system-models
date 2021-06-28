@@ -175,10 +175,10 @@ class GenericModel:
     
     def _create_individual_p_dict(self, pp, pp_symb=None):
         """
-        Function which creates the parameter dict, if individual parameters 
-        are given.
+        Function which creates the parameter dict, in case that individual
+        parameters are given to the model.
         
-        :param pp:(list or dict) 
+        :param pp:(list(float) or dict{sp.object:float}) parameters 
         """     
         # Check if pp is a dictionary type object        
         if isinstance(pp, dict):
@@ -191,6 +191,8 @@ class GenericModel:
                                 "param pp: keys aren't of type sp.Symbol"
             self.pp_dict = pp
         else:  # pp is a vector of parameter values
+            assert pp_symb is None, "pp_symb is expected not to be None, \
+                                    because pp is not a dict type object"
             # Check if parameters are valid     
             self._validate_p_values(pp)
             # Define symbolic parameter vector
@@ -292,3 +294,4 @@ class GenericModel:
     
     def _create_subs_list(self):
         self.pp_subs_list = list(self.pp_dict.items())
+    

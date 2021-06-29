@@ -1,0 +1,12 @@
+
+# ignore temp-python files
+# ignore .pyc files
+*.pyc
+
+# ignore __pycache__ folder
+__pycache__/
+
+# ignore temp-latex files
+*.log
+*.aux
+*.synctex.gz

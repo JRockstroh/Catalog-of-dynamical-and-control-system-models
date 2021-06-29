@@ -22,8 +22,6 @@ if param_module is not None:
     params = importlib.import_module(parameter_file_name)
 
 
-
-
 class Model(GenericModel): 
     ## NOTE:
         # x_dim usw vllt als keywordargs definieren - Vermeidung von effektlosen, optionelen parametern

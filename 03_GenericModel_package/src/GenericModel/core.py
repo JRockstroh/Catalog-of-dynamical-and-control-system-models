@@ -1,14 +1,10 @@
 """
-Core module of the sample project
+Core module of GenericModel
 """
 
 import sympy as sp
 import warnings
 import abc
-
-def script_main():
-
-    print("Script successfully executed")
 
 
 class GenericModel:

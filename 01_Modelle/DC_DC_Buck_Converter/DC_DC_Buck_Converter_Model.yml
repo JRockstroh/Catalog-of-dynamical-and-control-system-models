@@ -1,0 +1,42 @@
+
+---
+key:                                    # Must
+predecessor_key:                        # may
+model_implementation_key:               # may      
+type: Model                             # Fix           
+name: DC-DC Buck Converter                                  # Must                           
+short_description: DC DC Buck Converter with switching element                     # should
+creator: Jonathan Rockstroh                                # must   
+creation_date: 02.07.2021                          # must
+editor_list:                            # may
+    - 
+notes:                                  # may
+external_references:                    # should            
+    -> "M. M. Salih, H. A. Jeiad, A. Al-Araji: Modeling and Analysis of DC-DC Buck Converter for Mobile Applications, IJSR, 2020" 
+tag_list:                               # must
+    - State_Dimension_(2)
+    - Nonlinear_Model
+    - Stable_System
+    - SISO_System
+    - 
+input_domain_list:                      # should           
+    -             
+state_domain_list:                      # should           
+    -
+output_domain_list:                     # may             
+    - Electrical  
+model_graphics_file:                    # should         
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

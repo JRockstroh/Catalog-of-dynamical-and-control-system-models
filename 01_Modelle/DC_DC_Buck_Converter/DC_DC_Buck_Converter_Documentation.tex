@@ -1,0 +1,91 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+%< > ... dummy content zur Veranschaulichung
+
+\begin{document}
+	\part*{Model Documentation of the:}
+	\section*{DC-DC Buck Converter} % MUST - Add Model Name 
+	
+	%%%%%%%%%%%%%%%%%%%%%% NOMENCLATURE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Nomenclature} % MUST
+	\subsection{Nomenclature for Model Equations} % MUST
+	
+	%variables for model equations
+	\begin{tabular}{ll}
+		$i_L$ & main inductor current \\
+		$U_o$ & output voltage \\
+		$U_c$ & inductor voltage \\
+		$U_{DC}$ & input voltage \\
+		R & resistance of main Resistor \\
+		L & inductivity of main inductor \\
+		C & capacity of main capacitor \\
+		$r_L$ & (parasitic) inductor resistance \\
+		$r_c$ & (parasitic) capacitor resistance \\
+		$r_{son}$ & (parasitic) switch resistance \\
+		d & duty cycle
+	\end{tabular}
+	
+	\subsection{Nomenclature for Derivation} % SHOULD 
+	
+	%variables which are used additional to those in the model equations
+	\begin{tabular}{ll}
+	\end{tabular}
+	
+	%%%%%%%%%%%%%%%%%%%%%% STATE + INPUT VECTOR | MDOEL EQUATIONS %%%%%%%%%%%%%%
+	
+	\section{Model Equations} % MUST
+	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (i_L \ U_o)^T \\
+		\underline{u} &= d
+	\end{align*}
+
+	\noindent System Equations:		
+	\begin{subequations}
+	\begin{align}
+		\dot{x}_1 &= \frac{-(r_{son} + r_L)}{L} x_1 - \frac{1}{L} x_2 
+					+ \frac{U_{DC}}{L} d	\\      
+		\dot{x}_2 &= \frac{LR - CRr_c(r_{son} + r_L)}{LC(R + r_c)} x_1 
+					+ \frac{-CRr_c - L}{LC(R + r_c)} x_2 
+					+ \frac{Rr_cU_{DC}}{L(R + r_c)}	d		
+	\end{align}
+	\end{subequations}
+
+	%%%%%%%%%%%%%%%%%%%%%% INPUTS | PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent
+	Inputs: $d$ 
+	\\
+	Parameters: $R, ~L, ~C, ~r_L, ~r_c, ~r_{son}, ~U_{DC}$ % variables with constant, predefined value
+	\\
+	Outputs: $U_o$ % MAY
+	
+	%%%%%%%%%%%%%%%%%%%%%% ASSUMPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\subsection{Assumptions} % MAY 
+	
+	%%%%%%%%%%%%%%%%%%%%%% EXEMPLARY PARAMETER VALUES %%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\subsection{Exemplary parameter values}
+	\input{parameters.tex}
+
+	%%%%%%%%%%%%%%%%%%%%%% DERIVATION & EXPLANATION %%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\section{Derivation and Explanation} % SHOULD
+	
+	%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{thebibliography}{10}		
+		\bibitem{SAL20}M. M. Salih, H. A. Jeiad, A. Al-Araji: 
+		\textit{Modeling and Analysis of DC-DC Buck Converter for Mobile Applications}, IJSR, 2020
+	\end{thebibliography}
+
+\end{document}

@@ -9,7 +9,11 @@ import abc
 
 class GenericModel:
     t_symb = sp.Symbol('t')
-    
+    # determine if system has parameters
+    has_params = True
+    if not 'params' in locals():
+        has_params = False
+        
     def __init__(self, x_dim=None, u_func=None, pp=None):
         """
         GenericModel provides an enviroment for the work with model which 
@@ -21,7 +25,7 @@ class GenericModel:
             "get_rhs_symbolic" as symbolic functions. The used symbolic 
             parameters in the model must be the key-entries from self.pp_dict.
             
-            A default input function should be written in the function 
+            A default input function shall be written in the function 
             "uu_default_function".
             
         The function "get_rhs_func" takes the symbolic function from 
@@ -283,11 +287,16 @@ class GenericModel:
     # ----------- CREATE SYMBOLIC PARAMETER VECTOR ---------- #
     
     def _create_symb_pp(self):
+        if self.pp_dict is None:
+            return
         self.pp_symb = list(self.pp_dict.keys())
     
     
     # ----------- CREATE PARAMETER SUBSTITUTION LIST ---------- #
     
     def _create_subs_list(self):
+        if self.pp_dict is None:
+            self.pp_subs_list = []
+            return
         self.pp_subs_list = list(self.pp_dict.items())
     

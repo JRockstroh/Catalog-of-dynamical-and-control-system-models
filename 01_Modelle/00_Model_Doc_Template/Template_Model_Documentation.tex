@@ -30,10 +30,17 @@
 		$<Variable>$ & <Description>
 	\end{tabular}
 	
-	%%%%%%%%%%%%%%%%%%%%%% MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% STATE + INPUT VECTOR | MDOEL EQUATIONS %%%%%%%%%%%%%%
 	
 	\section{Model Equations} % MUST
 	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (<Var1> \ <Var2>*R ...)^T \\
+		\underline{u} &= (<Var3> \ <Var4>)^T
+	\end{align*}
+
+	\noindent System Equations:		
 	\begin{subequations}
 	\begin{align}
 		\dot{<Variable>} &= <rhs> 	\\      % possible ways to write d/dt
@@ -41,7 +48,7 @@
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% INPUTS | PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\noindent
 	Inputs: $<I_1,I_2,...>$ 
 	\\

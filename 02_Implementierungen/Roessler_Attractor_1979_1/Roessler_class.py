@@ -35,8 +35,7 @@ class Model(GenericModel):
         :param pp:(vector or dict-type with floats>0) parameter values
         :return:
         """
-        # Initialize all Parameters of the Model-Object with None
-#??? zur besseren lesbarkeit die Variablen Initialisierung drin lassen?        
+        # Initialize all Parameters of the Model-Object with None     
         super().__init__()
         
         # Define number of inputs -- MODEL DEPENDENT
@@ -68,8 +67,12 @@ class Model(GenericModel):
         """
         :param pp:(vector or dict-type with floats>0) parameter values
         :param x_dim:(positive int)
-        """       
-        # Case: Use Defautl Parameters
+        """ 
+        # Case: System doesn't have parameters
+        if not self.has_params:
+            return  
+        
+        # Case: Use Default Parameters
         if pp is None and x_dim is None:
             self.pp_dict = params.get_default_parameters()
             return

@@ -1,0 +1,46 @@
+
+---
+key:                                    # Must
+predecessor_key:                        # may
+model_implementation_key:               # may      
+type: Model                             # Fix           
+name: Boost Converter                                   # Must                           
+short_description: Electrical Boost Converter                     # should
+creator: Jonathan Rockstroh                               # must   
+creation_date: 02.07.2021                         # must
+editor_list:                            # may
+    - 
+notes:                                  # may
+external_references:                    # should            
+    -> "K. Roebenack: Nichtlineare Regelungssysteme, Springer Vieweg, p. 8-9, 2017"
+tag_list:                               # must
+    - State_Dimension_(2)
+    - Nonlinear_System
+    - Power_Electronics
+    - Controllability
+    - Observabiility
+    - Controller_Design
+    - SISO_System
+    - Education
+    - Flat_System
+input_domain_list:                      # should           
+    - Electrical            
+state_domain_list:                      # should           
+    -
+output_domain_list:                     # may             
+    - Electrical  
+model_graphics_file:                    # should         
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

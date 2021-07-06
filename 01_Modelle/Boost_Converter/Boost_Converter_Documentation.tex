@@ -1,0 +1,83 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+%< > ... dummy content zur Veranschaulichung
+
+\begin{document}
+	\part*{Model Documentation of the:}
+	\section*{Boost Converter} % MUST - Add Model Name 
+	
+	%%%%%%%%%%%%%%%%%%%%%% NOMENCLATURE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Nomenclature} % MUST
+	\subsection{Nomenclature for Model Equations} % MUST
+	
+	%variables for model equations
+	\begin{tabular}{ll}
+		U & Voltage \\
+		I & Current \\
+		L & Inductivity \\
+		C & Capacity \\
+		R & Electrical Resistance \\
+		$U_{DC}$ & Input DC-Voltage \\
+		d & duty ratio		
+	\end{tabular}
+	
+	\subsection{Nomenclature for Derivation} % SHOULD 
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%% STATE + INPUT VECTOR | MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%
+	\section{Model Equations} % MUST
+	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (I \ U )^T \\
+		\underline{u} &= d
+	\end{align*}
+	
+	\noindent System Equations:	
+	\begin{subequations}
+	\begin{align}
+		\dot{x}_1 &= -(1 - d) \frac{1}{L} x_2 + \frac{U_{DC}}{L}\\    
+		\dot{x}_2 &= (1 - d) \frac{1}{C} x_1 - \frac{1}{RC} x_2  
+	\end{align}
+	\end{subequations}
+
+	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent
+	Inputs: $d$ 
+	\\
+	Parameters:$ R, ~C, ~L, ~U_{DC}$ % variables with constant, predefined value
+	\\
+	Outputs: $U$ % MAY
+	
+	%%%%%%%%%%%%%%%%%%%%%% ASSUMPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\subsection{Assumptions} % MAY 
+
+	
+	%%%%%%%%%%%%%%%%%%%%%% EXEMPLARY PARAMETER VALUES %%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\subsection{Exemplary parameter values}
+	\begin{tabular}{lcl} 
+		Parameter & Symbol & Value \\ \hline	
+	\end{tabular}
+
+	%%%%%%%%%%%%%%%%%%%%%% DERIVATION & EXPLANATION %%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	
+	\section{Derivation and Explanation} % SHOULD
+	
+	%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{thebibliography}{10}		
+		\bibitem{ROE17}K. Roebenack: 
+		\textit{Nichtlineare Regelungssysteme}, Springer Vieweg, p. 8-9, 2017
+	\end{thebibliography}
+
+\end{document}

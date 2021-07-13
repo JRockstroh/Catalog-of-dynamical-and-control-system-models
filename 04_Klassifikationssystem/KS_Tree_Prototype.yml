@@ -1,0 +1,122 @@
+---
+
+# TODO: Kanten Benennung, Mehrere Kanten zu einem Eintrag --> Jeder Eintrag zu Mapping machen mit entsprechenden Einträgen als Value
+
+Header_Nodes: # Purpose: QucikSearch
+    - Mathematical_Function
+    - System_Attributes
+    - Usage
+    - Derived_Attributes # ??? Prinzipiell obsolet
+    
+    
+Mathematical_Attribute: #  Eigenschaften der Repräsentation
+    - DAE # Differential-Algebraic-Equation
+    - General_ODE
+        - Explicit_First_Order
+            - Linearity
+                - Linear
+                    - Linearized
+                    - Affinity # affines System --> lineares system?
+                - Non_Linear # Nicht-Linear
+                    - Polynomial # grad 1 = linear
+                        - Bilinear
+                    - Exponential_Function
+                    - Backlash
+                    - Trigonometric_Function
+                    - Hammerstein_Wiener_Structure  # Linear System with input Saturation?  passend?
+                    - Hysteresis
+                    - Saturation # Stellgrößenbeschränkung
+                    - Signum_Function
+    - PDE
+    - Real
+        - Complex
+    - Time_Discrete
+    - Time_Continuity
+    - DC_Hybrid # Time Discrete + Continuous Hybrid System_Attributes
+    - Time_Variance
+    - Time_Variability # Zeitabhängigkeit von Parametern
+    - Singularities # list
+    # ???
+    - SISO_Function # Scalar_Function? -- General_Transfer_Function?
+        - Rational_Function
+    - MIMO_Function
+    # ???
+    
+System_Attribute: # Systemeigenschaften
+    - Flatness
+    - Bifurcation
+    - Controllability
+        - Weakly_Controllability
+            - Local_Controllability
+                - Global_Controllability # = Vollständige Steuerbarkeit?
+    - Stabilizability
+    - Reachability
+    - Observability
+        - Local_Observability
+            - Global_Observability
+        - Zero_State_Observability # ???
+            - Local_Zero_State_Observability
+    - Detectability
+        - Zero_State_Detectability
+            Local_Zero_State_Detectability
+    - States 
+    - Equilibrium_Points
+        - Stability
+            - Local_Lyapunov_Stability
+                - Global_Lyapunov_Stability
+                - Local_Asymptotic_Stability
+                    - Global_Asymptotic_Stability
+                    - Local_Exponetial_Stability
+                        - Global_Exponential_Stability
+    - Driftless
+    - Dissipative
+        - Passive
+        - Lossless
+        - Reciprocal
+        - Reversible
+        - Relaxative            
+    - Autonomical
+    - Minimumphase
+    - Positivity # ???
+    - Chaotical_Behaviour # ??? Link to Nonlinearity?
+    - Domain
+        - Physical_Domain # ??? Mechanical better?
+        - Chemical_Domain
+        - Electrical_Domain
+        - Thermical_Domain
+        - Artifical_Domain
+    
+Usage:
+    - Task
+        - Parameter_Identication
+            - System_Identification
+        - Observer_Design
+            # ???
+            - Luenberg_Observer
+            - High_Gain_Observer
+            - Normalform_Observer # ??? Englischer Begriff? 
+            # ???
+        - Controller_Design
+            - Closed_Loop_Controller_Design
+            - Open_Loop_Controller_Design
+            - Flatness_Based_Controller_Design
+            - Passivity_Based_Controller_Design
+        - Trajectory_Planning
+    - Research
+    - Education
+    - Industry
+        - Drive_Technology
+        - Power_Electronics
+        - Semiconductor_Industry
+        - Steel_Production
+        
+Derived_Attributes:
+    - System_Stability # if System has at least one Equilibrium Point with Stability Attribute below
+            - Local_Lyapunov_Stability
+                - Global_Lyapunov_Stability
+                - Local_Asymptotic_Stability
+                    - Global_Asymptotic_Stability
+                    - Local_Exponetial_Stability
+                        - Global_Exponential_Stability
+    - Linear_System # Model has linear mathematical Function
+    - Nonlinear_System

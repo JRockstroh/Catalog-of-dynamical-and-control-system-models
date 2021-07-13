@@ -1,0 +1,164 @@
+---
+
+Linearity:
+    - System only consists of linear differential equations
+    - References:
+        - "Lunze, J.: Regelungstechnik 1, p. 65-67, Springer Verlag, 2010" Part 4.2.3, Equation (4.35)  
+        
+        
+Nonlinear
+Stability:
+    - BIBO_Stabibility or Input_Output_Stability:
+        - system with no initial deviation from equilibrium point has bounded output signal for any bounded input signal
+        - References:
+         - "Lunze, J.: Regelungstechnik 1, p. 408, Springer Verlag, 2010" Definition 8.2
+         
+    - Uniformly_Stability:
+        - References:
+            - "Isidori, A.: Nonlinear Control Systems Third Edition, p. 513, Springer-Verlag London, 1995"
+            
+    - Uniformly_Asymptotic_Stability:
+        - Refernces:
+            - "Isidori, A.: Nonlinear Control Systems Third Edition, p. 513, Springer-Verlag London, 1995"
+            
+    - Total_Stability:
+        - References:
+            - "Isidori, A.: Nonlinear Control Systems Third Edition, p. 513-514, Springer-Verlag London, 1995"
+            
+    - Asymptotic_Stability:
+        - "Ljapunow_Stability and additional lim{t->infinite} ||x(t)|| = 0"
+        - Asymptotic_Stability --> BIBO_Stabibility
+        - References:
+            - "Lunze, J.: Regelungstechnik 1, p. 403, Springer Verlag, 2010" Definition 8.1
+            
+    - Exponential_Stability:
+        - "Asymptotic_Stability and additional ||x(t)||<k*exp(delta*t)"
+        - References+:
+            - "Lunze, J.: Regelungstechnik 1, p. 407, Springer Verlag, 2010" 
+            
+    - Ljapunow_Stability or State_Stability:
+        - "for every eps>0 exists an delta>0 so that for every starting point ||x_0||<delta the system dynamic fulfill the conditioin ||x(t)||<eps for t>0"
+        - References:
+            - "Lunze, J.: Regelungstechnik 1, p. 403, Springer Verlag, 2010" Definition 8.1
+    
+Timevariant
+Affin
+Controllability:
+    - Weakly_Controllability (= Local_Controllability?):
+        - References:
+            - "Isidori, A.: Nonlinear Control Systems Third Edition, p. 86, Springer-Verlag London, 1995" Sentences before Corollary 2.2.5
+            
+    - vollständige_Steuerbarkeit (= Full_Controllabiility):
+        - System aus beliebigen Anfangszustand (= im gesamten Zustandsraum?) in beliebigen Endzustand überführbar
+        - References:
+            - "Lunze, J.: Regelungstechnik 1, p. 65, Springer Verlag, 2010" Part "Steuerbarkeit und vollständige Steuerbarkeit"   
+            
+            
+Observability:
+    - References:
+        - "Isidori, A.: Nonlinear Control Systems Third Edition, p. 462, Springer-Verlag London, 1995"
+    
+    - Zero_State_Observability:
+        - References:
+            - "Byrnes, C. I.; Isidori, A.; Willems, J. C.: Passivity, Feedback equivalence, and the Global Stabilization of Minimum Phase nonlinear Systems, p. 1231, IEEE Vol 36 No. 11, 1991"
+        
+Chaotical_Behaviour
+Equilibrium_Point:
+    - Points where all derivatives are zero
+    
+    
+Flatness
+Erreichbarkeit/Reachability:
+    - References:
+        - "Ludyk: Theoretische Regelungstechnik 1, p.252 and p.254, Springer Verlag, 1995" (Definition 5.1 and 5.3)
+        
+        
+Detectability:
+    - Instable subspace is observable
+    
+    
+Stabilizability:
+    - Instable subspace is controlable
+    
+Dissipative:
+    - System doesn't create energy (?)
+    - References:
+        - "Willems, J. C.: Dissipative Dynamical Systems Part 1, p. 327, Archive for Rational Mechanics and Analysis Vol. 45, 1972" Definition 2
+
+    - Passive:
+        - dissipative systems supply rate function w = <u, y> (<.> ... inner product)
+        - References:
+            - "Byrnes, C. I.; Isidori, A.; Willems, J. C.: Passivity, Feedback equivalence, and the Global Stabilization of Minimum Phase nonlinear Systems, p. 1230, IEEE Vol 36 No. 11, 1991"
+    - Lossless:
+        - Stored Energy at Start + input Energy = Stored Enery at End
+        - References:
+            - "Willems, J. C.: Dissipative Dynamical Systems Part 1, p. 332, Archive for Rational Mechanics and Analysis Vol. 45, 1972" Deefinition 6
+    
+Reciprocal:
+    - References:
+        - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 368f, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
+        
+Reversibility:
+    - References:
+        - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 376, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
+        
+Relaxative:
+    - References:
+        - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 378f, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
+
+Minimumphase:
+    - "Linear Systems: Real part of all Poles and Zeros of the Transfer Function are <= 0"
+    - References: 
+        - "Lunze, J.: Regelungstechnik 1, p. 316, Springer Verlag, 2010" for linear Systems
+        
+        
+Autonom:
+    - System without inputs
+    
+    
+Driftless
+positive System:
+    - has positive output for positive input, Gewichtsfunktion g(t) >= 0
+    - References:
+        - "Lunze, J.: Regelungstechnik 1, p. 435, Springer Verlag, 2010"
+        
+        
+Timevariability:
+    - parameters are time dependent --> x_dt = f(x, u, t), y = h(x, u, t) - f, h are explicitly time dependent
+    - References:
+        - "Lunze, J.: Regelungstechnik 1, p. 114, Springer Verlag, 2010" Part 4.5.3
+
+Hammerstein- or Wiener_Structure:
+    - Nonlinear System dividable into exact one static nonlinear function and exact one dynamic linear function
+    - References:
+        - "Nelles, O.: Regelungstechnik, p. 579, 2018" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

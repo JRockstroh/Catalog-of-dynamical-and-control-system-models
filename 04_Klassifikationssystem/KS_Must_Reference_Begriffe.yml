@@ -6,12 +6,36 @@ Linearity:
         - "Lunze, J.: Regelungstechnik 1, p. 65-67, Springer Verlag, 2010" Part 4.2.3, Equation (4.35)  
         
         
-Nonlinear
+Nonlinear:
+    - part of control systems which can't be described with linear system models
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 1, Springer Verlag Berlin Heidelberg, 2014" # sehr unzureichend
+
+
+Attractivity:
+    - if equlibirum point x_eq has subroom U(0) in which every x_0 leads to trajectory x(t) with u(t)=0 which ends in x_eq for t->inf 
+    - Local_Attractivity:
+        - if U(0) is Subromm of R^n (complete state space)
+        - References:
+            - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 13, Springer Verlag Berlin Heidelberg, 2014" Definition 2
+            
+    - Global_Attractivity:
+        - if U(0) is R^n (complete state space)
+        - References:
+            - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 13, Springer Verlag Berlin Heidelberg, 2014" Definition 2
+            
+            
 Stability:
     - BIBO_Stabibility or Input_Output_Stability:
         - system with no initial deviation from equilibrium point has bounded output signal for any bounded input signal
         - References:
-         - "Lunze, J.: Regelungstechnik 1, p. 408, Springer Verlag, 2010" Definition 8.2
+            - "Lunze, J.: Regelungstechnik 1, p. 408, Springer Verlag, 2010" Definition 8.2
+            - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 18, Springer Verlag Berlin Heidelberg, 2014" Definition 7
+
+    - BIBS_Stability or Input_State_Stability: # oder IS_Stability - Input_to_State_Stability
+            - system with no initial deviation from equilibrium point has bounded states for any bounded input signal
+            - References:
+                - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 15-16, Springer Verlag Berlin Heidelberg, 2014" Definition 6
          
     - Uniformly_Stability:
         - References:
@@ -40,9 +64,21 @@ Stability:
         - "for every eps>0 exists an delta>0 so that for every starting point ||x_0||<delta the system dynamic fulfill the conditioin ||x(t)||<eps for t>0"
         - References:
             - "Lunze, J.: Regelungstechnik 1, p. 403, Springer Verlag, 2010" Definition 8.1
-    
-Timevariant
+
+
+Limit_Cycle:
+    - periodically repeating system states, system trajectory is closed loop
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 18, Springer Verlag Berlin Heidelberg, 2014" 
+        
+        
+Time_Variancy:
+    - system equation f is directly dependent if the time t 
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 3, Springer Verlag Berlin Heidelberg, 2014"
 Affin
+
+
 Controllability:
     - Weakly_Controllability (= Local_Controllability?):
         - References:
@@ -52,6 +88,15 @@ Controllability:
         - System aus beliebigen Anfangszustand (= im gesamten Zustandsraum?) in beliebigen Endzustand überführbar
         - References:
             - "Lunze, J.: Regelungstechnik 1, p. 65, Springer Verlag, 2010" Part "Steuerbarkeit und vollständige Steuerbarkeit"   
+            
+    - Small_Time_Local_Controllability:
+        - References:
+            - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 158, Springer Verlag Berlin Heidelberg, 2014" Definition 18
+            
+    - Omnidirectional_Controllability:
+        - every state x_0 can be driven into another state x_e in bounded time intervall on every given trajectory with an input-signal u(t)    
+        - References:
+            - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 159, Springer Verlag Berlin Heidelberg, 2014" Definition 19
             
             
 Observability:
@@ -64,7 +109,9 @@ Observability:
         
 Chaotical_Behaviour
 Equilibrium_Point:
-    - Points where all derivatives are zero
+    - state values in which the state doesn't change over time
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 5, Springer Verlag Berlin Heidelberg, 2014" Definition 1
     
     
 Flatness
@@ -80,6 +127,7 @@ Detectability:
 Stabilizability:
     - Instable subspace is controlable
     
+    
 Dissipative:
     - System doesn't create energy (?)
     - References:
@@ -89,22 +137,27 @@ Dissipative:
         - dissipative systems supply rate function w = <u, y> (<.> ... inner product)
         - References:
             - "Byrnes, C. I.; Isidori, A.; Willems, J. C.: Passivity, Feedback equivalence, and the Global Stabilization of Minimum Phase nonlinear Systems, p. 1230, IEEE Vol 36 No. 11, 1991"
+            
     - Lossless:
         - Stored Energy at Start + input Energy = Stored Enery at End
         - References:
             - "Willems, J. C.: Dissipative Dynamical Systems Part 1, p. 332, Archive for Rational Mechanics and Analysis Vol. 45, 1972" Deefinition 6
     
+    
 Reciprocal:
     - References:
         - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 368f, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
-        
+       
+       
 Reversibility:
     - References:
         - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 376, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
         
+        
 Relaxative:
     - References:
         - "Willems, J. C.: Dissipative Dynamical Systems Part 2, p. 378f, Archive for Rational Mechanics and Analysis Vol. 45, 1972"
+
 
 Minimumphase:
     - "Linear Systems: Real part of all Poles and Zeros of the Transfer Function are <= 0"
@@ -113,7 +166,9 @@ Minimumphase:
         
         
 Autonom:
-    - System without inputs
+    - System equation f independent of timevariant input function or directly of the time itself --> f(x)
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 3, Springer Verlag Berlin Heidelberg, 2014"
     
     
 Driftless
@@ -127,6 +182,7 @@ Timevariability:
     - parameters are time dependent --> x_dt = f(x, u, t), y = h(x, u, t) - f, h are explicitly time dependent
     - References:
         - "Lunze, J.: Regelungstechnik 1, p. 114, Springer Verlag, 2010" Part 4.5.3
+
 
 Hammerstein- or Wiener_Structure:
     - Nonlinear System dividable into exact one static nonlinear function and exact one dynamic linear function

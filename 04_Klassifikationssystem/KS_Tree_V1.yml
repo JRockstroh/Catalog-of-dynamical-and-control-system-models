@@ -1,0 +1,143 @@
+--- 
+    - Value:
+    - Pre_Node:
+    - Edge_Note:
+
+Mathematical_Attribute: #  Eigenschaften der Repräsentation
+    - Value: None
+    - Pre_Node: None
+    - Edge_Note: None
+    
+DAE: # Differential-Algebraic-Equation
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+General_ODE:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+Explicit_First_Order_ODE:
+    - Value: boolean
+    - Pre_Node: General_ODE
+    - Edge_Note: "is a"
+    
+Linearity:
+    - Value: None
+    - Pre_Node: Explicit_First_Order_ODE
+    - Edge_Note: "value of"
+    
+Linear:
+    - Value: boolean
+    - Pre_Node: Linearity
+    - Edge_Note: "value of"
+
+Linearized:
+    - Value: boolean
+    - Pre_Node: Linear
+    - Edge_Note: "is a"
+    
+Affinity: # affines System --> lineares system?
+    - Value: boolean
+    - Pre_Node: Linear
+    - Edge_Note: "is a"
+    
+Non_Linear: # Nicht-Linear
+    - Value: boolean
+    - Pre_Node: Linearity
+    - Edge_Note: "value of"
+    
+Polynomial: # grad 1 = linear
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "if Order: >= 2"
+    - Pre_Node: Linear
+    - Edge_Note: "if Order: 1"
+    
+Bilinear:
+    - Value: boolean
+    - Pre_Node: Polynomial
+    - Edge_Note: "is a"   
+    
+Exponential_Function:
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+Backlash:
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+Trigonometric_Function:
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+Hammerstein_Wiener_Structure:  # Linear System with input Saturation?  passend?
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+Hysteresis:
+    - Value: boolean
+    - Pre_Node: Signum_Function
+    - Edge_Note: "contained in" # passt nicht so recht zum Zusammenhang
+    
+Saturation: # Stellgrößenbeschränkung
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+Signum_Function:
+    - Value: boolean
+    - Pre_Node: Non_Linear
+    - Edge_Note: "contained in"
+    
+PDE:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+Complex:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+
+Real:
+    - Value: boolean
+    - Pre_Node: Complex
+    - Edge_Note: "is a"
+    
+Time_Discrete:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+Time_Continuity:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+DC_Hybrid: # Time Discrete + Continuous Hybrid System_Attributes
+    - Value: boolean
+    - Pre_Node: Time_Discrete
+    - Edge_Note: "is a"
+    - Pre_Node: Time_Continuity
+    - Edge_Note: "is a"
+    
+Time_Variance:
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+    
+Time_Variability: # Zeitabhängigkeit von Parametern
+    - Value: boolean
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"
+
+Singularities:
+    - Value: list # needs possibility to accept continuum of Singularities (e.g. for periodically functions)
+    - Pre_Node: Mathematical_Attribute
+    - Edge_Note: "is a"    

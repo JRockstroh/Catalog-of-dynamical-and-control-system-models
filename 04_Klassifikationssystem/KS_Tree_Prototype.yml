@@ -12,7 +12,7 @@ Header_Nodes: # Purpose: QucikSearch
 Mathematical_Attribute: #  Eigenschaften der Repräsentation
     - DAE # Differential-Algebraic-Equation
     - General_ODE
-        - Explicit_First_Order
+        - Explicit_First_Order_ODE
             - Linearity
                 - Linear
                     - Linearized
@@ -24,12 +24,13 @@ Mathematical_Attribute: #  Eigenschaften der Repräsentation
                     - Backlash
                     - Trigonometric_Function
                     - Hammerstein_Wiener_Structure  # Linear System with input Saturation?  passend?
-                    - Hysteresis
                     - Saturation # Stellgrößenbeschränkung
                     - Signum_Function
+                        - Hysteresis
+                    - Input_Linear
     - PDE
-    - Real
-        - Complex
+    - Complex
+        - Real
     - Time_Discrete
     - Time_Continuity
     - DC_Hybrid # Time Discrete + Continuous Hybrid System_Attributes
@@ -48,8 +49,13 @@ System_Attribute: # Systemeigenschaften
     - Controllability
         - Weakly_Controllability
             - Local_Controllability
-                - Global_Controllability # = Vollständige Steuerbarkeit?
+                - Global_Controllability 
+        - Full_Controllability
+            - Small_Time_Local_Controllability
+                - Omnidirectional_Controllability
     - Stabilizability
+    - BIBO_Stability # Verbindung zu Controllability und Stabilizability?
+        - BIBS_Stability
     - Reachability
     - Observability
         - Local_Observability
@@ -60,7 +66,9 @@ System_Attribute: # Systemeigenschaften
         - Zero_State_Detectability
             Local_Zero_State_Detectability
     - States 
-    - Equilibrium_Points
+    - Equilibrium_Points # value needs possibility for continuum of eq. points
+        - Local_Attractivity
+                - Global_Attractivity
         - Stability
             - Local_Lyapunov_Stability
                 - Global_Lyapunov_Stability
@@ -68,6 +76,8 @@ System_Attribute: # Systemeigenschaften
                     - Global_Asymptotic_Stability
                     - Local_Exponetial_Stability
                         - Global_Exponential_Stability
+    - Limit_Cycle # existance of (possible) limit cycles in the system
+        - Stable_Limit_Cycle # semi-stable and instable are of same low importance for control task so they got summarized into the False-Value of this Attribute, Link to Nonlinear
     - Driftless
     - Dissipative
         - Passive
@@ -78,7 +88,7 @@ System_Attribute: # Systemeigenschaften
     - Autonomical
     - Minimumphase
     - Positivity # ???
-    - Chaotical_Behaviour # ??? Link to Nonlinearity?
+    - Chaotical_Behaviour # Link to Nonlinearity
     - Domain
         - Physical_Domain # ??? Mechanical better?
         - Chemical_Domain

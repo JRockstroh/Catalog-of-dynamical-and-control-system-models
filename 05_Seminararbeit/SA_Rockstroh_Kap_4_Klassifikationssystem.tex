@@ -1,0 +1,15 @@
+\chapter{Klassifikationssystem}
+Das \textit{Klassifikationssystem (KS)} ist eine Übersicht von Attributen die Systemen im Rahmen der Regelungstechnik zugeordnet werden können. Da eine solche Übersicht bisher nicht im gewünschten Umfang existiert wurde diese selbst erstellt. Es lehnt stark an die in \cite{KNHE20} eingeführte OCSE an von der es sich insofern unterscheidet, das im KS nur der Teilbereich des Wissens der Regelungs- und Steuerungstheorie enthalten ist, der sich auf regelungstechnische Systeme und Modelle bezieht. Die im KS verwendeten Bezeichnungen sollen in den metadaten-Dateien der Modelle bevorzugt verwendet werden um einen einheitlichen Sprachgebrauch zu erreichen. 
+
+\section{Aufbau}
+Das KS ist ein Graph der aus Knoten und Kanten besteht. Jeder Knoten enthält ein Attribut\footnote{Knoten und Attribute werden in diesem Kapitel synonym verwendet.}. Die Kanten sind beschriftete Pfeile zwischen Knoten, welche einen Zusammenhang von zwei Attributen zeigen. Das Attribut des Kantenursprungs ist spezifischer als das Attribut des Kantenendes. Die Beschriftung der Kanten legt die genaue Art des Zusammenhanges fest. Für die Verwendung in den Metadaten-Dateien hat haben die dafür verwendbaren Knoten einen Werteintrag. Der Typ (boolean, string, list etc.) und gegebenenfalls die konkreten Werte, welche der Werteintrag annehmen kann sind im KS gegeben.
+
+Es gibt drei Attribute die kein Kantenursprung sind. Diese stellen die Hauptkategorien des KS dar.
+\textbf{Mathematische Eigenschaften}: \\
+Umfasst Eigenschaften die durch die mathematische Repräsentation des Modells gegeben sind. % ... die aus der math. Rep. direkt hervor gehen.
+
+\textbf{Systemeigenschaften}: \\
+Umfasst Eigenschaften die aus der mathematischen Repräsentation mit Methoden aus der Regelungstechnik abgeleitet werden.
+
+\textbf{Verwendung}: \\
+Umfasst Anwendungsfälle und -bereiche in denen die Systeme häufig genutzt werden.

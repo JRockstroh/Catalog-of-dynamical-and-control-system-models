@@ -1,0 +1,169 @@
+\documentclass[arbeit=studie,oneside,BCOR=12mm]{ArbeitRST}
+% Die Option BCOR legt den Rand für die Bindekorrektur links fest
+% (verschiebt das ganze Dokument nach rechts auf dem Papier, damit
+% Platz zum Binden ist
+
+% bib-Datei mit den Literaturangaben
+% Nutzung von biber/biblatex, Erläuterungen
+% siehe Text!
+% =========================================
+\addbibresource{SA_Rockstroh_Literatur.bib}
+
+% Zwei Parameter zum Verändern des Layouts
+% ========================================
+% \parindent -> Legt fest, mit welcher Einrückung jeder neue
+%               Absatz beginnen soll
+% \parskip -> Legt fest, wieviel vertikaler Abstand zwischen zwei
+%             Absätzen liegen soll
+%
+% Tipp: Entweder parindent auf Null und parskip auf einen Wert
+% ungleich Null (z.B. 2ex) oder umgekehrt. Beide Werte ungleich
+% Null macht satztechnisch keinen Sinn. 1ex = Breite des 
+% Buchstabens x
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{2ex}
+
+
+% Einige Einstellungen für das hyperref-Paket
+% =========================================== 
+% Hiermit können Links, Gleichungsnummern etc. farbig dargestellt
+% werden was die Navigation im elektronischen Dokument vereinfacht. An
+% dieser Stelle können Sie die Farbgebung anpassen. Druckversion bitte
+% ohne farbige Links erstellen, siehe Option unten!
+\hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={RST Vorlage}, % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,         % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+% Entfernt die farbigen Markierungen - bitte Druckversion mit dieser Option kompilieren
+%\hypersetup{hidelinks}
+
+
+
+% =================================================================
+\begin{document}
+
+% Titelseite
+% ==========
+
+% Name des Verfassers
+\author{Jonathan Rockstroh}
+
+% Geburtsort
+\geburtsort{Pirna}
+
+% Geburtsdatum
+\geburtsdatum{14. Mai 1997}
+
+% Titel der Arbeit
+\title{Provisorischer Titel: Semantische Katalogisierung Regelungstechnischer Systeme}
+
+% Untertitel
+%\subtitle{}
+
+% Angabe der Betreuer
+\betreuer{Carsten Knoll}
+
+% Datum der Einreichung
+%\date{2. Februar 2222}
+
+
+% Zunächst für das Vorgeplänkel römische Seitenzahlen und einfacher Seitenstil
+% ============================================================================
+\pagenumbering{Roman}
+\pagestyle{plain}
+
+
+% Titelseite erstellen
+\maketitle
+
+
+% Selbstständigkeitserklärung
+% ===========================
+
+% Ort der Selbstständigkeitserklärung (Standard: Dresden)
+\selbstort{Pirna}
+
+% Datum der Selbstständigkeitserklärung (Standard: aktuelles Systemdatum)
+\selbstdatum{1. September 2021}
+
+% Selbstständigkeitserklärung erstellen
+\selbststaendigkeitserklaerung
+
+
+% Kurzfassung / Abstract
+% ======================
+\kurzfassung{An dieser Stelle fügen Sie bitte eine deutsche Kurzfassung ein.}{Please insert the English abstract here.}
+
+
+% Inhaltsverzeichnis
+% ==================
+\tableofcontents
+
+% Ggf. Symbolverzeichnis
+% ======================
+\input{SA_Rockstroh_Symbolverzeichnis}
+
+% Ggf. Abbildungsverzeichnis
+% ==========================
+\listoffigures
+
+
+% Ggf. Tabellenverzeichnis
+% ========================
+\listoftables
+
+
+% ========================
+% Beginn Inhalt der Arbeit
+% ========================
+
+% Ab hier arabische Seitenzählung und heading Seitenstil
+\pagestyle{scrheadings}
+\pagenumbering{arabic}
+
+% Kapitel 1: Motivation
+\input{SA_Rockstroh_Kap_1_Motivation}
+
+% Kapitel 2: Aufgabenstellung
+\input{SA_Rockstroh_Kap_2_Aufgabenstellung}
+
+% Kapitel 3: Aktueller Stand
+
+% Kapitel 4: Klassifikationssystem
+\input{SA_Rockstroh_Kap_4_Klassifikationssystem}
+
+% Kapitel 5: Implementation
+
+% ==================================
+% Literaturverzeichnis
+% ==================================
+
+% Ein Literatureintrag, der nicht referenziert wird, aber im Verzeichnis erscheinen soll
+\nocite{ROESSLER79}
+
+% Literaturverzeichnis ausgeben
+\printbibliography
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

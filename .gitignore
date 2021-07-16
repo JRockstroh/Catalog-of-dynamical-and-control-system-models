@@ -10,3 +10,13 @@ __pycache__/
 *.log
 *.aux
 *.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.lot
+*.out
+*.run.xml
+*.toc
+*.bat
+*.bak

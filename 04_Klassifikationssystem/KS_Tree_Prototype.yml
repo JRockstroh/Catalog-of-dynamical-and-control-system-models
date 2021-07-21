@@ -28,6 +28,7 @@ Mathematical_Attribute: #  Eigenschaften der Repräsentation
                     - Signum_Function
                         - Hysteresis
                     - Input_Linear
+                    - Parameter_Linear
     - PDE
     - Complex
         - Real
@@ -60,8 +61,8 @@ System_Attribute: # Systemeigenschaften
     - Observability
         - Local_Observability
             - Global_Observability
-        - Zero_State_Observability # ???
-            - Local_Zero_State_Observability
+        - Local_Zero_State_Observability 
+            - Global_Zero_State_Observability # ???
     - Detectability
         - Zero_State_Detectability
             Local_Zero_State_Detectability
@@ -77,7 +78,7 @@ System_Attribute: # Systemeigenschaften
                     - Local_Exponetial_Stability
                         - Global_Exponential_Stability
     - Limit_Cycle # existance of (possible) limit cycles in the system
-        - Stable_Limit_Cycle # semi-stable and instable are of same low importance for control task so they got summarized into the False-Value of this Attribute, Link to Nonlinear
+        - Stable_Limit_Cycle # semi-stable and instable are of same low importance for control task so they got summarized into the False-Value of this Attribute
     - Driftless
     - Dissipative
         - Passive

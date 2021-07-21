@@ -1,0 +1,27 @@
+\chapter{Vorüberlegungen}
+% Vorwissen:
+% - Grund des Kataloges
+% - Prinzipielle Funktion/Nutzen
+% - Erwähnung der Elemente: Ontologie, KS, Implementierung, Anwendung auf Modelle
+Inhalt:\\
+Grundgedanken zu Modellkatalog. Ansprüche. Wünsche bzgl. Funktionsumfang und Anwendbarkeit, Prinzip: aufwändiges Hinzufügen, einfaches Anwenden \\
+Ist-Stand: Was gibt es für vergleichbare Kataloge/Projekte? + Bewertung dieser\\
+Beschreibung der aktuellen Situation zur Modellfindung --> Zeitintensive suche nach Publikationen, nur ausgewählte Eigenschaften benannt und untersucht, teils uneinheitliche, unübersichtliche, komplexe Modelldarstellung, Reproduzierbarkeit der Implementierung der Ergebnisse einer Publikation aber auch allein schon des Modells oft sehr schwierig \\
+Grundüberlegungen zu den nützlichen Elementen des Kataloges: \\ Modell als Art Datenbankeintrag (Erschließbarkeit über Suche --> Einheitliche Attributsnamen (--> KS) + Bedeutung, Erweiterbarkeit), \\ Textuelle (semantische?) Modelldarstellung mit einheitlicher Struktur und Modellnotation, \\einheitliche Implementierung die einfache Nutzbarkeit der Modelle erlaubt \\
+Umsetzung der einzelnen Elemente: \\
+Metadata-File: Struktur aus ACKRep übernommen - leicht Angepasst \\
+Klassifikationssystem: Semantische, ontologische Ausarbeitung des auf Modelle anwendbaren Teilbereich der Regelungstheorie, Anforderungen explizit? --> Graphentheorie, Finden einer fachlich korrekten, eindeutigen - in Bezug auf Ontologie selbst und auf Anwendung auf Modelle - und verständlichen Darstellung (Beispiel Polynom --> linear/nicht-linear) und Namensgebung (strictly\_non\_linear)\\ 
+Textuelle Repräsentation: Struktur abgeleitet aus (guten) Publikationen[Referenzen], sinnvolle Informationsreihenfolge, Offenhaltung von Gestaltungsspielraum in Anbetracht des Umfangs der Regelungstechnik --> Vieles nur als Empfehlung enthalten \\ 
+  
+In diesem Kapitel werden die Überlegungen formuliert, die für die Erstellung des Kataloges von gehobener Bedeutung waren. Zudem werden ausgewählte Schwierigkeiten und Fragestellungen beschrieben und die nachfolgend getroffenen Entscheidungen begründet. Außerdem wird ein Blick auf die aktuelle Situation bezüglich der Modellsuche und bestehenden Modellübersichten/-Katalogen geworfen.
+
+\section{Anforderungen an den Modellkatalog}
+\textbf{Aktuelle Situation}: Modellfindung \\
+Regelungstechnische Modelle finden sich aktuell meist verteilt in wissenschaftlichen Publikationen, wie z.B. Lehrbüchern, Artikeln, Dissertationen, Diplom- und Studienarbeiten. Die Qualität der Darstellung der Modelle deckt einen recht großen Bereich ab und es ist eher selten der Fall, das die Modellgleichungen eindeutig gekennzeichneten und gemeinsam notiert werden, sowie die eingeführten Variablen gut beschrieben und klar definierten Typs (Parameter, Eingangs-, Zustandsvariable) sind. Ebenso kann sich die Darstellungsform der Modellgleichungen unterscheiden, z.B. als Gleichungssystem von Differentialgleichungen erster Ordnung oder als einzelne Differentialgleichung zweiter Ordnung. Die Modelleigenschaften sind oft nur implizit gegeben, z.B. kann bei einem Steuerungsentwurf geschlussfolgert werden, dass das untersuchte System stabil ist. Die explizite Nennung von Modelleigenschaften erfolgt meist nur, wenn diese für die Publikation von Relevanz sind. Zudem erfolgt in nahezu allen Publikationen eine Erprobung der Ergebnisse mittels Simulation. Für die Reproduktion der Resultate einer Publikation ist daher eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) notwendig(vgl. \cite{KNHE20}, Seite 1). Die oben genannten Aspekte können dabei schon allein die Implementation des Modells erheblich erschweren. 
+Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, wird dadurch oft zu einer zeitintensiven und aufwendigen Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um eine brauchbare Modelldarstellung zu erhalten. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen.
+
+\textbf{Anforderungen}:\\ %Vielleicht als Enumeration schreiben?
+Der Katalog soll es ermöglichen neue Modelle einfach und unkompliziert zu finden. Die Modelleigenschaften sollen möglichst vollständig erfasst sein und der Katalog soll eine direkte, explizite und übersichtliche Ansicht dieser ermöglichen. Die Modelleigenschaften sollen einer einheitlichen Namensgebung und Definition folgen. Zudem sollen die Modelle einheitlich in ihrer Darstellungsform und Variablennotation sein. Das soll eine schnelle Erfassung des Modellumfangs und der Modellgleichungen ermöglichen. Die Modelle sollen zudem nach Möglichkeit auch implementiert vorliegen und das wiederum auf eine Art, die möglichst einfach verwendbar ist. 
+
+\textbf{Aktuelle Situation}: Modellsammlungen und -Kataloge\\
+Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden soll betrachtet werden, was es für Zusammenstellungen von Modellen gibt, die versuchen mindestens eine der obigen Anforderungen zu erfüllen. 

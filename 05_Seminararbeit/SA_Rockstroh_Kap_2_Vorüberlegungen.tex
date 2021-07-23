@@ -1,4 +1,5 @@
-\chapter{Vorüberlegungen}
+% !TeX root = SA_Rockstroh_Main.tex
+\chapter{Vorüberlegungen} % Eher: Erstellungsprozess oder so ähnlich
 % Vorwissen:
 % - Grund des Kataloges
 % - Prinzipielle Funktion/Nutzen
@@ -12,16 +13,99 @@ Umsetzung der einzelnen Elemente: \\
 Metadata-File: Struktur aus ACKRep übernommen - leicht Angepasst \\
 Klassifikationssystem: Semantische, ontologische Ausarbeitung des auf Modelle anwendbaren Teilbereich der Regelungstheorie, Anforderungen explizit? --> Graphentheorie, Finden einer fachlich korrekten, eindeutigen - in Bezug auf Ontologie selbst und auf Anwendung auf Modelle - und verständlichen Darstellung (Beispiel Polynom --> linear/nicht-linear) und Namensgebung (strictly\_non\_linear)\\ 
 Textuelle Repräsentation: Struktur abgeleitet aus (guten) Publikationen[Referenzen], sinnvolle Informationsreihenfolge, Offenhaltung von Gestaltungsspielraum in Anbetracht des Umfangs der Regelungstechnik --> Vieles nur als Empfehlung enthalten \\ 
-  
-In diesem Kapitel werden die Überlegungen formuliert, die für die Erstellung des Kataloges von gehobener Bedeutung waren. Zudem werden ausgewählte Schwierigkeiten und Fragestellungen beschrieben und die nachfolgend getroffenen Entscheidungen begründet. Außerdem wird ein Blick auf die aktuelle Situation bezüglich der Modellsuche und bestehenden Modellübersichten/-Katalogen geworfen.
 
-\section{Anforderungen an den Modellkatalog}
-\textbf{Aktuelle Situation}: Modellfindung \\
-Regelungstechnische Modelle finden sich aktuell meist verteilt in wissenschaftlichen Publikationen, wie z.B. Lehrbüchern, Artikeln, Dissertationen, Diplom- und Studienarbeiten. Die Qualität der Darstellung der Modelle deckt einen recht großen Bereich ab und es ist eher selten der Fall, das die Modellgleichungen eindeutig gekennzeichneten und gemeinsam notiert werden, sowie die eingeführten Variablen gut beschrieben und klar definierten Typs (Parameter, Eingangs-, Zustandsvariable) sind. Ebenso kann sich die Darstellungsform der Modellgleichungen unterscheiden, z.B. als Gleichungssystem von Differentialgleichungen erster Ordnung oder als einzelne Differentialgleichung zweiter Ordnung. Die Modelleigenschaften sind oft nur implizit gegeben, z.B. kann bei einem Steuerungsentwurf geschlussfolgert werden, dass das untersuchte System stabil ist. Die explizite Nennung von Modelleigenschaften erfolgt meist nur, wenn diese für die Publikation von Relevanz sind. Zudem erfolgt in nahezu allen Publikationen eine Erprobung der Ergebnisse mittels Simulation. Für die Reproduktion der Resultate einer Publikation ist daher eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) notwendig(vgl. \cite{KNHE20}, Seite 1). Die oben genannten Aspekte können dabei schon allein die Implementation des Modells erheblich erschweren. 
-Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, wird dadurch oft zu einer zeitintensiven und aufwendigen Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um eine brauchbare Modelldarstellung zu erhalten. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen.
+%Alternative Struktur: 	Section: Aktueller Stand (der Modellsuche und von Modellkatalogen)
+%						Section: Prozess der Katalogerstellung/ Grund-/Vorgedanken zum Katalog
+%						Subsections: Anforderungen - Kurze Diskussion was sinnvoll, Struktur, Elemente
 
-\textbf{Anforderungen}:\\ %Vielleicht als Enumeration schreiben?
-Der Katalog soll es ermöglichen neue Modelle einfach und unkompliziert zu finden. Die Modelleigenschaften sollen möglichst vollständig erfasst sein und der Katalog soll eine direkte, explizite und übersichtliche Ansicht dieser ermöglichen. Die Modelleigenschaften sollen einer einheitlichen Namensgebung und Definition folgen. Zudem sollen die Modelle einheitlich in ihrer Darstellungsform und Variablennotation sein. Das soll eine schnelle Erfassung des Modellumfangs und der Modellgleichungen ermöglichen. Die Modelle sollen zudem nach Möglichkeit auch implementiert vorliegen und das wiederum auf eine Art, die möglichst einfach verwendbar ist. 
+Das Nachdenken über das Wissen ist für die Erstellung des Modellkataloges, der eine Zusammenstellung und Aufbereitung des Wissens über regelungstechnische Modelle darstellt, ein wichtiger Aspekt gewesen. Der Prozess folgte dabei keiner Referenz. Die Grundlage für die gewählten Vorgehensweisen und getroffene Entscheidungen waren eigene Überlegungen und Schlussfolgerungen aus eigenen Analysen von Publikationen. Im diesem Kapitel wird der Ablauf zur Erstellung des Kataloges beschrieben. Ausgewählte Entscheidungen und Schlussfolgerungen werden vorgestellt. %oder "näher betrachtet."
 
-\textbf{Aktuelle Situation}: Modellsammlungen und -Kataloge\\
-Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden soll betrachtet werden, was es für Zusammenstellungen von Modellen gibt, die versuchen mindestens eine der obigen Anforderungen zu erfüllen. 
+% Enthält: Ist-Stand: Suche + Kataloge 
+\section{Aktueller Stand}
+\label{Ch:ErstProz:Sec:CurrentState}
+Für die Zusammenstellung von Wissen wird eine Wissensbasis benötigt. Um diese zu erlangen und um geeignete Modelle für den Katalog zu finden erfolgte eine Modellsuche mit folgenden Erkenntnissen:
+
+\textbf{Aktuelle Situation der Modellfindung}: \\
+% Auflistung von aufgefallenen Aspekten + Beispielhafte Nennung von Publikationen dafür 
+\begin{enumerate}
+	\item Regelungstechnische Modelle finden sich aktuell meist verteilt in wissenschaftlichen Publikationen, wie z.B. Lehrbüchern, Artikeln, Dissertationen, Diplom- und Studienarbeiten.
+	\item Die Qualität der Modelldarstellung ist uneinheitlich. Das die Modellgleichungen eindeutig gekennzeichneten und gemeinsam notiert, sowie die eingeführten Variablen gut beschrieben und klar definierten Typs (Parameter, Eingangs-, Zustandsvariable) sind ist nicht immer gegeben.
+	\begin{itemize}[label=$\bullet$]
+		\item Beispiel 1: In \cite{LOR63} wird auf Seite 135 das Modell übersichtlich dargestellt. Die Zustandsvariablen und der Parameter $\sigma$ werden direkt darunter beschrieben. Die Parameter r und b haben hingegen keinen Namen und werden nur als Gleichungen repräsentiert. Der Parameter a in der Gleichung für b wird im Artikel nicht explizit eingeführt.
+		\item Beispiel 2: In \cite{YIFREA09} werden die Variablen am Anfang alle eingeführt. Das Modell wird ausführlich hergeleitet. Eine zusammengestellte Übersicht der Modellgleichungen fehlt jedoch. Die Zustandsvariablen müssen aus Ausgangsvektor und Abbildungen erschlossen werden. Die Modellgleichungen sind im Artikel verteilt.
+	\end{itemize}
+	\item Die Darstellungsform der Modellgleichungen kann sich unterscheiden.
+	\begin{itemize}[label=$\bullet$]
+		\item Beispiel 3: In \cite{SILEEA12} Seite 14 werden die Modellgleichungen als Gleichungssystem von Differentialgleichungen erster Ordnung dargestellt. Allerdings mit zusätzlichen Summanden auf der linken Seite der Gleichung.
+		\item Beispiel 4: In \cite{BUT21} Seite 3 wird die Modellgleichung als Differentialgleichung zweiter Ordnung dargestellt.
+		\item Beispiel 5: In \cite{KNO16} Seite 168f, Beispiel B.3 werden die Modellgleichungen als Gleichungssystem von Differentialgleichungen zweiter Ordnung dargestellt, wobei die linke Seite der Gleichung aus Summanden und Produkten besteht.
+	\end{itemize}
+	\item  Die Modelleigenschaften sind oft nur implizit gegeben, z.B. kann bei einem Steuerungsentwurf geschlussfolgert werden, dass das untersuchte System stabil ist. Die explizite Nennung von Modelleigenschaften erfolgt meist nur, wenn diese für die Publikation von Relevanz sind. 
+	\begin{itemize}[label=$\bullet$]
+		\item Beispiel 6: Im Artikel \cite{PEGUEA16} Seite 761, letzter Abschnitt wird auf die Steuerbarkeit der Modelldarstellung eingegangen. Andere Eigenschaften finden keine Erwähnung.
+	\end{itemize}
+	\item In nahezu allen Publikationen erfolgt die Erprobung der Ergebnisse mittels Simulation. 
+	\begin{itemize}[label=$\bullet$]
+		\item Beispiel 7: In \cite{BUT21} wurde der Eingang in die Modellgleichung eingesetzt. Für die Implementation musste dieser wieder extrahiert werden. Die Eingangsgröße ist nicht die Kraft, welche normalerweise für mechanische Systeme zu erwarten ist, sondern die Auslenkung. Für eine Darstellung mit der Kraft als Eingang wäre eine weitere Umformung nötig.
+		\item Beispiel 8: In \cite{FEGE18} Seite 10910, Fig. 8 werden die Eingangswerte als grauer Graph dargestellt. Eine Darstellung als Gleichung fehlt. Ebenso fehlt bei den verwendeten Parameterwerte zum Beispiel der Wert für die Gleichspannung $v_{DC}$.
+	\end{itemize}
+	\item Die genutzte Implementation wird nicht publiziert bzw. veröffentlicht.
+\end{enumerate}
+% Klarstellung für den Fall, das die bei den Beispielen genannten Punkte zu harsch rüber kommen
+Die beschriebenen Sachverhalte in den Beispielen sind nicht zwangsläufig als Kritik gemeint. Es kann gute Gründe dafür geben. Für die Erfassung der Situation sind diese aber nicht von Bedeutung. Eine Beleuchtung möglicher Gründe findet deshalb nicht statt.
+
+% Schlussfolgerung aus den aufgefallenen Aspekten
+\textbf{Feststellung}:\\
+Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbare Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
+
+\textbf{Aktuelle Situation von Modellsammlungen und -Katalogen}: \\
+Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden bestehende Zusammenstellungen von Modellen betrachtet werden.
+% TODO: Aktuelle Kataloge
+\section{Struktur und Elemente des Kataloges} % Alternativer Titel: Prozess der Katalogerstellung
+\label{Ch:ErstProz:Sec:Struktur}
+\textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
+% Zielstellung des Kataloges
+Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in Abschnitt:\glqq \nameref{Ch:ErstProz:Sec:CurrentState}\grqq beschriebenen Schwierigkeiten nicht durchlaufen werden müssen. Daher wurden folgende Anforderungen an den Katalog gestellt:
+\begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}]
+	\item \label{A.Findbarkeit}Neue Modelle sollen einfach und unkompliziert zu finden sein.
+	\item \label{A.Modelleigenschaften}Die Modelleigenschaften sollen so gut wie möglich erfasst sein. Das heißt:
+	\begin{itemize}[label=$\bullet$]
+		\item Sie sollen möglichst vollständig sein.
+		\item Sie sollen in einer übersichtlichen Darstellung aufgelistet sein.
+		\item Sie sollen einer einheitlichen Namensgebung folgen.
+		\item Sie sollen eine klare Definition haben.
+	\end{itemize}
+	\item \label{A.3}Die Modelle sollen eine einheitliche Darstellungsform haben.
+	\item \label{A.4}Die Variablen, deren Typ und Bedeutung sollen in einer sinnvollen, einheitlichen Darstellung notiert sein.
+	\item \label{A.5}Die Modelle sollen möglichst implementiert vorliegen. Die Implementierung soll einfach verwendbar sein.
+	\item \label{A.Erweiterbarkeit}Der Katalog soll erweiterbar sein. % durch externe Personen/Nutzer
+\end{enumerate}
+%Evtl Hinweis auf FAIR-Prinzipien? + Ergänzung das (einzelne) Erfüllung dieser als Zufall einzuordnen ist 
+
+Die Anforderung \ref{A.Findbarkeit} wird an sich schon durch die Ordnerstruktur, in der die herausgearbeiteten Modelle des Kataloges zusammen getragen wurden erfüllt. In Anbetracht von Anforderung \ref{A.Erweiterbarkeit} und der daraus resultierenden Notwendigkeit der Betrachtung, das perspektivisch eine große Anzahl von Modellen in dem Katalog existieren sollen wird klar die Anforderung \ref{A.Findbarkeit} nicht durch die Ordnerstruktur erfüllt werden kann. Mit zunehmender Modellanzahl im Katalog wird es auch komplizierter bestimmte Modelle zu finden. Insbesondere in diesem Fall aber auch generell ist eine Suchfunktion für einen solchen Katalog erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Die Erstellung eine Suchfunktion soll durch folgende Entscheidung erleichtert werden:\\
+\begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}]
+	\item \label{E.MetadatenDatei}Zu jedem Modell soll eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
+\end{enumerate}
+Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} kommt aus Artikel \cite{KNHE20} und dem darin vorgestellten \textit{ACKRep}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
+
+Anforderung \ref{A.Modelleigenschaften} wird durch das in der Aufgabenstellung geforderte \textit{Klassifikationssystems (KS)} und die Anwendung dessen erfüllt. Die Auflistung der Modelleigenschaften erfolgt in der Metadaten-Datei. Die Namen der Attribute im KS stellen eine einheitliche Namensgebung sicher. Die Definition der Attribute und die Relationen zwischen diesen basieren auf im KS enthaltenen Referenzen.\\
+\begin{enumerate}[resume*]
+	\item Die Einträge des KS, welche unter anderem Namen, Relationen zu anderen Einträgen und Wertetyp enthalten werden im YAML Format gespeichert. Um eine grafische Darstellung des KS zu erhalten soll ein Python-Skript geschrieben werden. 
+\end{enumerate}
+
+
+Zur Erfüllung der Anforderungen wurden folgende Entscheidungen getroffen:\\
+% Enscheidungen die im Zusammengang mit den Anforderungen stehen
+
+\textbf{Entscheidung}:\\
+Modelldarstellung in Textform um eine für Menschen einfach lesbare Darstellungsform zu erreichen. Nutzung von \LaTeX. Um eine schnelle Notation der Modellgleichungen und Variablen zu ermöglichen.
+
+\textbf{Entscheidung}:\\
+Implementation der Modelle in Python und als Klasse. Sorgt für einfache Verwendbarkeit der implementierten Modelle. 
+
+\textbf{Entscheidung}:\\
+Erstellung von Vorlagen um das Anlegen neuer Modelle unter Erfüllung der Anforderungen zu vereinfachen.
+
+
+
+

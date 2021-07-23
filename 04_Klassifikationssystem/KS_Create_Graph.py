@@ -21,7 +21,8 @@ def main():
     for entry in nodes_lst:
         edges_list = interpret_ks_entry(entry)
         KS.add_edges_from(edges_list)
-    print(nodes_lst)
+    print("Edge_List:", edges_list)    
+    #print(KS.edges)
     # create graph and write it to file
     # set style entries for the graph
     graph_style = nxv.Style(
@@ -30,7 +31,9 @@ def main():
                               "width": 1, "fontsize": 10 },
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          
-        edge=lambda u, v, k, d: {"style": "solid", "arrowType": "normal",},
+        edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
+                     "label": get_edge_label(u, v, d, 
+                                             relation_kw="Edge_Note"),}
 # TODO : Add edge function for the different edge labels        
     )
     # create svg data
@@ -107,9 +110,9 @@ def interpret_ks_entry(entry, pre_node_kw="Pre_Node",
                 try: # to get last edge entry
                     last_edge = edge_list[len(edge_list)-1]
                     # define new tuple, add attribute "edge_note" to edge    
-                    edge_tuple = (last_edge, {edge_note_kw: key[edge_note_kw]})
+                    edge_tuple = (*last_edge, {edge_note_kw: key[edge_note_kw]})
                     # replace last edge
-                    edge_list[len(edge_list)-1]
+                    edge_list[len(edge_list)-1] = edge_tuple
                 except IndexError:
                     # skip
                     continue
@@ -127,11 +130,24 @@ def get_node_attributes(u=None, v=None):
 
     # ----------- GET_EDGE_ATTRIBUTES ---------- #
     
-def get_edge_attributes(u=None, v=None, k=None, d=None):
-    """Creates dict for attributes for the 
+def get_edge_label(u=None, v=None, d=None, relation_kw="Relation"):
+    """Creates label for the edges
+    :param (u, v): edge of the Graph
+    :param d: attribute dict of the edge
+    
+    :return: attribute dict for the graph drawing
     """
-    edge_att_dict = {"style": "solid", "arrowType": "normal",}
-    return edge_att_dict
+    print(u, v, d)
+    relation_label = None
+    # get label for the relation from edge attributes
+    if d is not None:
+        try:
+            relation_label = d[relation_kw]
+        except KeyError:
+            relation_label = ""
+    else:
+        relation_label = ""
+    return relation_label
 
     
 if __name__ == "__main__":

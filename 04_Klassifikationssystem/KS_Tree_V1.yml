@@ -32,7 +32,7 @@ Linearity_Status:
 Linear:
     - Type: boolean
     - Pre_Node: Linearity_Status
-    - Edge_Note: Value of
+    - Edge_Note: Type of
 
 Linearized:
     - Type: boolean

@@ -4,6 +4,8 @@
 % - Grund des Kataloges
 % - Prinzipielle Funktion/Nutzen
 % - Erwähnung der Elemente: Ontologie, KS, Implementierung, Anwendung auf Modelle
+% ======= Gedanken ======
+% - Diskussion, was als Modell aufgefasst wird? - ist ein sehr häufiger und sehr elementarer Begriff in der Arbeit
 Inhalt:\\
 Grundgedanken zu Modellkatalog. Ansprüche. Wünsche bzgl. Funktionsumfang und Anwendbarkeit, Prinzip: aufwändiges Hinzufügen, einfaches Anwenden \\
 Ist-Stand: Was gibt es für vergleichbare Kataloge/Projekte? + Bewertung dieser\\
@@ -25,7 +27,7 @@ Das Nachdenken über das Wissen ist für die Erstellung des Modellkataloges, der
 \label{Ch:ErstProz:Sec:CurrentState}
 Für die Zusammenstellung von Wissen wird eine Wissensbasis benötigt. Um diese zu erlangen und um geeignete Modelle für den Katalog zu finden erfolgte eine Modellsuche mit folgenden Erkenntnissen:
 
-\textbf{Aktuelle Situation der Modellfindung}: \\
+\textbf{Aktuelle Situation der Modellfindung}: 
 % Auflistung von aufgefallenen Aspekten + Beispielhafte Nennung von Publikationen dafür 
 \begin{enumerate}
 	\item Regelungstechnische Modelle finden sich aktuell meist verteilt in wissenschaftlichen Publikationen, wie z.B. Lehrbüchern, Artikeln, Dissertationen, Diplom- und Studienarbeiten.
@@ -56,17 +58,24 @@ Die beschriebenen Sachverhalte in den Beispielen sind nicht zwangsläufig als Kr
 
 % Schlussfolgerung aus den aufgefallenen Aspekten
 \textbf{Feststellung}:\\
-Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbare Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
+Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbare Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
 
 \textbf{Aktuelle Situation von Modellsammlungen und -Katalogen}: \\
-Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden bestehende Zusammenstellungen von Modellen betrachtet werden.
 % TODO: Aktuelle Kataloge
+Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden bestehende Zusammenstellungen von Modellen betrachtet werden.
+
+\textbf{The Automatic Control Knowledge Repository (ACKRep)}:\\
+Das in \cite{KNHE20a} vorgestellte ACKRep\footnote{ACKRep GitHub Repository: https://github.com/ackrep-org/ackrep\_data} ist ein Tool, mit dem Ziel die implementierten Ergebnisse von Publikationen reproduzierbarer zu machen. Die \textit{ProblemSpecification} im ACKRep ist eine Sammlung von Modellen, die als Python-Quellcode repräsentiert werden. Weitere Informationen zu den Modellen sind in einer YAML-Datei hinterlegt. 
+
+\textbf{Beispiele unteraktuierter mechanischer Systeme in \cite{LIYU13}}:\\
+Im Zuge der Betrachtung unteraktuierter mechanischer Systeme werden in dem Artikel die Modellgleichungen von 11 Beispielen tabellarisch in einer vereinheitlichten Form aufgeführt. Es wurden Differentialgleichungen zweiter Ordnung als Darstellungsform gewählt. Zudem werden die Systeme bezüglich ihrer Beschränkungen, ihrer Konfigurationscharakteristik und ihrer regelungstechnischen Problemstellung klassifiziert.
+
 \section{Struktur und Elemente des Kataloges} % Alternativer Titel: Prozess der Katalogerstellung
 \label{Ch:ErstProz:Sec:Struktur}
 \textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
 % Zielstellung des Kataloges
 Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in Abschnitt:\glqq \nameref{Ch:ErstProz:Sec:CurrentState}\grqq beschriebenen Schwierigkeiten nicht durchlaufen werden müssen. Daher wurden folgende Anforderungen an den Katalog gestellt:
-\begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}]
+\begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{A.Findbarkeit}Neue Modelle sollen einfach und unkompliziert zu finden sein.
 	\item \label{A.Modelleigenschaften}Die Modelleigenschaften sollen so gut wie möglich erfasst sein. Das heißt:
 	\begin{itemize}[label=$\bullet$]
@@ -83,10 +92,10 @@ Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass 
 %Evtl Hinweis auf FAIR-Prinzipien? + Ergänzung das (einzelne) Erfüllung dieser als Zufall einzuordnen ist 
 
 Die Anforderung \ref{A.Findbarkeit} wird an sich schon durch die Ordnerstruktur, in der die herausgearbeiteten Modelle des Kataloges zusammen getragen wurden erfüllt. In Anbetracht von Anforderung \ref{A.Erweiterbarkeit} und der daraus resultierenden Notwendigkeit der Betrachtung, das perspektivisch eine große Anzahl von Modellen in dem Katalog existieren sollen wird klar die Anforderung \ref{A.Findbarkeit} nicht durch die Ordnerstruktur erfüllt werden kann. Mit zunehmender Modellanzahl im Katalog wird es auch komplizierter bestimmte Modelle zu finden. Insbesondere in diesem Fall aber auch generell ist eine Suchfunktion für einen solchen Katalog erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Die Erstellung eine Suchfunktion soll durch folgende Entscheidung erleichtert werden:\\
-\begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}]
+\begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{E.MetadatenDatei}Zu jedem Modell soll eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
 \end{enumerate}
-Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} kommt aus Artikel \cite{KNHE20} und dem darin vorgestellten \textit{ACKRep}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
+Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} kommt aus Artikel \cite{KNHE20a} und dem darin vorgestellten \textit{ACKRep}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
 
 Anforderung \ref{A.Modelleigenschaften} wird durch das in der Aufgabenstellung geforderte \textit{Klassifikationssystems (KS)} und die Anwendung dessen erfüllt. Die Auflistung der Modelleigenschaften erfolgt in der Metadaten-Datei. Die Namen der Attribute im KS stellen eine einheitliche Namensgebung sicher. Die Definition der Attribute und die Relationen zwischen diesen basieren auf im KS enthaltenen Referenzen.\\
 \begin{enumerate}[resume*]

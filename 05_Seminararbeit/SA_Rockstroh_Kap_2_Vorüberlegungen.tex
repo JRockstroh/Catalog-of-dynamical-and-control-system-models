@@ -26,7 +26,9 @@ Das Nachdenken über das Wissen ist für die Erstellung des Modellkataloges, der
 \section{Aktueller Stand}
 \label{Ch:ErstProz:Sec:CurrentState}
 Für die Zusammenstellung von Wissen wird eine Wissensbasis benötigt. Um diese zu erlangen und um geeignete Modelle für den Katalog zu finden erfolgte eine Modellsuche mit folgenden Erkenntnissen:
-
+% =================================
+% Aktuelle Situatiion Modellfindung
+% =================================
 \textbf{Aktuelle Situation der Modellfindung}: 
 % Auflistung von aufgefallenen Aspekten + Beispielhafte Nennung von Publikationen dafür 
 \begin{enumerate}
@@ -58,22 +60,30 @@ Die beschriebenen Sachverhalte in den Beispielen sind nicht zwangsläufig als Kr
 
 % Schlussfolgerung aus den aufgefallenen Aspekten
 \textbf{Feststellung}:\\
-Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbare Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
-
+Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbaren Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
+% =================================
+% Aktuelle Situatiion Modellsammlungen
+% =================================
 \textbf{Aktuelle Situation von Modellsammlungen und -Katalogen}: \\
 % TODO: Aktuelle Kataloge
-Bevor etwas neues entworfen wird ist es immer sinnvoll einen Blick darauf zu werfen, was schon existiert. Im folgenden bestehende Zusammenstellungen von Modellen betrachtet werden.
+Bestehende Zusammenstellungen von regelungstechnischen Modellen sind schwer zu finden. Das kann daran liegen, das wenige existieren. Es könnte aber auch daran liegen, das diese einfach nur schwer zu finden sind. Zum Beispiel, weil diese von Suchmaschinen als irrelevant eingestuft werden und folglich sehr weit hinten in den Suchergebnissen landen. Zudem basieren die Suchergebnisse nur auf den eingegebenen Wörtern. Ein Verständnis für den Kontext fehlt. Eine sehr große Anzahl von Suchergebnissen ist die Folge. Es ist also durchaus plausibel das mehr als die beiden Zusammenstellungen, die im Folgenden kurz vorgestellt werden, existieren. 
 
 \textbf{The Automatic Control Knowledge Repository (ACKRep)}:\\
-Das in \cite{KNHE20a} vorgestellte ACKRep\footnote{ACKRep GitHub Repository: https://github.com/ackrep-org/ackrep\_data} ist ein Tool, mit dem Ziel die implementierten Ergebnisse von Publikationen reproduzierbarer zu machen. Die \textit{ProblemSpecification} im ACKRep ist eine Sammlung von Modellen, die als Python-Quellcode repräsentiert werden. Weitere Informationen zu den Modellen sind in einer YAML-Datei hinterlegt. 
+Das in \cite{KNHE20a} vorgestellte ACKRep\footnote{ACKRep GitHub Repository: https://github.com/ackrep-org/ackrep\_data} ist ein Tool, mit dem Ziel die implementierten Ergebnisse von Publikationen reproduzierbarer zu machen. Der Teil der \textit{ProblemSpecification} ist eine Sammlung von Modellen, die als Python-Quellcode repräsentiert werden. Weitere Informationen zu den Modellen sind in einer YAML-Datei hinterlegt. 
 
 \textbf{Beispiele unteraktuierter mechanischer Systeme in \cite{LIYU13}}:\\
 Im Zuge der Betrachtung unteraktuierter mechanischer Systeme werden in dem Artikel die Modellgleichungen von 11 Beispielen tabellarisch in einer vereinheitlichten Form aufgeführt. Es wurden Differentialgleichungen zweiter Ordnung als Darstellungsform gewählt. Zudem werden die Systeme bezüglich ihrer Beschränkungen, ihrer Konfigurationscharakteristik und ihrer regelungstechnischen Problemstellung klassifiziert.
+% Vergleich der beiden Beispiele
+Im ACKRep liegt der Fokus auf der Implementierung der Modelle. Ein weiterer Fokus liegt auf der Auffindbarkeit der Modelle innerhalb des ACKReps. Dafür ist eine Suchfunktion angedacht, die auf die Informationen aus der YAML-Datei zugreift. Die in \cite{KNHE20b} eingeführte \textit{Ontology of Control Systems Engineering (OCSE)} soll zu einer einheitlichen Benennung der Modellinformationen beitragen.\\
+In \cite{LIYU13} liegt der Fokus auf der menschlichen Lesbarkeit. Die Modellgleichungen sind als Text bzw. Formeln repräsentiert und ermöglichen die Anwendung von analytischen Methoden. 
 
-\section{Struktur und Elemente des Kataloges} % Alternativer Titel: Prozess der Katalogerstellung
+Beide Zusammenstellungen verwenden eine einheitliche Form für die Modellrepräsentation. Zudem findet bei beiden eine Klassifikation der Modelle statt, die sich allerdings in Umfang und Inhalt unterscheiden.
+\section{Anforderungen an den Katalog} % Alternativer Titel: Prozess der Katalogerstellung
 \label{Ch:ErstProz:Sec:Struktur}
 \textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
-% Zielstellung des Kataloges
+% =============
+% Anforderungen
+% =============
 Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in Abschnitt:\glqq \nameref{Ch:ErstProz:Sec:CurrentState}\grqq beschriebenen Schwierigkeiten nicht durchlaufen werden müssen. Daher wurden folgende Anforderungen an den Katalog gestellt:
 \begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{A.Findbarkeit}Neue Modelle sollen einfach und unkompliziert zu finden sein.
@@ -84,36 +94,80 @@ Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass 
 		\item Sie sollen einer einheitlichen Namensgebung folgen.
 		\item Sie sollen eine klare Definition haben.
 	\end{itemize}
-	\item \label{A.3}Die Modelle sollen eine einheitliche Darstellungsform haben.
-	\item \label{A.4}Die Variablen, deren Typ und Bedeutung sollen in einer sinnvollen, einheitlichen Darstellung notiert sein.
-	\item \label{A.5}Die Modelle sollen möglichst implementiert vorliegen. Die Implementierung soll einfach verwendbar sein.
+	\item \label{A.Darstellung_Gleichungen}Die Modelle sollen eine einheitliche Darstellungsform haben.
+	\item \label{A.Darstellung_Variablen}Die Variablen, deren Typ und Bedeutung sollen in einer sinnvollen, einheitlichen Darstellung notiert sein.
+	\item \label{A.Implementierung}Die Modelle sollen möglichst implementiert vorliegen. Die Implementierung soll einfach verwendbar sein.
 	\item \label{A.Erweiterbarkeit}Der Katalog soll erweiterbar sein. % durch externe Personen/Nutzer
 \end{enumerate}
 %Evtl Hinweis auf FAIR-Prinzipien? + Ergänzung das (einzelne) Erfüllung dieser als Zufall einzuordnen ist 
-
-Die Anforderung \ref{A.Findbarkeit} wird an sich schon durch die Ordnerstruktur, in der die herausgearbeiteten Modelle des Kataloges zusammen getragen wurden erfüllt. In Anbetracht von Anforderung \ref{A.Erweiterbarkeit} und der daraus resultierenden Notwendigkeit der Betrachtung, das perspektivisch eine große Anzahl von Modellen in dem Katalog existieren sollen wird klar die Anforderung \ref{A.Findbarkeit} nicht durch die Ordnerstruktur erfüllt werden kann. Mit zunehmender Modellanzahl im Katalog wird es auch komplizierter bestimmte Modelle zu finden. Insbesondere in diesem Fall aber auch generell ist eine Suchfunktion für einen solchen Katalog erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Die Erstellung eine Suchfunktion soll durch folgende Entscheidung erleichtert werden:\\
+% ==============
+% Entscheidungen
+% ==============
+Die Anforderung \ref{A.Erweiterbarkeit} macht es notwendig den Fall einer großen Anzahl von im Katalog existierenden Modellen mitzudenken. Mit zunehmender Modellanzahl wird es komplizierter bestimmte Modelle innerhalb der Ordnerstruktur des Kataloges zu finden. Außerdem sollte auch die Auffindbarkeit von Modellen anhand bestimmter Modelleigenschaften beachtet werden. Das macht eine Suchfunktion erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Die Erstellung einer Suchfunktion soll durch folgende Entscheidung erleichtert werden:
 \begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{E.MetadatenDatei}Zu jedem Modell soll eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
 \end{enumerate}
-Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} kommt aus Artikel \cite{KNHE20a} und dem darin vorgestellten \textit{ACKRep}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
+Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} basiert auf \cite{KNHE20a}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
 
-Anforderung \ref{A.Modelleigenschaften} wird durch das in der Aufgabenstellung geforderte \textit{Klassifikationssystems (KS)} und die Anwendung dessen erfüllt. Die Auflistung der Modelleigenschaften erfolgt in der Metadaten-Datei. Die Namen der Attribute im KS stellen eine einheitliche Namensgebung sicher. Die Definition der Attribute und die Relationen zwischen diesen basieren auf im KS enthaltenen Referenzen.\\
+Anforderung \ref{A.Modelleigenschaften} wird durch das in der Aufgabenstellung geforderte \textit{Klassifikationssystems (KS)} und die Anwendung dessen erfüllt. Die Auflistung der Modelleigenschaften erfolgt in der Metadaten-Datei. Die Namen der Attribute im KS stellen eine einheitliche Namensgebung sicher. Die Definition der Attribute und die Relationen zwischen diesen basieren auf im KS enthaltenen Referenzen.
 \begin{enumerate}[resume*]
-	\item Die Einträge des KS, welche unter anderem Namen, Relationen zu anderen Einträgen und Wertetyp enthalten werden im YAML Format gespeichert. Um eine grafische Darstellung des KS zu erhalten soll ein Python-Skript geschrieben werden. 
+	\item Die Einträge des KS, welche unter anderem Namen, Relationen zu anderen Einträgen und Wertetyp enthalten werden im YAML Format gespeichert. Um eine grafische Darstellung des KS zu erhalten soll ein Python-Skript geschrieben werden.
+\end{enumerate}
+Wie vollständig die in der Metadaten-Datei enthaltenen Modelleigenschaften sind hängt davon ab, wie gut erforscht das Modell ist und wie viel Zeit in das Anlegen des Modells gesteckt wird.
+
+In Textform dargestellt Modelle haben den Vorteil das Elemente wie Tiefstellung grafisch dargestellt werden können. Im Fließtext muss die Umsetzung der Elemente über ein Notationssytem erreicht werden, welches die Lesbarkeit allerdings im Allgemeinen verringert. Die Notation der Modellgleichungen in einer für Menschen gut lesbaren Form ist erstrebenswert, damit die Modelle für die Anwendung von analytischen Methoden einfacher verwendbar sind. 
+\begin{enumerate}[resume*]
+	\item \label{E.Textdok}Die Modellgleichungen und die zugehörigen Variablen werden in Textform notiert. Grundlage ist ein \LaTeX-Dokument, das in eine PDF-Datei umgewandelt wird. Die Modellgleichungen werden als System von Differentialgleichungen erster Ordnung dargestellt. Die Auflistung der Variablen und ihrer Bedeutung erfolgt gebündelt.
+\end{enumerate}
+Die Bündelung der Variablendefinitionen innerhalb der Textrepräsentation macht diese gut im Dokument auffindbar. Die Verwendung von DGLn erster Ordnung ist zum einen Allgemein, da DGLn höherer Ordnung durch Einführung definitorischer Gleichungen in ein System von DGLn erster Ordnung überführt werden können, und zum anderen die in Publikationen am häufigsten verwendete Form zur Darstellung der Modellgleichungen.
+
+\begin{enumerate}[resume*]
+	\item \label{E.Implementation}Die Modelle werden in der Programmiersprache Python implementiert. Dabei soll jedes Modell als Python-Klasse umgesetzt werden.
+\end{enumerate}
+Die Implementierung der Modelle als Klasse soll den zweiten Teil von Anforderung \ref{A.Implementierung} erfüllen. Die Modelle werden in der Verwendung als Objekt instanziiert, was für das Verständnis eine einfache und intuitive Parallele zur realen Welt ist in der Systeme als physische Objekte existieren. Zudem können innerhalb des instanziierten Objektes eine Reihe von Informationen zu dem spezifisch implementierten Modell gespeichert und abgefragt werden. Die Verwendung für eigene Simulationen ist damit sehr unkompliziert, da die innerhalb der Klasse enthaltenen Modellgleichungen über die Methoden der Klasse direkt verwendet werden können.
+
+Um die Verwendbarkeit der vorliegenden Modelle weiter zu vereinfachen erschien es sinnvoll ein Beispielset der Parameterwerte zur Verfügung zu stellen. Die Beispielwerte sollen in beiden Notationsformen vorliegen.
+\begin{enumerate}[resume*]
+	\item \label{E.Parameterwerte}Zu jedem Modell soll es ein Beispielset für die Parameterwerte geben. Diese sollen sowohl in der Textform als auch in der implementierten Form Anwendung finden. Die Beispielwerte sollen redundanzfrei notiert werden.
+\end{enumerate}
+
+Die Entscheidungen \ref{E.Textdok} und \ref{E.Implementation} haben als Folge, das für eine Erweiterung des Kataloges eine Einarbeitung in die Form der Implementation und der Textrepräsentation erfolgen muss. Die folgende Entscheidung soll die Einarbeitung für neue Nutzer aber auch generell das Erstellen von neuen Modellen vereinfachen. Außerdem soll diese zur konstanten Erfüllung der Anforderungen \ref{A.Darstellung_Gleichungen} und \ref{A.Darstellung_Variablen} bei Erweiterung des Kataloges durch neue Personen beitragen.
+\begin{enumerate}[resume*]
+	\item \label{E.Vorlagen}Für Implementation und Textrepräsentation sollen Vorlagen erstellt werden, welche die repetitiven Elemente, wie z.B. die Struktur, dieser enthält. 
+\end{enumerate}
+
+Die folgenden Abschnitte behandeln den Prozess um das Wissen über Modelle und deren Modelleigenschaften formal darzustellen.
+% =================================
+% Prozess zum Klassifikationssystem
+% =================================
+\section{Wissensrepräsentationen}
+\label{Ch:ErstProz:Sec:Wissensrepräsentaionen}
+Wissensrepräsentationen sollen das existierende Wissen innerhalb eines Wissensbereichs formal abbilden. Für die Bestandteile der Repräsentation wird ein explizites Vokabular genutzt und die Beziehungen zwischen diesen werden definiert (vgl. \cite{BEN16} S.60, \cite{SEB04} S.1). Eine häufig verwendete Möglichkeit um eine formale Darstellung von Wissensrepräsentationen zu erhalten ist die Verwendung von Methoden und Begriffen aus der Graphentheorie.
+
+Exkurs: \textit{Graphentheorie}\footnote{siehe \cite{STU09} S.29 und \cite{DIE20} Abschnitte 1.1, 1.3 und 1.10}\\
+Ein \textit{Graph} besteht aus einer Menge von \textit{Knoten} N und \textit{Kanten} E. Die Kanten verbinden die Knoten. Die Menge E besteht also aus 2-Element Untermengen von N. Ist der Graph \textit{gerichtet}, so hat der Graph die zwei Funktionen $s:E\rightarrow N$ und $t:E\rightarrow N$ die jeder Kante e einen Ursprungsknoten s(e) und einen Endknoten t(e) zuweisen. Kann der Graph mehrere Kanten zwischen denselben zwei Knoten haben, dann wird dieser \textit{gerichteter Multi-Graph} genannt. Zusätzlich kann die Menge L und die Funktion l eingeführt werden. Die Menge L umfasst die Namen der Knoten und Kanten. Die Funktion $l:N\cup$E$\rightarrow L$ weißt jedem Knoten n und jeder Kante e einen Namen aus der Menge l zu.
+Ein gerichteter \textit{Pfad} ist ein Graph $P = (N, E)$, der zwei Knoten $x_1$ und $x_i$ eines Graphen G über eine Sequenz von Kanten ($e_1$, $\dots$, $e_i$) verbindet. Ein Knoten kann maximal ein Mal entlang eines Pfades vorkommen. 
+Zwei erwähnenswerte Spezialfälle von Graphen sind Bäume und kreisfreie Graphen. Ein Baum liegt vor, wenn jeder Knoten n $\epsilon$ N genau einen Nachfolger besitzen.\glqq Ein Graph heißt kreisfrei, wenn es keinen Knoten gibt der einen Pfad zu sich selbst hat. Kreisfreie gerichtete Graphen werden auch DAG(engl. \textbf{D}irected \textbf{A}cyclic \textbf{G}raph) genannt\grqq\footcite{STU09}. 
+
+In Wissensrepräsentationen, die sich der Graphentheorie bedienen, steht jeder Knoten für einen Bestandteil der Repräsentation und jede Kante stellt eine Beziehung zwischen zwei Bestandteilen dar. Der Name der Kante definiert die Art der Beziehung. Für die Wissensrepräsentation gibt es verschiedene Formen die sich in ihrer semantischen Vielfalt unterscheiden. Beispiele solcher Formen sind: Taxonomie, Thesaurus, Semantisches Netz. Auf die Taxonomie und das Semantische Netz wird im Folgenden kurz eingegangen.
+ 
+Die \textit{Taxonomie} ist eine der einfachsten Formen der Wissensrepräsentationen. Die Bestandteile dieser sind Kategorien die in eine Hierarchie aus Ober- und Unterkategorien gesetzt werden. Jede Kante stellt eine \glqq ist auch \grqq Beziehung dar. Jede Unterkategorie ist auch ein Element ihrer Oberkategorie. Die Darstellung kann über einen DAG erfolgen. % Beispiel einer Taxonomie
+\textit{Semantische Netze} \glqq sind Graphen die Begriffe und ihre Relationen zueinander darstellen\grqq\footnote{\cite{STU09} S.28}. Im Unterschied zur Taxonomie sind die Namen der Kanten nicht auf eine Bezeichnung festgelegt. Durch diese verschiedenen Kantentypen werden die unterschiedlichen Beziehungen zwischen den Bestandteilen des Netzes beschrieben. Das Semantische Netz weist zudem verschiedene Knotentypen auf. Knoten können Kategorien sein, die sich wie in der Taxonomie in Ober- und Unterkategorien aufteilen. Die Kanten zwischen Knoten, die Kategorien darstellen, sind mit \glqq ist auch\grqq bezeichnet. Knoten in Semantischen Netzen können zudem Werte und konkrete Objekte bestimmter Kategorien repräsentieren. Zudem spezifiziert das Netz bestimmte charakteristische Eigenschaften, die alle Elemente eines Knotens gemeinsam haben. Diese charakteristischen Eigenschaften werden in einem Semantischen Netz durch Beziehungen zu anderen Knoten des Netzes dargestellt. Semantische Netze haben häufig eine \glq Open-World\grq  Annahme. Wenn in einem Semantischen Netz eine Aussage nicht enthalten ist wird nicht automatisch davon ausgegangen, das diese nicht gilt.
+\section{Erstellung des Klassifikationssystems}
+\label{Ch:ErstProz:Sec:KS}
+Das \textit{Klassifikationssystem (KS)} soll eine Wissensrepräsentation zu den Eigenschaften von regelungstechnischen Modellen darstellen. Die Aussage über den Umfang des KS, das es nur das Wissen über die Modelle und deren Eigenschaften enthalten soll basiert auf der Überlegung, welches Wissen für den Katalog und eine einheitliche Benennung der Modelleigenschaften benötigt wird. Da der Katalog nur die Modelle enthalten soll und eine Erweiterung auf z.B. Regelungs- und Beobachterentwürfe auslässt liegt es nahe nur das dafür notwendige Wissen in dem KS zu erfassen.
+\begin{enumerate}[resume*]
+	\item \label{E.KS_Umfang}Das Klassifikationssystem soll nur den Teilbereich des Wissens der Regelungs- und Steuerungstheorie enthalten, der sich auf regelungstechnische Systeme und Modelle bezieht.
 \end{enumerate}
 
 
-Zur Erfüllung der Anforderungen wurden folgende Entscheidungen getroffen:\\
-% Enscheidungen die im Zusammengang mit den Anforderungen stehen
 
-\textbf{Entscheidung}:\\
-Modelldarstellung in Textform um eine für Menschen einfach lesbare Darstellungsform zu erreichen. Nutzung von \LaTeX. Um eine schnelle Notation der Modellgleichungen und Variablen zu ermöglichen.
 
-\textbf{Entscheidung}:\\
-Implementation der Modelle in Python und als Klasse. Sorgt für einfache Verwendbarkeit der implementierten Modelle. 
 
-\textbf{Entscheidung}:\\
-Erstellung von Vorlagen um das Anlegen neuer Modelle unter Erfüllung der Anforderungen zu vereinfachen.
+
+
+
+
 
 
 

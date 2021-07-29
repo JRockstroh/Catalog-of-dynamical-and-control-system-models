@@ -1,0 +1,16 @@
+---
+
+Model_Attribute:
+    - Type: None
+    - Pre_Node: None
+    - Edge_Name: None
+    
+Flatness:
+    - Type: Enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Controllability:
+    - Type: Enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a

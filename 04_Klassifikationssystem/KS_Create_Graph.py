@@ -11,38 +11,46 @@ import networkx as nx
 import nxv
 
 def main():
-    # get current working directory
-    cwd = os.path.dirname(os.path.abspath(__file__))
-    # parse yaml to list of lists
-    nodes_lst = parse_yaml(cwd, "KS_Tree_V1.yml")
-    # create Multi-Directed-Graph
-    KS = nx.MultiDiGraph()
-    # create edges (and their according nodes)
-    for entry in nodes_lst:
-        edges_list = interpret_ks_entry(entry)
-        KS.add_edges_from(edges_list)
-    print("Edge_List:", edges_list)    
-    #print(KS.edges)
-    # create graph and write it to file
-    # set style entries for the graph
+    # Names of the yml files, which contain the Graphs of the KS
+    KS_file_names = ["KS_Tree_Main.yml", "KS_Tree_Math_Representation.yml",
+                          "KS_Tree_Model_Attributes.yml", "KS_Tree_Usage.yml"]
+    # File Names for drawn graphs
+    drawn_file_names = [file_name[:-4] for file_name in KS_file_names]
+
+    # create Multi-Directed-Graphs
+    KS_graph_list = [nx.MultiDiGraph() for i in KS_file_names]
+    # keyword of the yml file for the Edge name
+    edge_name_kw = "Edge_Name"
+    # create list of graphs, files, drawn file names
+    KS_lists = []
+    for i in range(len(KS_file_names)):
+        sublist = [KS_graph_list[i], KS_file_names[i], 
+                   drawn_file_names[i]]
+        KS_lists.append(sublist)
+    # fill Graphs
+    for sublist in KS_lists:
+        add_nodes_from_yml(sublist[0], sublist[1], edge_name_kw)
+
+    # draw graph and write it to file
+    # define style entries for the graph
+    
     graph_style = nxv.Style(
         graph={"rankdir": "BT"},
         node=lambda u, d: {"shape": "circle", "fixedsize": "shape", 
-                              "width": 1, "fontsize": 10 },
+                              "width": 1, "fontsize": 10, 
+                              "label": get_node_label(u, d) },
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          
         edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
                      "label": get_edge_label(u, v, d, 
-                                             relation_kw="Edge_Note"),}
-# TODO : Add edge function for the different edge labels        
+                                             relation_kw=edge_name_kw),}       
     )
-    # create svg data
-    svg_data = nxv.render(KS, graph_style, format="svg")
-    # Name of the file, in which the svg data shall be written
-    svg_name = "Test.svg"
-    # write svg file
-    with open(svg_name, "wb") as svgfile:
-        svgfile.write(svg_data)
+    # write files   
+    for sublist in KS_lists:
+        write_graph_to_file(sublist[0], graph_style, sublist[2])
+    
+    
+    return
     
     
     # ----------- PARSE_YAML ---------- #
@@ -120,12 +128,17 @@ def interpret_ks_entry(entry, pre_node_kw="Pre_Node",
 
 
     # ----------- GET_NODE_ATTRIBUTES ---------- #
-def get_node_attributes(u=None, v=None):
+def get_node_label(u=None, d=None):
+    """Splits the Node Names at underscores in several line 
+    to make it better fitting into the circles in the drawn graph
+    :param u: node of the Graph
+    :param d: attribute dict of the Graph
+    
+    :return: string, node_label
     """
-    """
-    node_att_dict = {"shape": "circle", "fixedsize": "shape", 
-                              "width": 1, "fontsize": 10 }
-    return node_att_dict
+    node_label = d["label"]
+
+    return node_label
 
 
     # ----------- GET_EDGE_ATTRIBUTES ---------- #
@@ -149,6 +162,56 @@ def get_edge_label(u=None, v=None, d=None, relation_kw="Relation"):
         relation_label = ""
     return relation_label
 
+    # ----------- write_graph_to_file ---------- #
     
+def write_graph_to_file(graph, graph_style, file_name):    
+    """creates a svg picture of a networkx graph with help of the nxv package
+    :param graph: Networkx Graph, which shall be drawn
+    :param graph_style: nxv.Style object, which defines the Style of the 
+                        elements of the drawn graph
+    :param file_name: string, name which the file shall get
+    
+    :return: None
+    """
+    # create svg data
+    svg_data = nxv.render(graph, graph_style, format="svg")
+    # Name of the file, in which the svg data shall be written
+    svg_name = file_name + ".svg"
+    # write svg file
+    with open(svg_name, "wb") as svgfile:
+        svgfile.write(svg_data)
+    return
+    
+    # ----------- yml_to_graph ---------- #
+    
+def add_nodes_from_yml(graph, graph_file_name, relation_kw):
+    """Takes a yml file, which contains the Information of a graph, reads it 
+    and adds them to a given networkx graph
+    :param graph: Networkx Graph
+    :param graph_file_name: Name of the yaml file, which contains the graph
+    
+    :return: None
+    """
+    # get current working directory
+    cwd = os.path.dirname(os.path.abspath(__file__))
+    # parse yaml to list of lists
+    nodes_lst = parse_yaml(cwd, graph_file_name)
+    # create edges (and their according nodes)
+    for entry in nodes_lst:
+        edges_list = interpret_ks_entry(entry, edge_note_kw=relation_kw)
+        graph.add_edges_from(edges_list)
+    # add label attribute to every node
+    for node in graph.nodes:
+        # get node name and convert to string
+        node_label = str(node)
+        # remove leading and trailing whitespaces
+        node_label.strip()
+        # replace underscore with underscore+\n
+        node_label = node_label.replace("_", "_\n")
+        print("Label: ", node_label)
+        # add label as node attribute
+        graph.nodes[node]["label"] = node_label
+    return
+
 if __name__ == "__main__":
     main()

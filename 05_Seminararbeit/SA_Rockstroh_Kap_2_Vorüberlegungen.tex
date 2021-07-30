@@ -19,16 +19,16 @@ Textuelle Repräsentation: Struktur abgeleitet aus (guten) Publikationen[Referen
 %Alternative Struktur: 	Section: Aktueller Stand (der Modellsuche und von Modellkatalogen)
 %						Section: Prozess der Katalogerstellung/ Grund-/Vorgedanken zum Katalog
 %						Subsections: Anforderungen - Kurze Diskussion was sinnvoll, Struktur, Elemente
-
+%TODO: Neue Formulierung für Einstieg in Ch:1
 Das Nachdenken über das Wissen ist für die Erstellung des Modellkataloges, der eine Zusammenstellung und Aufbereitung des Wissens über regelungstechnische Modelle darstellt, ein wichtiger Aspekt gewesen. Der Prozess folgte dabei keiner Referenz. Die Grundlage für die gewählten Vorgehensweisen und getroffene Entscheidungen waren eigene Überlegungen und Schlussfolgerungen aus eigenen Analysen von Publikationen. Im diesem Kapitel wird der Ablauf zur Erstellung des Kataloges beschrieben. Ausgewählte Entscheidungen und Schlussfolgerungen werden vorgestellt. %oder "näher betrachtet."
 
 % Enthält: Ist-Stand: Suche + Kataloge 
 \section{Aktueller Stand}
 \label{Ch:ErstProz:Sec:CurrentState}
 Für die Zusammenstellung von Wissen wird eine Wissensbasis benötigt. Um diese zu erlangen und um geeignete Modelle für den Katalog zu finden erfolgte eine Modellsuche mit folgenden Erkenntnissen:
-% =================================
-% Aktuelle Situatiion Modellfindung
-% =================================
+% ============================================================
+% ------------- Aktuelle Situation Modellfindung -------------
+% ============================================================
 \textbf{Aktuelle Situation der Modellfindung}: 
 % Auflistung von aufgefallenen Aspekten + Beispielhafte Nennung von Publikationen dafür 
 \begin{enumerate}
@@ -61,9 +61,9 @@ Die beschriebenen Sachverhalte in den Beispielen sind nicht zwangsläufig als Kr
 % Schlussfolgerung aus den aufgefallenen Aspekten
 \textbf{Feststellung}:\\
 Die zielgerichtete Suche nach Modellen, z.B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbaren Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) oft notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch obige Aspekte ist das meist aufwendig oder nicht möglich.
-% =================================
-% Aktuelle Situatiion Modellsammlungen
-% =================================
+% ===============================================================
+% ------------- Aktuelle Situation Modellsammlungen -------------
+% ===============================================================
 \textbf{Aktuelle Situation von Modellsammlungen und -Katalogen}: \\
 % TODO: Aktuelle Kataloge
 Bestehende Zusammenstellungen von regelungstechnischen Modellen sind schwer zu finden. Das kann daran liegen, das wenige existieren. Es könnte aber auch daran liegen, das diese einfach nur schwer zu finden sind. Zum Beispiel, weil diese von Suchmaschinen als irrelevant eingestuft werden und folglich sehr weit hinten in den Suchergebnissen landen. Zudem basieren die Suchergebnisse nur auf den eingegebenen Wörtern. Ein Verständnis für den Kontext fehlt. Eine sehr große Anzahl von Suchergebnissen ist die Folge. Es ist also durchaus plausibel das mehr als die beiden Zusammenstellungen, die im Folgenden kurz vorgestellt werden, existieren. 
@@ -81,9 +81,9 @@ Beide Zusammenstellungen verwenden eine einheitliche Form für die Modellrepräs
 \section{Anforderungen an den Katalog} % Alternativer Titel: Prozess der Katalogerstellung
 \label{Ch:ErstProz:Sec:Struktur}
 \textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
-% =============
-% Anforderungen
-% =============
+% =========================================
+% ------------- Anforderungen -------------
+% =========================================
 Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in Abschnitt:\glqq \nameref{Ch:ErstProz:Sec:CurrentState}\grqq beschriebenen Schwierigkeiten nicht durchlaufen werden müssen. Daher wurden folgende Anforderungen an den Katalog gestellt:
 \begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{A.Findbarkeit}Neue Modelle sollen einfach und unkompliziert zu finden sein.
@@ -100,9 +100,9 @@ Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass 
 	\item \label{A.Erweiterbarkeit}Der Katalog soll erweiterbar sein. % durch externe Personen/Nutzer
 \end{enumerate}
 %Evtl Hinweis auf FAIR-Prinzipien? + Ergänzung das (einzelne) Erfüllung dieser als Zufall einzuordnen ist 
-% ==============
-% Entscheidungen
-% ==============
+% ==========================================
+% ------------- Entscheidungen -------------
+% ==========================================
 Die Anforderung \ref{A.Erweiterbarkeit} macht es notwendig den Fall einer großen Anzahl von im Katalog existierenden Modellen mitzudenken. Mit zunehmender Modellanzahl wird es komplizierter bestimmte Modelle innerhalb der Ordnerstruktur des Kataloges zu finden. Außerdem sollte auch die Auffindbarkeit von Modellen anhand bestimmter Modelleigenschaften beachtet werden. Das macht eine Suchfunktion erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Die Erstellung einer Suchfunktion soll durch folgende Entscheidung erleichtert werden:
 \begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{E.MetadatenDatei}Zu jedem Modell soll eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
@@ -137,30 +137,63 @@ Die Entscheidungen \ref{E.Textdok} und \ref{E.Implementation} haben als Folge, d
 \end{enumerate}
 
 Die folgenden Abschnitte behandeln den Prozess um das Wissen über Modelle und deren Modelleigenschaften formal darzustellen.
-% =================================
-% Prozess zum Klassifikationssystem
-% =================================
+% ===================================================
+% ------------- Wissensrepräsentationen -------------
+% ===================================================
 \section{Wissensrepräsentationen}
 \label{Ch:ErstProz:Sec:Wissensrepräsentaionen}
 Wissensrepräsentationen sollen das existierende Wissen innerhalb eines Wissensbereichs formal abbilden. Für die Bestandteile der Repräsentation wird ein explizites Vokabular genutzt und die Beziehungen zwischen diesen werden definiert (vgl. \cite{BEN16} S.60, \cite{SEB04} S.1). Eine häufig verwendete Möglichkeit um eine formale Darstellung von Wissensrepräsentationen zu erhalten ist die Verwendung von Methoden und Begriffen aus der Graphentheorie.
 
 Exkurs: \textit{Graphentheorie}\footnote{siehe \cite{STU09} S.29 und \cite{DIE20} Abschnitte 1.1, 1.3 und 1.10}\\
-Ein \textit{Graph} besteht aus einer Menge von \textit{Knoten} N und \textit{Kanten} E. Die Kanten verbinden die Knoten. Die Menge E besteht also aus 2-Element Untermengen von N. Ist der Graph \textit{gerichtet}, so hat der Graph die zwei Funktionen $s:E\rightarrow N$ und $t:E\rightarrow N$ die jeder Kante e einen Ursprungsknoten s(e) und einen Endknoten t(e) zuweisen. Kann der Graph mehrere Kanten zwischen denselben zwei Knoten haben, dann wird dieser \textit{gerichteter Multi-Graph} genannt. Zusätzlich kann die Menge L und die Funktion l eingeführt werden. Die Menge L umfasst die Namen der Knoten und Kanten. Die Funktion $l:N\cup$E$\rightarrow L$ weißt jedem Knoten n und jeder Kante e einen Namen aus der Menge l zu.
+Ein \textit{Graph} besteht aus einer Menge von \textit{Knoten} N und \textit{Kanten} E. Die Kanten verbinden die Knoten. Die Menge E besteht also aus 2-Element Untermengen von N. Ist der Graph \textit{gerichtet}, so hat der Graph die zwei Funktionen $s:E\rightarrow N$ und $t:E\rightarrow N$ die jeder Kante e einen Ursprungsknoten s(e) und einen Endknoten t(e) zuweisen. Kann der Graph mehrere Kanten zwischen denselben zwei Knoten haben, dann wird dieser \textit{gerichteter Multi-Graph} genannt. Zusätzlich kann die Menge L und die Funktion l eingeführt werden. Die Menge L umfasst die Namen der Knoten und Kanten. Die Funktion $l:N\cup E\rightarrow L$ weißt jedem Knoten n und jeder Kante e einen Namen aus der Menge l zu.
 Ein gerichteter \textit{Pfad} ist ein Graph $P = (N, E)$, der zwei Knoten $x_1$ und $x_i$ eines Graphen G über eine Sequenz von Kanten ($e_1$, $\dots$, $e_i$) verbindet. Ein Knoten kann maximal ein Mal entlang eines Pfades vorkommen. 
 Zwei erwähnenswerte Spezialfälle von Graphen sind Bäume und kreisfreie Graphen. Ein Baum liegt vor, wenn jeder Knoten n $\epsilon$ N genau einen Nachfolger besitzen.\glqq Ein Graph heißt kreisfrei, wenn es keinen Knoten gibt der einen Pfad zu sich selbst hat. Kreisfreie gerichtete Graphen werden auch DAG(engl. \textbf{D}irected \textbf{A}cyclic \textbf{G}raph) genannt\grqq\footcite{STU09}. 
 
 In Wissensrepräsentationen, die sich der Graphentheorie bedienen, steht jeder Knoten für einen Bestandteil der Repräsentation und jede Kante stellt eine Beziehung zwischen zwei Bestandteilen dar. Der Name der Kante definiert die Art der Beziehung. Für die Wissensrepräsentation gibt es verschiedene Formen die sich in ihrer semantischen Vielfalt unterscheiden. Beispiele solcher Formen sind: Taxonomie, Thesaurus, Semantisches Netz. Auf die Taxonomie und das Semantische Netz wird im Folgenden kurz eingegangen.
  
-Die \textit{Taxonomie} ist eine der einfachsten Formen der Wissensrepräsentationen. Die Bestandteile dieser sind Kategorien die in eine Hierarchie aus Ober- und Unterkategorien gesetzt werden. Jede Kante stellt eine \glqq ist auch \grqq Beziehung dar. Jede Unterkategorie ist auch ein Element ihrer Oberkategorie. Die Darstellung kann über einen DAG erfolgen. % Beispiel einer Taxonomie
+Die \textit{Taxonomie} ist eine der einfachsten Formen der Wissensrepräsentationen. Die Bestandteile dieser sind Kategorien die in eine Hierarchie aus Ober- und Unterkategorien gesetzt werden. Jede Kante stellt eine \glqq ist auch \grqq Beziehung dar. Jede Unterkategorie ist auch ein Element ihrer Oberkategorie. Die Darstellung kann über einen DAG erfolgen. % TODO: Beispielbild Taxonomie einfügen
 \textit{Semantische Netze} \glqq sind Graphen die Begriffe und ihre Relationen zueinander darstellen\grqq\footnote{\cite{STU09} S.28}. Im Unterschied zur Taxonomie sind die Namen der Kanten nicht auf eine Bezeichnung festgelegt. Durch diese verschiedenen Kantentypen werden die unterschiedlichen Beziehungen zwischen den Bestandteilen des Netzes beschrieben. Das Semantische Netz weist zudem verschiedene Knotentypen auf. Knoten können Kategorien sein, die sich wie in der Taxonomie in Ober- und Unterkategorien aufteilen. Die Kanten zwischen Knoten, die Kategorien darstellen, sind mit \glqq ist auch\grqq bezeichnet. Knoten in Semantischen Netzen können zudem Werte und konkrete Objekte bestimmter Kategorien repräsentieren. Zudem spezifiziert das Netz bestimmte charakteristische Eigenschaften, die alle Elemente eines Knotens gemeinsam haben. Diese charakteristischen Eigenschaften werden in einem Semantischen Netz durch Beziehungen zu anderen Knoten des Netzes dargestellt. Semantische Netze haben häufig eine \glq Open-World\grq  Annahme. Wenn in einem Semantischen Netz eine Aussage nicht enthalten ist wird nicht automatisch davon ausgegangen, das diese nicht gilt.
+% =================================================================
+% ------------- Erstellung des Klassifikationssystems -------------
+% =================================================================
 \section{Erstellung des Klassifikationssystems}
 \label{Ch:ErstProz:Sec:KS}
-Das \textit{Klassifikationssystem (KS)} soll eine Wissensrepräsentation zu den Eigenschaften von regelungstechnischen Modellen darstellen. Die Aussage über den Umfang des KS, das es nur das Wissen über die Modelle und deren Eigenschaften enthalten soll basiert auf der Überlegung, welches Wissen für den Katalog und eine einheitliche Benennung der Modelleigenschaften benötigt wird. Da der Katalog nur die Modelle enthalten soll und eine Erweiterung auf z.B. Regelungs- und Beobachterentwürfe auslässt liegt es nahe nur das dafür notwendige Wissen in dem KS zu erfassen.
+Das \textit{Klassifikationssystem (KS)} soll eine Wissensrepräsentation zu den Eigenschaften von regelungstechnischen Modellen darstellen. 
+Die Frage: \glqq Welchen Umfang soll das KS haben?\grqq ist eine zentrale Frage für die Erstellung des KS, denn Sie entscheidet welche Wissensbereiche das KS abdecken soll. Die zu der Frage zugehörige Entscheidung basiert auf der Überlegung, welches Wissen nötig ist um eine einheitliche Benennung der Modelleigenschaften zu erreichen. 
 \begin{enumerate}[resume*]
-	\item \label{E.KS_Umfang}Das Klassifikationssystem soll nur den Teilbereich des Wissens der Regelungs- und Steuerungstheorie enthalten, der sich auf regelungstechnische Systeme und Modelle bezieht.
+	\item \label{E.KS_Umfang}Das Klassifikationssystem soll nur den Teilbereich des Wissens der Mathematik, sowie Regelungs- und Steuerungstheorie enthalten, der sich auf regelungstechnische Systeme und Modelle bezieht.
 \end{enumerate}
 
+Eine Folgefrage zu der Entscheidung \ref{E.KS_Umfang} war: Sollen selten verwendete und sehr unbekannte Eigenschaften mit in das KS genommen werden? Dafür spricht zum einen, das auch eher unbekannte Eigenschaften ein Teil des Wissens über Modelle ist und zum anderen, das es im laufenden Prozess der Erstellung des KS, der über den in \ref{Ch:Ergebnisse} vorgestellten Stand des KS hinausgeht, einfacher einmal hinzugefügte Eigenschaften zu entfernen, als solche neu hinzuzufügen. Dagegen spricht, dass das KS mit der Intention erstellt wird, das es aktiv verwendet werden soll. Die Komplexität des KS niedrig zu halten ist dafür eine sinnvolle Sache. Eine Entscheidung zur Beantwortung dieser Frage wurde nicht getroffen.
 
+Des weiteren galt es zu Entscheiden, welche Form der Wissensrepräsentation das KS haben soll. Die dahinter stehende Frage lautet: Welche semantischen Elemente werden benötigt bzw. sollen verwendet werden, um das dazustellende Wissen zu repräsentieren? Die Antworten zu dieser Frage wurden im Prozess der Erstellung gegeben und diese werden von der folgenden Entscheidung zusammen gefasst.
+\begin{enumerate}[resume*]
+	\item \label{E.KS_SemantischesNetz}Das KS soll ein Semantisches Netz sein. % Die grafische Darstellung enthält nur Knoten, die Kategorien oder Objekte darstellen.
+\end{enumerate}
+
+Die Namensgebung ist ein zentrales Element im KS.
+\begin{enumerate}[resume*]
+	\item \label{E.KS_Namensgebung}Die Namen der Eigenschaften im KS sind eindeutig. Es gibt eine festgelegte Menge von Kantennamen, welche die Arten der Beziehung zwischen zwei Knoten definieren.
+\end{enumerate}
+Es kann theoretisch auftreten, das für dieselben Eigenschaften verschiedene Begrifflichkeiten in der Literatur auftauchen. In einem solchen Fall wäre als Name der Begriff zu wählen, der in der Praxis geläufiger ist. Ein Beispiel für einen solchen Fall sind die Begriffe \textit{Zeitvarianz} und \textit{Zeitvariabilität}. Beide Bezeichnen die Eigenschaft, das die Parameter eines Modells Funktionen in Abhängigkeit der Zeit sind. Perspektivisch kann für die Darstellung synonymer Begriffe, das Element \textit{synonym} in die Menge der Kantennamen aufgenommen werden.\\
+Folgend werden zwei besondere Problemstellungen vorgestellt.
+
+% TODO: Abbildung Linearität + Polynom
+Problemstellung: \textbf{Polynom}\\
+Ein Polynom kann abhängig von seiner Ordnung linear oder nichtlinear sein. Um diesen Sachverhalt vollständig im KS abzubilden müsste das Polynom im KS ein Objekt der Kategorien \textit{Linear} und \textit{Strictly\_Non\_Linear} sein, die zwei sich gegenseitig ausschließende Werte der Kategorie \textit{Linearity} sind. In der Anwendung auf ein Modell lässt sich dieser Widerspruch problemlos aufheben. Die durch diese Problemstellung aufgetretene Frage ist also: Sollen Widersprüche im KS auftreten dürfen, wenn diese sich bei Anwendung auf konkrete Modelle aufheben?
+\begin{enumerate}[resume*]
+	\item \label{E.KS_Widersprüche}Innerhalb KS soll es keine Widersprüche geben.
+\end{enumerate}
+Der Grund für die Entscheidung ist, dass es in Anbetracht der Anwendbarkeit für sinnvoller das KS widerspruchsfrei zu gestalten. In Folge dieser Entscheidung wurde das Polynom der Kategorie \textit{Strictly\_Non\_Linear} zugeordnet.
+
+Problemstellung: \textbf{Linearität}\\
+Die Knoten \textit{Linear} und \textit{Strictly\_Non\_Linear} sind Werte des Knotens \textit{Linearity} und gleichzeitig Oberkategorien für weiter Knoten. Das ist für ein Semantisches Netz formal nicht korrekt. Die Intention, dass das KS aktiv verwendet werden soll und der Fakt, das die Eigenschaft der \textit{Linearität} und dessen spezifische Werte \textit{Linear} und \textit{Nichtlinear} häufig in der Regelungstechnik verwendet werden haben zu folgender Entscheidung geführt: 
+\begin{enumerate}[resume*]
+	\item \label{E.KS_Werteknoten}Alle Kategorien haben Wertetypen, die festlegen welche Art von Werten diese bei Anwendung des KS auf ein Modell haben können. Werteknoten können Kategorien sein.
+\end{enumerate}
+Die formale Inkorrektheit in der Struktur des KS wird dadurch bewusst in Kauf genommen.
+
+Folge: Modell mit spezifischer Eigenschaft hat auch alle Eigenschaften entlang des gerichteten Pfades, der im Knoten der spezifischen Eigenschaft startet und in dem einzigen Knoten des KS endet, der keine Oberkategorie hat. Sinnvoll für Aufwandsbegrenzung beim Hinzufügen von neuen Modelle. Nur die Angabe der spezifischsten Eigenschaften in der Metadaten-Datei notwendig. Schlussfolgerung, das die entsprechend verbundenen allgemeineren Eigenschaften auch gelten durch Interpretation des KS möglich. 
 
 
 

@@ -4,23 +4,26 @@
 % - Grund des Kataloges
 % - Prinzipielle Funktion/Nutzen
 % - Erwähnung der Elemente: Ontologie, KS, Implementierung, Anwendung auf Modelle
-% ======= Gedanken ======
-% - Diskussion, was als Modell aufgefasst wird? - ist ein sehr häufiger und sehr elementarer Begriff in der Arbeit
-Inhalt:\\
-Grundgedanken zu Modellkatalog. Ansprüche. Wünsche bzgl. Funktionsumfang und Anwendbarkeit, Prinzip: aufwändiges Hinzufügen, einfaches Anwenden \\
-Ist-Stand: Was gibt es für vergleichbare Kataloge/Projekte? + Bewertung dieser\\
-Beschreibung der aktuellen Situation zur Modellfindung --> Zeitintensive suche nach Publikationen, nur ausgewählte Eigenschaften benannt und untersucht, teils uneinheitliche, unübersichtliche, komplexe Modelldarstellung, Reproduzierbarkeit der Implementierung der Ergebnisse einer Publikation aber auch allein schon des Modells oft sehr schwierig \\
-Grundüberlegungen zu den nützlichen Elementen des Kataloges: \\ Modell als Art Datenbankeintrag (Erschließbarkeit über Suche --> Einheitliche Attributsnamen (--> KS) + Bedeutung, Erweiterbarkeit), \\ Textuelle (semantische?) Modelldarstellung mit einheitlicher Struktur und Modellnotation, \\einheitliche Implementierung die einfache Nutzbarkeit der Modelle erlaubt \\
-Umsetzung der einzelnen Elemente: \\
-Metadata-File: Struktur aus ACKRep übernommen - leicht Angepasst \\
-Klassifikationssystem: Semantische, ontologische Ausarbeitung des auf Modelle anwendbaren Teilbereich der Regelungstheorie, Anforderungen explizit? --> Graphentheorie, Finden einer fachlich korrekten, eindeutigen - in Bezug auf Ontologie selbst und auf Anwendung auf Modelle - und verständlichen Darstellung (Beispiel Polynom --> linear/nicht-linear) und Namensgebung (strictly\_non\_linear)\\ 
-Textuelle Repräsentation: Struktur abgeleitet aus (guten) Publikationen[Referenzen], sinnvolle Informationsreihenfolge, Offenhaltung von Gestaltungsspielraum in Anbetracht des Umfangs der Regelungstechnik --> Vieles nur als Empfehlung enthalten \\ 
-
+%
+% =-- Vor dem Schreiben angedachter Inhalt ---=
+%Inhalt:\\
+%Grundgedanken zu Modellkatalog. Ansprüche. Wünsche bzgl. Funktionsumfang und Anwendbarkeit, Prinzip: aufwändiges Hinzufügen, einfaches Anwenden \\
+%Ist-Stand: Was gibt es für vergleichbare Kataloge/Projekte? + Bewertung dieser\\
+%Beschreibung der aktuellen Situation zur Modellfindung --> Zeitintensive suche nach Publikationen, nur ausgewählte Eigenschaften benannt und untersucht, teils uneinheitliche, unübersichtliche, komplexe Modelldarstellung, Reproduzierbarkeit der Implementierung der Ergebnisse einer Publikation aber auch allein schon des Modells oft sehr schwierig \\
+%Grundüberlegungen zu den nützlichen Elementen des Kataloges: \\ Modell als Art Datenbankeintrag (Erschließbarkeit über Suche --> Einheitliche Attributsnamen (--> KS) + Bedeutung, Erweiterbarkeit), \\ Textuelle (semantische?) Modelldarstellung mit einheitlicher Struktur und Modellnotation, \\einheitliche Implementierung die einfache Nutzbarkeit der Modelle erlaubt \\
+%Umsetzung der einzelnen Elemente: \\
+%Metadata-File: Struktur aus ACKRep übernommen - leicht Angepasst \\
+%Klassifikationssystem: Semantische, ontologische Ausarbeitung des auf Modelle anwendbaren Teilbereich der Regelungstheorie, Anforderungen explizit? --> Graphentheorie, Finden einer fachlich korrekten, eindeutigen - in Bezug auf Ontologie selbst und auf Anwendung auf Modelle - und verständlichen Darstellung (Beispiel Polynom --> linear/nicht-linear) und Namensgebung (strictly\_non\_linear)\\ 
+%Textuelle Repräsentation: Struktur abgeleitet aus (guten) Publikationen[Referenzen], sinnvolle Informationsreihenfolge, Offenhaltung von Gestaltungsspielraum in Anbetracht des Umfangs der Regelungstechnik \\ 
+% =-- Vor dem Schreiben angedachter Inhalt ---=
+%
 %Alternative Struktur: 	Section: Aktueller Stand (der Modellsuche und von Modellkatalogen)
 %						Section: Prozess der Katalogerstellung/ Grund-/Vorgedanken zum Katalog
 %						Subsections: Anforderungen - Kurze Diskussion was sinnvoll, Struktur, Elemente
+% ======= Gedanken ======
+% - Diskussion, was als Modell aufgefasst wird? - ist ein sehr häufiger und sehr elementarer Begriff in der Arbeit
 %TODO: Neue Formulierung für Einstieg in Ch:1
-Das Nachdenken über das Wissen ist für die Erstellung des Modellkataloges, der eine Zusammenstellung und Aufbereitung des Wissens über regelungstechnische Modelle darstellt, ein wichtiger Aspekt gewesen. Der Prozess folgte dabei keiner Referenz. Die Grundlage für die gewählten Vorgehensweisen und getroffene Entscheidungen waren eigene Überlegungen und Schlussfolgerungen aus eigenen Analysen von Publikationen. Im diesem Kapitel wird der Ablauf zur Erstellung des Kataloges beschrieben. Ausgewählte Entscheidungen und Schlussfolgerungen werden vorgestellt. %oder "näher betrachtet."
+Der in \ref{Ch:Ergebnisse} vorgestellte Katalog und dem dazugehörigen Klassifikationssystem ist das Resultat vieler Entscheidungen. Dem ist eine Recherche von Literatur mit regelungstechnischen Modellen voraus gegangen. In diesem Kapitel wird zuerst in \ref{Ch:ErstProz:Sec:CurrentState} der aktuelle Stand der Modellrecherche und vorhandener Modellsammlungen vorgestellt. Danach werden in \ref{Ch:ErstProz:Sec:Anforderungen} die Anforderungen für den Katalog formuliert und getroffene Entscheidungen vorgestellt, die zur Erfüllung der Anforderungen beitragen sollen. Bevor in \ref{Ch:ErstProz:Sec:KS} die wichtigsten Entscheidungen zur Erstellung des Klassifikationssystems vorgestellt werden, gibt es in \ref{Ch:ErstProz:Sec:Wissensrepräsentaionen} noch eine Einführung zu Wissensrepräsentationen und die Graphentheorie.   
 
 % Enthält: Ist-Stand: Suche + Kataloge 
 \section{Aktueller Stand}
@@ -79,7 +82,7 @@ In \cite{LIYU13} liegt der Fokus auf der menschlichen Lesbarkeit. Die Modellglei
 
 Beide Zusammenstellungen verwenden eine einheitliche Form für die Modellrepräsentation. Zudem findet bei beiden eine Klassifikation der Modelle statt, die sich allerdings in Umfang und Inhalt unterscheiden.
 \section{Anforderungen an den Katalog} % Alternativer Titel: Prozess der Katalogerstellung
-\label{Ch:ErstProz:Sec:Struktur}
+\label{Ch:ErstProz:Sec:Anforderungen}
 \textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
 % =========================================
 % ------------- Anforderungen -------------
@@ -164,19 +167,19 @@ Die Frage: \glqq Welchen Umfang soll das KS haben?\grqq ist eine zentrale Frage 
 	\item \label{E.KS_Umfang}Das Klassifikationssystem soll nur den Teilbereich des Wissens der Mathematik, sowie Regelungs- und Steuerungstheorie enthalten, der sich auf regelungstechnische Systeme und Modelle bezieht.
 \end{enumerate}
 
-Eine Folgefrage zu der Entscheidung \ref{E.KS_Umfang} war: Sollen selten verwendete und sehr unbekannte Eigenschaften mit in das KS genommen werden? Dafür spricht zum einen, das auch eher unbekannte Eigenschaften ein Teil des Wissens über Modelle ist und zum anderen, das es im laufenden Prozess der Erstellung des KS, der über den in \ref{Ch:Ergebnisse} vorgestellten Stand des KS hinausgeht, einfacher einmal hinzugefügte Eigenschaften zu entfernen, als solche neu hinzuzufügen. Dagegen spricht, dass das KS mit der Intention erstellt wird, das es aktiv verwendet werden soll. Die Komplexität des KS niedrig zu halten ist dafür eine sinnvolle Sache. Eine Entscheidung zur Beantwortung dieser Frage wurde nicht getroffen.
+Eine Folgefrage zu der Entscheidung \ref{E.KS_Umfang} war: Sollen selten verwendete und eher unbekannte Eigenschaften mit in das KS genommen werden? Dafür spricht zum einen, das auch eher unbekannte Eigenschaften zu dem in Entscheidung \ref{E.KS_Umfang} benannten Wissensbereich dazugehören und das es für die weitere, zukünftige Ausarbeitung des KS einfacher ist einmal hinzugefügte Eigenschaften zu entfernen, als diese neu zu finden. Dagegen spricht, dass das KS mit der Intention erstellt wird aktiv verwendet zu werden. Die Komplexität des KS niedrig zu halten ist dafür sinnvoll. Eine Entscheidung zu dieser Frage wurde bisher nicht getroffen.
 
-Des weiteren galt es zu Entscheiden, welche Form der Wissensrepräsentation das KS haben soll. Die dahinter stehende Frage lautet: Welche semantischen Elemente werden benötigt bzw. sollen verwendet werden, um das dazustellende Wissen zu repräsentieren? Die Antworten zu dieser Frage wurden im Prozess der Erstellung gegeben und diese werden von der folgenden Entscheidung zusammen gefasst.
+Des weiteren galt es zu Entscheiden, welche Form der Wissensrepräsentation das KS haben soll. Die dahinter stehende Frage lautet: Welche semantischen Elemente werden benötigt bzw. sollen verwendet werden, um das darzustellende Wissen zu repräsentieren? Die Antworten zu dieser Frage wurden im Prozess der Erstellung gegeben. Die folgenden Entscheidung fasst diese zusammen.
 \begin{enumerate}[resume*]
 	\item \label{E.KS_SemantischesNetz}Das KS soll ein Semantisches Netz sein. % Die grafische Darstellung enthält nur Knoten, die Kategorien oder Objekte darstellen.
 \end{enumerate}
 
 Die Namensgebung ist ein zentrales Element im KS.
 \begin{enumerate}[resume*]
-	\item \label{E.KS_Namensgebung}Die Namen der Eigenschaften im KS sind eindeutig. Es gibt eine festgelegte Menge von Kantennamen, welche die Arten der Beziehung zwischen zwei Knoten definieren.
+	\item \label{E.KS_Namensgebung}Die Namen der Eigenschaften im KS sind eindeutig. Es gibt eine definierte Menge von Kantennamen, welche die Arten der Beziehung zwischen zwei Knoten definieren.
 \end{enumerate}
-Es kann theoretisch auftreten, das für dieselben Eigenschaften verschiedene Begrifflichkeiten in der Literatur auftauchen. In einem solchen Fall wäre als Name der Begriff zu wählen, der in der Praxis geläufiger ist. Ein Beispiel für einen solchen Fall sind die Begriffe \textit{Zeitvarianz} und \textit{Zeitvariabilität}. Beide Bezeichnen die Eigenschaft, das die Parameter eines Modells Funktionen in Abhängigkeit der Zeit sind. Perspektivisch kann für die Darstellung synonymer Begriffe, das Element \textit{synonym} in die Menge der Kantennamen aufgenommen werden.\\
-Folgend werden zwei besondere Problemstellungen vorgestellt.
+Für dieselbe Eigenschaft können in seltenen Fällen verschiedene Begriffe in der Literatur auftauchen. In einem solchen Fall soll der in der Praxis geläufigere Begriff verwendet werden. Ein Beispiel für einen solchen Fall sind die Begriffe \textit{Zeitvarianz} und \textit{Zeitvariabilität}. Beide Bezeichnen die Eigenschaft, das die Parameter eines Modells Funktionen in Abhängigkeit der Zeit sind. Perspektivisch kann für solche Fälle, das Element \textit{synonym} in die Menge der Kantennamen aufgenommen werden.\\
+Folgend werden zwei Problemstellungen vorgestellt, die ursächlich für die zwei nächsten Entscheidungen waren.
 
 % TODO: Abbildung Linearität + Polynom
 Problemstellung: \textbf{Polynom}\\
@@ -193,7 +196,7 @@ Die Knoten \textit{Linear} und \textit{Strictly\_Non\_Linear} sind Werte des Kno
 \end{enumerate}
 Die formale Inkorrektheit in der Struktur des KS wird dadurch bewusst in Kauf genommen.
 
-Folge: Modell mit spezifischer Eigenschaft hat auch alle Eigenschaften entlang des gerichteten Pfades, der im Knoten der spezifischen Eigenschaft startet und in dem einzigen Knoten des KS endet, der keine Oberkategorie hat. Sinnvoll für Aufwandsbegrenzung beim Hinzufügen von neuen Modelle. Nur die Angabe der spezifischsten Eigenschaften in der Metadaten-Datei notwendig. Schlussfolgerung, das die entsprechend verbundenen allgemeineren Eigenschaften auch gelten durch Interpretation des KS möglich. 
+
 
 
 

@@ -12,8 +12,7 @@ import nxv
 
 def main():
     # Names of the yml files, which contain the Graphs of the KS
-    KS_file_names = ["KS_Tree_Main.yml", "KS_Tree_Math_Representation.yml",
-                          "KS_Tree_Model_Attributes.yml", "KS_Tree_Usage.yml"]
+    KS_file_names = ["Katalogstruktur.yml"]
     # File Names for drawn graphs
     drawn_file_names = [file_name[:-4] for file_name in KS_file_names]
 
@@ -35,14 +34,15 @@ def main():
     # define style entries for the graph
     
     graph_style = nxv.Style(
-        graph={"rankdir": "BT"},
-        node=lambda u, d: {"shape": "circle", "fixedsize": "shape", 
-                              "width": 1, "fontsize": 10, 
-                              "label": get_node_label(u, d) },
+        graph={"rankdir": "RL", "size":"50!"},
+        # node=lambda u, d: {"shape": "circle", "fixedsize": "shape", 
+        #                       "width": 1, "fontsize": 10, 
+        #                       "label": get_node_label(u, d) },
+        node=lambda u, d: get_node_style(u, d),
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          
         edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
-                     "label": get_edge_label(u, v, d, 
+                                "label": get_edge_label(u, v, d, 
                                              relation_kw=edge_name_kw),}       
     )
     # write files   
@@ -79,7 +79,7 @@ def parse_yaml(path, file_name):
     for key in key_list:
         new_entry = [key] + yml_parsed[key] 
         node_list.append(new_entry)
-        
+
     return node_list
 
 
@@ -110,7 +110,7 @@ def interpret_ks_entry(entry, pre_node_kw="Pre_Node",
                     # skip this Node
                     continue
                 # define edge (starting node, ending node)
-                edge_tuple = (current_node_name, key[pre_node_kw])
+                edge_tuple = (key[pre_node_kw], current_node_name)
                 edge_list.append(edge_tuple)
             # Case: Attribute is Edge_Note
             if len(key_list) == 1 and edge_note_kw in key_list:
@@ -142,6 +142,15 @@ def get_node_label(u=None, d=None):
     return node_label
 
 
+    # ----------- GET_NODE_STYLE ---------- #
+
+def get_node_style(u=None, d=None):
+    node_style_dict = {"shape": d["Node_Shape"], "fixedsize": False, 
+                              "width": 3, "fontsize": 30, 
+                              "label": d["label"] }
+    return node_style_dict
+
+
     # ----------- GET_EDGE_ATTRIBUTES ---------- #
     
 def get_edge_label(u=None, v=None, d=None, relation_kw="Relation"):
@@ -151,7 +160,6 @@ def get_edge_label(u=None, v=None, d=None, relation_kw="Relation"):
     
     :return: attribute dict for the graph drawing
     """
-    print(u, v, d)
     relation_label = None
     # get label for the relation from edge attributes
     if d is not None:
@@ -176,9 +184,9 @@ def write_graph_to_file(graph, graph_style, file_name):
     :return: None
     """
     # create svg data
-    svg_data = nxv.render(graph, graph_style, format="svg")
+    svg_data = nxv.render(graph, graph_style, format="png")
     # Name of the file, in which the svg data shall be written
-    svg_name = file_name + ".svg"
+    svg_name = file_name + ".png"
     # write svg file
     with open(svg_name, "wb") as svgfile:
         svgfile.write(svg_data)
@@ -203,6 +211,16 @@ def add_nodes_from_yml(graph, graph_file_name, relation_kw):
     for entry in nodes_lst:
         edges_list = interpret_ks_entry(entry, edge_note_kw=relation_kw)
         graph.add_edges_from(edges_list)
+        # add Node_Shape attribute to Nodes
+        for element in entry:
+            if isinstance(element, dict):
+                shape_kw = "Node_Shape"
+                if shape_kw in element.keys():
+                    try:
+                        graph.nodes[entry[0]][shape_kw] = element[shape_kw]
+                    except KeyError:
+                        graph.add_node(entry[0], Node_Shape=element[shape_kw])
+        
     # add label attribute to every node
     for node in graph.nodes:
         # get node name and convert to string
@@ -211,7 +229,6 @@ def add_nodes_from_yml(graph, graph_file_name, relation_kw):
         node_label.strip()
         # replace underscore with underscore+\n
         node_label = node_label.replace("_", "_\n")
-        print("Label: ", node_label)
         # add label as node attribute
         graph.nodes[node]["label"] = node_label
     return

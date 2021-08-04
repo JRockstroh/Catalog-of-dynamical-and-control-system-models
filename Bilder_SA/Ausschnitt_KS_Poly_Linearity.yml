@@ -1,0 +1,22 @@
+---
+Strictly_Non_Linear: # Nicht-Linear
+    - Type: boolean
+    - Pre_Node: Linearity_Status
+    - Edge_Name: Value of
+    
+Polynomial: # grad 1 = linear
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: "if Order: >= 2"
+    - Pre_Node: Linear
+    - Edge_Name: "if Order: 1"
+    
+Linearity_Status:
+    - Type: None
+    - Pre_Node: None
+    - Edge_Name: Value of
+    
+Linear:
+    - Type: boolean
+    - Pre_Node: Linearity_Status
+    - Edge_Name: Value of

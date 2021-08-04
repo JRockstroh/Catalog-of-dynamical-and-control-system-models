@@ -32,7 +32,7 @@ Linearity_Status:
 Linear:
     - Type: boolean
     - Pre_Node: Linearity_Status
-    - Edge_Name: Type of
+    - Edge_Name: Value of
 
 Linearized:
     - Type: boolean
@@ -47,7 +47,7 @@ Affinity: # affines System --> lineares system?
 Strictly_Non_Linear: # Nicht-Linear
     - Type: boolean
     - Pre_Node: Linearity_Status
-    - Edge_Name: Type of
+    - Edge_Name: Value of
     
 Polynomial: # grad 1 = linear
     - Type: boolean

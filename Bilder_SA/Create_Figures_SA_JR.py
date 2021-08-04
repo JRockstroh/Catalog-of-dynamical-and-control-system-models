@@ -12,38 +12,40 @@ import nxv
 
 def main():
     # Names of the yml files, which contain the Graphs of the KS
-    KS_file_names = ["Katalogstruktur.yml"]
+    KS_file_names = ["Katalogstruktur.yml", "Ausschnitt_KS_Poly_Linearity.yml"]
     # File Names for drawn graphs
     drawn_file_names = [file_name[:-4] for file_name in KS_file_names]
 
     # create Multi-Directed-Graphs
     KS_graph_list = [nx.MultiDiGraph() for i in KS_file_names]
+    # Graph Directions
+    direction_list = [True, False]
     # keyword of the yml file for the Edge name
     edge_name_kw = "Edge_Name"
     # create list of graphs, files, drawn file names
     KS_lists = []
     for i in range(len(KS_file_names)):
         sublist = [KS_graph_list[i], KS_file_names[i], 
-                   drawn_file_names[i]]
+                   drawn_file_names[i], direction_list[i]]
         KS_lists.append(sublist)
     # fill Graphs
     for sublist in KS_lists:
-        add_nodes_from_yml(sublist[0], sublist[1], edge_name_kw)
+        
+        add_nodes_from_yml(sublist[0], sublist[1], edge_name_kw, 
+                           direction=sublist[3])
 
     # draw graph and write it to file
     # define style entries for the graph
     
     graph_style = nxv.Style(
-        graph={"rankdir": "RL", "size":"50!"},
-        # node=lambda u, d: {"shape": "circle", "fixedsize": "shape", 
-        #                       "width": 1, "fontsize": 10, 
-        #                       "label": get_node_label(u, d) },
+        graph={"rankdir": "RL"},
         node=lambda u, d: get_node_style(u, d),
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          
         edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
                                 "label": get_edge_label(u, v, d, 
-                                             relation_kw=edge_name_kw),}       
+                                             relation_kw=edge_name_kw),
+                                "fontsize":15, }       
     )
     # write files   
     for sublist in KS_lists:
@@ -86,7 +88,7 @@ def parse_yaml(path, file_name):
     # ----------- INTERPRET_KS_ENTRY ---------- #
     
 def interpret_ks_entry(entry, pre_node_kw="Pre_Node", 
-                       edge_note_kw="Edge_Note"):
+                       edge_note_kw="Edge_Note", direction=True):
     """Interpreter for an Entry of the KS. Currently only recognizes Edges.
     
     :param entry: parsed entry of one Node of the KS
@@ -111,6 +113,8 @@ def interpret_ks_entry(entry, pre_node_kw="Pre_Node",
                     continue
                 # define edge (starting node, ending node)
                 edge_tuple = (key[pre_node_kw], current_node_name)
+                if not direction:
+                    edge_tuple = (current_node_name, key[pre_node_kw])
                 edge_list.append(edge_tuple)
             # Case: Attribute is Edge_Note
             if len(key_list) == 1 and edge_note_kw in key_list:
@@ -145,9 +149,16 @@ def get_node_label(u=None, d=None):
     # ----------- GET_NODE_STYLE ---------- #
 
 def get_node_style(u=None, d=None):
-    node_style_dict = {"shape": d["Node_Shape"], "fixedsize": False, 
+    
+    key_list = d.keys()
+    if "Node_Shape" in key_list:
+        node_style_dict = {"shape": d["Node_Shape"], "fixedsize": False, 
                               "width": 3, "fontsize": 30, 
                               "label": d["label"] }
+    else:
+        node_style_dict = {"shape": "circle", "fixedsize": "shape", 
+                              "width": 1.4, "fontsize": 20, 
+                              "label": d["label"]}        
     return node_style_dict
 
 
@@ -184,9 +195,9 @@ def write_graph_to_file(graph, graph_style, file_name):
     :return: None
     """
     # create svg data
-    svg_data = nxv.render(graph, graph_style, format="png")
+    svg_data = nxv.render(graph, graph_style, format="pdf")
     # Name of the file, in which the svg data shall be written
-    svg_name = file_name + ".png"
+    svg_name = file_name + ".pdf"
     # write svg file
     with open(svg_name, "wb") as svgfile:
         svgfile.write(svg_data)
@@ -195,7 +206,7 @@ def write_graph_to_file(graph, graph_style, file_name):
 
     # ----------- yml_to_graph ---------- #
     
-def add_nodes_from_yml(graph, graph_file_name, relation_kw):
+def add_nodes_from_yml(graph, graph_file_name, relation_kw, direction=True):
     """Takes a yml file, which contains the Information of a graph, reads it 
     and adds them to a given networkx graph
     :param graph: Networkx Graph
@@ -210,6 +221,9 @@ def add_nodes_from_yml(graph, graph_file_name, relation_kw):
     # create edges (and their according nodes)
     for entry in nodes_lst:
         edges_list = interpret_ks_entry(entry, edge_note_kw=relation_kw)
+        if not direction:
+            edges_list = interpret_ks_entry(entry, edge_note_kw=relation_kw, 
+                                            direction=direction)
         graph.add_edges_from(edges_list)
         # add Node_Shape attribute to Nodes
         for element in entry:

@@ -36,7 +36,6 @@ Mathematical_Attribute: #  Eigenschaften der Repräsentation
     - Time_Continuity
     - DC_Hybrid # Time Discrete + Continuous Hybrid System_Attributes
     - Time_Variance
-    - Time_Variability # Zeitabhängigkeit von Parametern
     - Singularities # list
     # ???
     - SISO_Function # Scalar_Function? -- General_Transfer_Function?

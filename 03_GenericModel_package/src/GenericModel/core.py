@@ -64,7 +64,8 @@ class GenericModel:
         Notes:
         =====         
         The dimension of an existing model-object can't be changed.
-        The parameters of an existing model-object can be changed.
+        The parameters and input function of an existing model-object 
+        can be changed.
 
         """
         # Initialize all Parameters of the Model-Object with None    

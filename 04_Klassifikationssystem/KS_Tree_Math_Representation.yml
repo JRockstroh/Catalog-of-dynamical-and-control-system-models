@@ -9,14 +9,19 @@ Property_Of_Mathematical_Representation: #  Eigenschaften der Repräsentation
     - Pre_Node: None
     - Edge_Name: None
 
-DAE: # Differential-Algebraic-Equation
+General_Function:
     - Type: boolean
     - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a
+
+DAE: 
+    - Type: boolean
+    - Pre_Node: General_Function
     - Edge_Name: is a
     
 General_ODE:
     - Type: boolean
-    - Pre_Node: Property_Of_Mathematical_Representation
+    - Pre_Node: General_Function
     - Edge_Name: is a
     
 Explicit_First_Order_ODE:
@@ -26,7 +31,7 @@ Explicit_First_Order_ODE:
     
 Linearity_Status:
     - Type: None
-    - Pre_Node: Explicit_First_Order_ODE
+    - Pre_Node: General_Function
     - Edge_Name: Value of
     
 Linear:
@@ -52,9 +57,7 @@ Strictly_Non_Linear: # Nicht-Linear
 Polynomial: # grad 1 = linear
     - Type: boolean
     - Pre_Node: Strictly_Non_Linear
-    - Edge_Name: "if Order: >= 2"
-    - Pre_Node: Linear
-    - Edge_Name: "if Order: 1"
+    - Edge_Name: is a
     
 Bilinear:
     - Type: boolean
@@ -103,7 +106,7 @@ Parameter_Linear:
     
 PDE:
     - Type: boolean
-    - Pre_Node: Property_Of_Mathematical_Representation
+    - Pre_Node: General_Function
     - Edge_Name: is a
     
 Complex:

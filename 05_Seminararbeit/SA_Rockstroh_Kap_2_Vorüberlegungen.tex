@@ -28,10 +28,12 @@ Der in \ref{Ch:Ergebnisse} vorgestellte Katalog und dem dazugehörigen Klassifik
 % ===================================================================
 \section{Dynamische Systeme und Modelle}
 \label{Ch:Vorbetrachtung:Sec:SystemeModelle}
-Die Begriffe \textit{System} und \textit{Modell} kommen in der regelungstechnischen Literatur häufig vor. Die Bedeutung kann, je nachdem in welchen Anwendungsgebiet diese verwendet werden, stark variieren. Und selbst innerhalb regelungstechnischer Literatur werden beide Begriffe eher selten extra definiert oder referenziert, sondern auf Basis eines intuitiven Verständnisses verwendet. Für diese Arbeit, die den Begriff \textit{Systemmodelle} schon im Titel trägt, sind beide Begriffe bedeutsam, weshalb an dieser Stelle beschrieben wird wie diese Begriffe in dieser Arbeit verstanden werden sollen. 
+Die Begriffe \textit{System} und \textit{Modell} kommen in der regelungstechnischen Literatur häufig vor. Die Bedeutung kann, je nachdem in welchen Anwendungsgebiet diese verwendet werden, stark variieren. Und selbst innerhalb regelungstechnischer Literatur werden beide Begriffe eher selten extra definiert oder referenziert, sondern auf Basis eines intuitiven Verständnisses verwendet. Für diese Arbeit, die den Begriff \textit{Systemmodelle} schon im Titel trägt, sind beide Begriffe bedeutsam, weshalb an dieser Stelle beschrieben wird wie diese Begriffe in dieser Arbeit verstanden werden sollen.
 
-Ein \textit{System} ist eine Menge $M$ von realen Entitäten $e$, in der jedes Element $e_i$ der Menge $M$ mit mindestens einem anderen Element $e_j$ aus derselben Menge $M$ in einer sich gegenseitig beeinflussenden Beziehung steht.\\ % extra schreiben, das diese nicht zusammengesetzt existieren müssen -> Ein System ist auch ein System, wenn es nur Gedacht ist solange die Gedachten Elemente reale Entitäten sind.
-Der eingeführte Begriff der \textit{realen Entität} bezeichnet dabei einen nachweisbaren Bestandteil der Realität. Eine reale Entität kann also letztendlich sehr viel sein. Materie jeglicher Art, technische Konstruktionen usw. aber auch Entitäten, welche nur durch ihre Interaktion mit Materie sichtbar werden, wie z.\,B. Kräfte und Spannungen zählen dazu. 
+Ein \textit{System} ist nach der Norm \textit{DIN IEC 60050-351:2014-09}\footnote{siehe \cite{DINIEC60050-351} Seite 21} eine \glqq Menge miteinander in Beziehung stehender Elemente, die in einem bestimmten Zusammenhang als Ganzes gesehen und als von ihrer Umgebung abgegrenzt betrachtet werden\grqq.\\
+Des weiteren wird in den Anmerkungen der Norm ausgeführt, das die Elemente eines Systems \glqq natürliche oder künstliche Gegenstände sowie Arten von Denkvorgängen und deren Ergebnisse\grqq sein können und dass das System \glqq von der Umgebung und von den anderen äußeren Systemen durch eine gedachte Hüllfläche abgegrenzt betrachtet\grqq wird.
+
+Ein System wird in dieser Arbeit als \textit{reales System} bezeichnet, wenn dessen Element nachweisbare Bestandteile der Realität sind.
 
 \textit{Modelle} sind (nach Stachowiak\cite{STA73} S. 131ff) Abbildungen oder Repräsentationen natürlicher oder künstlicher Originale, welche selbst wieder Modelle sein können(\textit{Abbildungsmerkmal}). Zudem haben Modelle immer nur eine Auswahl der Attribute des Originals, welche dem Modellersteller und/oder dem Modellnutzer als relevant erscheinen(\textit{Verkürzungsmerkmal}) und Modelle dienen einem bestimmten Zweck(\textit{pragmatisches Merkmal}). 
 
@@ -39,6 +41,14 @@ Ein System oder Modell ist \textit{dynamisch}, wenn sich dessen Werte mit der Ze
 
 Modelle von Systemen(\textit{Systemmodelle}) bestehen in der Regelungstechnik zum einen aus einer graphischen Repräsentation des Systems, die wiederum aus definierten Elementen besteht welche reale Entitäten des Systems repräsentieren und zum anderen aus einem mathematischen Modell, welches das Verhalten des Systemmodells beschreibt. Zu einem System kann es verschiedene Modelle in Form einer graphischen Repräsentation geben, zu denen es wiederum verschiedene mathematische Modelle geben kann(vgl. \cite{LUD95} Sektion 2.1).\\
 Ein \textit{mathematisches Modell} ist ein Modell das die Anwendung mathematischer Methoden erlaubt(\cite{GRVO16}, S.9). Das mathematische Modell ist in der Regelungstechnik normalerweise ein System von Gleichungen. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Systeme_Modelle_Math_Beschreibung}
+	\caption{Zusammenhang Systeme, Modelle und mathematische Modelle}
+	\label{fig:SysModelleSkizze}
+\end{figure}
+
 
 Zudem gibt es in der Regelungstechnik Modelle, die ausschließlich aus dem mathematischen Modell, also einer Beschreibung des dynamischen Verhaltens, bestehen. Diese Modelle repräsentieren kein Original und werden in dieser Arbeit als \textit{abstrakte Modelle} bezeichnet. Abstrakte Modelle lassen sich in den obigen Modellbegriff integrieren, indem gesagt wird das für jedes abstrakte Modell ein System gedacht werden kann, welches nicht bekannt ist. 
 
@@ -127,7 +137,7 @@ Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass 
 	\item \label{A.Implementierung}Die Modelle sollen möglichst implementiert vorliegen. Die Implementierung soll einfach verwendbar sein.
 	\item \label{A.Erweiterbarkeit}Der Katalog soll erweiterbar sein. % durch externe Personen/Nutzer
 \end{enumerate}
-%Evtl Hinweis auf FAIR-Prinzipien? + Ergänzung das (einzelne) Erfüllung dieser als Zufall einzuordnen ist 
+
 % ==========================================
 % ------------- Entscheidungen -------------
 % ==========================================
@@ -168,6 +178,12 @@ Die Entscheidungen \ref{E.Textdok} und \ref{E.Implementation} haben als Folge, d
 \begin{enumerate}[resume*]
 	\item \label{E.Vorlagen}Für Implementation und Textrepräsentation sollen Vorlagen erstellt werden, welche die repetitiven Elemente, wie z.B. die Struktur, dieser enthält. 
 \end{enumerate}
+
+Für die Anforderungen \ref{A.Findbarkeit} und \ref{A.Erweiterbarkeit} ist es wichtig einen einfachen Zugang zu den Daten des Kataloges zu schaffen, denn zum einen werden für die individuelle Nutzung der Modelle die Dokumentation und Implementation als lokale Daten benötigt und zum anderen werden für das Anlegen neuer Modelle die Vorlagen lokal vorliegen. 
+\begin{enumerate}[resume*]
+	\item \label{E.Git}Der Katalog als ein Git-Repositorium angelegt werden.
+\end{enumerate}
+Git ist eine dezentrale Versionsverwaltungssoftware, die sich für die Arbeit an textbasierten Dateistrukturen bewährt hat. Ein Git-Repositorium(\textit{Git-Repo}) ist eine Menge von versionsverwalteter Informationen und steht üblicherweise für ein Dateisystem bestehend aus Ordnern und Dateien. Ein Git-Repo kann als lokale Kopie heruntergeladen und lokal editiert werden. Die Änderungen einer lokal bearbeiteten Kopie eines Git-Repos können auf das originale oder offizielle Git-Repo übertragen werden. Das geschieht in Form einer Anfrage zur Übertragung (\textit{Pull-Request}), welche durch die Inhaber des offiziellen Repos geprüft wird. Wird eine Pull-Request angenommen, so werden die im lokalen Repo vorgenommenen Änderungen auf in das offizielle Repo übertragen(vgl. \cite{KNHE20a} Abschnitt 2.1).
 
 Die folgenden Abschnitte behandeln den Prozess um das Wissen über Modelle und deren Modelleigenschaften formal darzustellen.
 % ===================================================
@@ -222,7 +238,6 @@ Die Begriffe \textit{Linearität}, \textit{Linear} und \textit{Nichtlinear} werd
 Das ein Knoten mehr als einen Typ haben kann stellt eine Abweichung in der Formulierung von Semantischen Netzen dar. Diese wurde in das KS eingeführt, weil es für die Abbildung des geforderten Wissens und für den gewünschten Praxisbezug des Klassifikationssystems als sinnvoll erachtet wurde.\\
 Der Knoten zur Nichtlinearität wurde mit \textit{Strictly\_Non\_Linear} bezeichnet, weil die Bezeichnung \textit{Non\_Linear} oder \textit{Nonlinear}, bei der ausschließlichen Betrachtung des Begriffs, auch so interpretiert werden kann, dass ein mit dieser Eigenschaft versehenes Modell nicht zwangsweise Linear ist. So interpretiert, könnte ein Modell mit dieser Eigenschaft auch Linear sein. Um diese Interpretation zu vermeiden wurde die Bezeichnung \textit{Strictly\_Non\_Linear} gewählt, welche die Eigenschaft des nicht linearen betonen soll.\\ 
 
-%TODO: Textgröße im Bild fixen
 %BILD: Polynom verworfene Umsetzung
 %==================================
 \begin{figure}[H]

@@ -31,28 +31,27 @@
 	
 	\subsection{Nomenclature for Derivation} % SHOULD 
 	
-	
 	%%%%%%%%%%%%%%%%%%%%%% STATE + INPUT VECTOR | MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%
+	
 	\section{Model Equations} % MUST
 	
 	State Vector and Input Vector:
 	\begin{align*}
-		\underline{x} &= (I \ U )^T \\
-		\underline{u} &= d
+		\underline{x} &= (x_1 \ x_2)^T = (I \ U )^T \\
+		\underline{u} &= u_1 = d
 	\end{align*}
 	
-	\noindent System Equations:	
+	\noindent Model Equations:	
 	\begin{subequations}
 	\begin{align}
-		\dot{x}_1 &= -(1 - d) \frac{1}{L} x_2 + \frac{U_{DC}}{L}\\    
-		\dot{x}_2 &= (1 - d) \frac{1}{C} x_1 - \frac{1}{RC} x_2  
+		\dot{x}_1 &= -(1 - u_1) \frac{1}{L} x_2 + \frac{U_{DC}}{L}\\    
+		\dot{x}_2 &= (1 - u_1) \frac{1}{C} x_1 - \frac{1}{RC} x_2  
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	\noindent
-	Inputs: $d$ 
-	\\
 	Parameters:$ R, ~C, ~L, ~U_{DC}$ % variables with constant, predefined value
 	\\
 	Outputs: $U$ % MAY

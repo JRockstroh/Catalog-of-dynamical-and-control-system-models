@@ -14,3 +14,212 @@ Controllability:
     - Type: Enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
+    
+Bifurcation:
+    - Type: Enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Local_Controllability:
+    - Type: Enum
+    - Pre_Node: Controllability
+    - Edge_Name: is a
+    
+Global_Controllability:
+    - Type: Enum
+    - Pre_Node: Local_Controllability
+    - Edge_Name: is a
+    
+Full_Controllability:
+    - Type: Enum
+    - Pre_Node: Controllability
+    - Edge_Name: is a
+    
+Stabilizability:
+    - Type: Enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+BIBO_Stability:
+    - Type: Enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+BIBS_Stability:
+    - Type: Enum
+    - Pre_Node: BIBO_Stability
+    - Edge_Name: is a
+    
+Reachability:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Observability:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Local_Observability:
+    - Type: enum
+    - Pre_Node: Observability
+    - Edge_Name: is a
+    
+Global_Observability:
+    - Type: enum
+    - Pre_Node: Local_Observability
+    - Edge_Name: is a
+    
+Detectability:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+States:
+    - Type: uint
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Equilibrium_Points:
+    - Type: list
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Local_Attractivity:
+    - Type: list
+    - Pre_Node: Equilibrium_Points
+    - Edge_Name: is a
+    
+Global_Attractivity:
+    - Type: list
+    - Pre_Node: Local_Attractivity
+    - Edge_Name: is a
+
+Stability:
+    - Type: list
+    - Pre_Node: Equilibrium_Points
+    - Edge_Name: is a
+    
+Local_Lyapunov_Stability:
+    - Type: list
+    - Pre_Node: Stability
+    - Edge_Name: is a
+    
+Global_Lyapunov_Stability:
+    - Type: list
+    - Pre_Node: Local_Lyapunov_Stability
+    - Edge_Name: is a
+
+Local_Asymptotic_Stability:
+    - Type: list
+    - Pre_Node: Local_Lyapunov_Stability
+    - Edge_Name: is a
+    
+Global_Asymptotic_Stability:
+    - Type: list
+    - Pre_Node: Local_Asymptotic_Stability
+    - Edge_Name: is a
+    - Pre_Node: Global_Lyapunov_Stability
+    - Edge_Name: is a
+    
+Local_Exponetial_Stability:
+    - Type: list
+    - Pre_Node: Local_Asymptotic_Stability
+    - Edge_Name: is a
+    
+Global_Exponential_Stability:
+    - Type: list
+    - Pre_Node: Local_Exponetial_Stability
+    - Edge_Name: is a
+    - Pre_Node: Global_Asymptotic_Stability
+    - Edge_Name: is a
+
+Limit_Cycle: # existance of (possible) limit cycles in the system
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Stable_Limit_Cycle: # semi-stable and instable are of same low importance for control task so they got summarized into the False-Value of this Attribute
+    - Type: enum
+    - Pre_Node: Limit_Cycle
+    - Edge_Name: is a
+    
+Driftless:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Dissipative:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+    
+Passive:
+    - Type: enum
+    - Pre_Node: Dissipative
+    - Edge_Name: is a
+    
+Lossless: 
+    - Type: enum
+    - Pre_Node: Dissipative
+    - Edge_Name: is a
+    
+Reciprocal:
+    - Type: enum
+    - Pre_Node: Dissipative
+    - Edge_Name: is a
+    
+Reversible:
+    - Type: enum
+    - Pre_Node: Dissipative
+    - Edge_Name: is a
+    
+Relaxative:
+    - Type: enum
+    - Pre_Node: Dissipative
+    - Edge_Name: is a
+
+Autonomous:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Chaotical_Behaviour: 
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Minimumphase:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Domain:
+    - Type: enum
+    - Pre_Node: Model_Attribute
+    - Edge_Name: is a
+
+Physical_Domain: 
+    - Type: boolean
+    - Pre_Node: Domain
+    - Edge_Name: is a
+
+Chemical_Domain:
+    - Type: boolean
+    - Pre_Node: Domain
+    - Edge_Name: is a
+
+Electrical_Domain: 
+    - Type: boolean
+    - Pre_Node: Domain
+    - Edge_Name: is a
+
+Thermical_Domain:
+    - Type: boolean
+    - Pre_Node: Domain
+    - Edge_Name: is a
+
+Artifical_Domain: 
+    - Type: boolean
+    - Pre_Node: Domain
+    - Edge_Name: is a

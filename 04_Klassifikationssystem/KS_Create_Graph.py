@@ -49,6 +49,12 @@ def main():
     for sublist in KS_lists:
         write_graph_to_file(sublist[0], graph_style, sublist[2])
     
+    nodenumbers = [len(entry.nodes()) for entry in KS_graph_list] 
+    nodes = 0
+    for entry in nodenumbers:
+        nodes = nodes + entry
+    
+    print("Number of Nodes: ", nodes)
     
     return
     
@@ -151,7 +157,6 @@ def get_edge_label(u=None, v=None, d=None, relation_kw="Relation"):
     
     :return: attribute dict for the graph drawing
     """
-    print(u, v, d)
     relation_label = None
     # get label for the relation from edge attributes
     if d is not None:

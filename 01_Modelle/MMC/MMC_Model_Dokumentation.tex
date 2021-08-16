@@ -52,28 +52,37 @@
 	%%%%%%%%%%%%%%%%%%%%%% MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
 	\section{Model Equations}
+	
+	State Vector and Input Vector:	
+	\begin{align*}
+		\underline{x} &= (x_1 \ x_2 \ \underline{x}_3 \ \underline{x}_4 \ \underline{x}_5 \ x_6 \ \underline{x}_7 \ x_8)^T = (e_{s0} \ e_{d0} \ \underline{e}_s \ \underline{e}_d \ \underline{i}_s \ i_{s0} \ \underline{i} \ \theta)^T \\
+		\underline{u} &= (\underline{u}_1 \ u_2 \ \underline{u}_3 \ u_4)^T = (\underline{v}_y \ v_{y0} \ \underline{v}_x \ v_{x0})^T
+	\end{align*}
+	
+	\noindent Model Equations:	
 	\begin{subequations}	
 	\begin{align}
-		\dot{e}_{s0} &= v_{DC} \, i_{s0} - \mathrm{Re} (\underline{i}\, \underline{v}_y^*)				\\
-		\dot{e}_{d0} &=-2 v_{y0}\, i_{s0} - \mathrm{Re} (\underline{i}_s^* \, \underline{v}_{y\Delta})		\\
-		\dot{\underline{e}}_s &=v_{DC}\, \underline{i}_s - e^{-3j\theta}\, \underline{v}_y^* \, \underline{i}^* - 2 \underline{i}\, v_{y0} - j\omega \, \underline{e}_s 		\\
-		\dot{\underline{e}}_d &= v_{DC}\, \underline{i} - e^{-3j\theta}\, \underline{i}_s^* \, \underline{v}_{y\Delta}^* - 2 \underline{i}_s \, v_{y0} - 2 i_{s0}\, \underline{v}_{y\Delta} - j\omega \underline{e}_d		 \\
-		\frac{d}{dt} \underline{i}_s &= \frac{1}{L_z+M_z} (\underline{v}_x - j\omega (L_z+M_z)\, \underline{i}_s )		\\
-		\frac{d}{dt} i_{s0} &= \frac{1}{L_z+M_z} v_{x0}		\\
-		\frac{d}{dt}\underline{i} &= \frac{1}{L} ( \underline{v}_y - (R+j\omega L)\underline{i} - \underline{v}_g)	\\
-		\dot{\theta} &= \omega
+		\dot{x}_1 &= v_{DC} \, x_6 - \mathrm{Re} (\underline{x}_7\, \underline{u}_1^*)				\\
+		\dot{x}_2 &=-2 u_2\, x_6 - \mathrm{Re} (\underline{x}_5^* \, \underline{v}_{y\Delta})		\\
+		\dot{\underline{x}}_3 &=v_{DC}\, \underline{x}_5 - e^{-3j x_8}\, \underline{u}_1^* \, \underline{x}_7^* - 2 \underline{x}_7\, u_2 - j\omega \, \underline{x}_3 		\\
+		\dot{\underline{x}}_4 &= v_{DC}\, \underline{x}_7 - e^{-3j x_8}\, \underline{x}_5^* \, \underline{v}_{y\Delta}^* - 2 \underline{x}_5 \, u_2 - 2 x_6\, \underline{v}_{y\Delta} - j\omega \underline{x}_2		 \\
+		\dot{\underline{x}_5} &= \frac{1}{L_z+M_z} (\underline{u}_3 - j\omega (L_z+M_z)\, \underline{x}_5 )		\\
+		\dot{x_6} &= \frac{1}{L_z+M_z} u_4		\\
+		\dot{\underline{x}_7} &= \frac{1}{L} ( \underline{u}_1 - (R+j\omega L)\underline{x}_7 - \underline{v}_g)	\\
+		\dot{x}_8 &= \omega
 	\end{align}
 	\end{subequations}
 	with
 	
 	\begin{align}
-		\underline{v}_{y\Delta} &= \underline{v}_y - M_z (j\omega \underline{i} + \frac{d}{dt}\underline{i})
+		\underline{v}_{y\Delta} &= \underline{u}_1 - M_z (j\omega \underline{i} + \dot{\underline{x}_7})
 	\end{align}
-	Inputs: $\underline{v}_y,v_{y0},\underline{v}_x,v_{x0}$ 
+
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent
+	Parameters: $v_{DC}, \ \underline{v}_g, \ \omega, \ L_z, \ M_z, \ R,L$
 	\\
-	Parameters: $v_{DC},\underline{v}_g,\omega,L_z,M_z,R,L$
-	\\
-	Outputs: $\underline{e}_s,e_{s0},\underline{e_d},e_{d0}$
+	Outputs: $\underline{e}_s, \ e_{s0}, \ \underline{e_d}, \ e_{d0}$
 	
 	%%%%%%%%%%%%%%%%%%%%%% ASSUMPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	

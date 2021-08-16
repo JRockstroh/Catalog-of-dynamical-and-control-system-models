@@ -4,7 +4,7 @@ key:
 predecessor_key: 
 model_implementation_key: 
 type: Model                      
-name: Roessler Attractor 1979                           
+name: Roessler Attractor 1979a                          
 short_description: Roessler Atrractor proposed in 1979, Equation 1
 creator: Jonathan Rockstroh
 creation_date: 21.05.2021

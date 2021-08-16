@@ -40,20 +40,24 @@
 	
 	\section{Model Equations} % MUST
 	
-	State Vector: $(x_1~~ x_2)^T = (\varphi~~ \dot{\varphi})^T$
+	State Vector: 
+		State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (x_1 \ x_2)^T = (\varphi \ \dot{\varphi})^T \\
+		\underline{u} &= \emptyset
+	\end{align*}
 	
+	\noindent System Equations:			
 	\begin{subequations}
 	\begin{align}
-		\frac{d}{dt} \varphi &= \dot{\varphi} \\
-		\frac{d}{dt} \dot{\varphi} &= -2\gamma \dot{\varphi} - \left(\frac{g}{l} - \frac{a}{l}\omega^2\cos(\omega t)\right)\sin\varphi
+		\dot{x}_1 &= x_2 \\
+		\dot{x}_2 &= -2\gamma x_2 - \left(\frac{g}{l} - \frac{a}{l}\omega^2\cos(\omega t)\right)\sin(x_1)
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\noindent
-	Inputs: 
-	\\
-	Parameters: $\omega,~ a, ~l, ~g, ~\gamma$ % variables with constant, predefined value
+	Parameters: $\omega, ~a, ~l, ~g, ~\gamma$ % variables with constant, predefined value
 	\\
 	Outputs: $\varphi$ % MAY
 	

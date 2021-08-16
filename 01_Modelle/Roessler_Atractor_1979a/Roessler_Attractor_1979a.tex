@@ -27,19 +27,24 @@
 	
 	\section{Model Equations} % MUST
 	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (x_1 \ x_2 \ x_3) = (x \ y \ z)^T \\
+		\underline{u} &= \emptyset
+	\end{align*}
+	
+	\noindent Model Equations:
 	\begin{subequations}
 	\begin{align}
-		\dot{x} &= - y - z	\\
-		\dot{y} &= x + ay \\
-		\dot{z} &= bx - cz + xz    
+		\dot{x}_1 &= - y - z	\\
+		\dot{x}_2 &= x + ay \\
+		\dot{x}_3 &= bx - cz + xz    
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\noindent
-	Inputs: 
-	\\
-	Parameters: $a,~b,~c$ % variables with constant, predefined value
+	Parameters: $a, \ b, \ c$ % variables with constant, predefined value
 	\\
 	Outputs: 
 	

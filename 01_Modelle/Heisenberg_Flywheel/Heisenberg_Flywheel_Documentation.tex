@@ -33,20 +33,29 @@
 	
 	\section{Model Equations} % MUST
 	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (x_1 \ x_2 \ x_3)^T = (x \ y \theta )^T \\
+		\underline{u} &= (u_1 \ u_2)^T = (v \ \tau)^T
+	\end{align*}
+	
+	\noindent System Equations:	
 	\begin{subequations}
 	\begin{align}
-		\dot{x} &= \tau 	\\ 
-		\dot{y} &=  v	\\
-		\dot{\theta} &= \alpha y \tau - \alpha x v   
+		\dot{x}_1 &= u_2 \\ 
+		\dot{x}_2 &=  u_1	\\
+		\dot{x}_3 &= \alpha x_2 u_2 - \alpha x_1 u_1   
 	\end{align}
 	\end{subequations}
 	with $\alpha$ = $-\frac{I}{m}$
-
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\noindent
-	Inputs: $v,~\tau$ 
 	\\
+
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\noindent
 	Parameters: $m$ % variables with constant, predefined value
+	\\
+	Outputs:
 	
 	%%%%%%%%%%%%%%%%%%%%%% ASSUMPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	

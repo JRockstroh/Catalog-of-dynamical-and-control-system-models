@@ -28,23 +28,27 @@
 		$b$ & parameter
 	\end{tabular}
 	
-	
 	%%%%%%%%%%%%%%%%%%%%%% MDOEL EQUATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\section{Model Equations} % MUST
-	
+	State Vector and Input Vector:
+	\begin{align*}
+		\underline{x} &= (x_1 \ x_2 \ x_3)^T = (x \ y \ z )^T \\
+		\underline{u} &= \emptyset
+	\end{align*}
+
+	\noindent Model Equations:
 	\begin{subequations}
 	\begin{align}
 		\dot{x} &= -\sigma x + \sigma y 	\\      % possible ways to write d/dt
-		\dot{y} &= -xz+rx-y 	\\
+		\dot{y} &= -xz + rx - y 	\\
 		\dot{z} &= xy - bz	
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS| PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	\noindent
-	Inputs: $\emptyset$ 
-	\\
 	Parameters: $\sigma,~r,~b$ % variables with constant, predefined value
 	\\
 	Outputs:  % MAY

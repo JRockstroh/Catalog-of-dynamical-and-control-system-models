@@ -85,7 +85,7 @@ System_Attribute: # Systemeigenschaften
         - Reciprocal
         - Reversible
         - Relaxative            
-    - Autonomical
+    - Autonomous
     - Minimumphase
     - Positivity # ???
     - Chaotical_Behaviour # Link to Nonlinearity

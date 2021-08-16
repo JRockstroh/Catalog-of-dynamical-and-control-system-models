@@ -36,11 +36,11 @@
 	
 	State Vector and Input Vector:
 	\begin{align*}
-		\underline{x} &= (<Var1> \ <Var2>*R ...)^T \\
-		\underline{u} &= (<Var3> \ <Var4>)^T
+		\underline{x} &= (x_1 \ x_2 \ ...)^T = (<Var1> \ <Var2>*R ...)^T \\
+		\underline{u} &= (u_1 \ u_2 \ ...)^T = (<Var3> \ <Var4>)^T
 	\end{align*}
 
-	\noindent System Equations:		
+	\noindent Model Equations:		
 	\begin{subequations}
 	\begin{align}
 		\dot{<Variable>} &= <rhs> 	\\      % possible ways to write d/dt
@@ -48,10 +48,9 @@
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS | PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	\noindent
-	Inputs: $<I_1,I_2,...>$ 
-	\\
 	Parameters: $<a,b,c,d, ...>$ % variables with constant, predefined value
 	\\
 	Outputs: $<O_1,...>$ % MAY
@@ -66,9 +65,7 @@
 	%%%%%%%%%%%%%%%%%%%%%% EXEMPLARY PARAMETER VALUES %%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	
 	\subsection{Exemplary parameter values}
-	\begin{tabular}{lcl} 
-		Parameter & Symbol & Value \\ \hline	
-	\end{tabular}
+	\input{parameters.tex}
 
 	%%%%%%%%%%%%%%%%%%%%%% DERIVATION & EXPLANATION %%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	

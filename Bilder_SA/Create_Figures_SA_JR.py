@@ -12,14 +12,16 @@ import nxv
 
 def main():
     # Names of the yml files, which contain the Graphs of the KS
-    KS_file_names = ["Katalogstruktur.yml", "Ausschnitt_KS_Poly_Linearity.yml"]
+    KS_file_names = ["Katalogstruktur.yml", "Ausschnitt_KS_Poly_Linearity.yml", 
+                     "Ausschnitt_KS_Poly_Linearity_Used.yml",
+                     "Ausschnitt_KS_Attributes.yml"]
     # File Names for drawn graphs
     drawn_file_names = [file_name[:-4] for file_name in KS_file_names]
 
     # create Multi-Directed-Graphs
     KS_graph_list = [nx.MultiDiGraph() for i in KS_file_names]
     # Graph Directions
-    direction_list = [True, False]
+    direction_list = [True, False, False, False]
     # keyword of the yml file for the Edge name
     edge_name_kw = "Edge_Name"
     # create list of graphs, files, drawn file names
@@ -38,14 +40,14 @@ def main():
     # define style entries for the graph
     
     graph_style = nxv.Style(
-        graph={"rankdir": "RL"},
+        graph={"rankdir": "BT"},
         node=lambda u, d: get_node_style(u, d),
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          
         edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
                                 "label": get_edge_label(u, v, d, 
                                              relation_kw=edge_name_kw),
-                                "fontsize":15, }       
+                                "fontsize":10, }       
     )
     # write files   
     for sublist in KS_lists:
@@ -157,7 +159,7 @@ def get_node_style(u=None, d=None):
                               "label": d["label"] }
     else:
         node_style_dict = {"shape": "circle", "fixedsize": "shape", 
-                              "width": 1.4, "fontsize": 20, 
+                              "width": 0.9, "fontsize": 11, 
                               "label": d["label"]}        
     return node_style_dict
 

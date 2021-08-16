@@ -1,13 +1,37 @@
 \chapter{Zusammenfassung und Ausblick}
-\section{Übersicht zu aktuellem Funktions- und Modellumfang} 
-Inhalt:\\
-Aktueller Stand bzgl. Modellumfang und möglicher Modellkomplexität --> Problem mit komplexen Größen \\
-Aktuelle Vorlagen und Limitierungen, Aufwandseinschätzung für das Hinzufügen neuer Modelle \\
+\section{Zusammenfassung} 
+In dieser Studienarbeit wurde die Erstellung eines Kataloges von regelungstechnischen Systemmodellen beschrieben. Angefangen wurde in \autoref{Ch:Vorbetrachtung} mit einer Betrachtung der aktuellen Situation bezüglich der Suche und Implementation von Modellen mit dem Ergebnis, dass diese nicht Optimal ist. Außerdem wurden zwei aktuell vorhandene Modellsammlungen beschrieben. 
+
+Danach wurden im \autoref{Ch:Vorbetrachtung:Sec:Anforderungen} zuerst Anforderungen formuliert, die der Katalog haben soll und anschließend eine Reihe von Entscheidungen ausgeführt, die der Erfüllung dieser Anforderungen dienen sollen. Im \autoref{Ch:Vorbetrachtung:Sec:KS} wurden Entscheidungen vorgestellt, die aufgetretene Frage- und Problemstellungen beantworten.
+
+In \autoref{Ch:Ergebnisse} wurde der \textit{Katalog dynamischer und regelungstechnischer Modelle} vorgestellt. Zuerst wurde beschrieben aus welchen Elementen sich dieser zusammensetzt und wie diese zusammenhängen. Anschließend wurden die Elemente des Kataloges detaillierter betrachtet. Die letzten zwei Abschnitte lieferten eine Übersicht zu den aktuell vorhandenen Modellen und dem vorgehen zum Hinzufügen neuer Modelle.
+
+Der Katalog enthält aktuell nur einen recht kleinen Umfang an Modellen und ist momentan nur für Modelle, die durch gewöhnliche Differentialgleichungen erster Ordnung beschrieben werden ausgelegt und durchdacht worden. Für diese Modelle wurde eine einheitliche Dokumentationsform sowie eine einfach anwendbare Implementationsweise durch die Python-Klasse \textit{GenericModel} entwickelt. Zudem wurde mit der \textit{Metadaten-Datei} eine Schnittstelle hinzugefügt, die es erlaubt aus dem Katalog eine Datenbank inklusive Suchfunktion zu machen. 
+
+Es wurde das \textit{Klassifikationssystem} vorgestellt, welches als Wissensrepräsentation für die Teilbereiche der Mathematik und Regelungstheorie, die sich auf Modelle beziehen, gedacht ist. Es enthält die möglichen Eigenschaften der Modelle und stellt deren Beziehung zueinander dar. Das abgebildete Wissen des Klassifikationssystems enthält die geläufigsten Modelleigenschaften und hat noch viel Erweiterungspotenzial. Es wurde die technische Umsetzung des KS beschrieben, die eine einfache Les- und Editierbarkeit gewährleistet. 
 
 \section{Ausblick} 
-Inhalt: \\
-Was noch denkbar/wünschenswert/möglich wäre bzgl. Funktionsumfang \\
-Versionsverwaltung, Ideen/Konzept zur Öffnung für breite(re) Nutzerschaft(Mögliche Vorlage: ACKRep, aber evtl. Orientierung auch an anderen Nutzer basierten Datenbanken (Wiki-like))\\ 
-Abfragbare KS Implementierung via networkx-Package die weitere Informationen zu Einträgen des KS enthält (kurze Beschreibung, Referenz bzgl. Bedeutung --> Umsetzung mit .bib Datei und Verweis auf Kürzel + ggf. Seitenangabe etc.)\\
-Suchfunktion \\
-Automatische Erstellung einer Übersicht aller der enthaltenen Modelle (ist Verknüpft mit Suchfunktion?)
+Der Katalog wurde mit der Absicht erstellt die Suche nach Modellen zu vereinfachen und das, hoffentlich, für eine zukünftig große Anzahl an Personen. Um diese Zukunft zu erreichen fehlt es dem Katalog allerdings noch an einigen sinnvollen Elementen. Im folgenden werden einige Ideen formuliert.
+
+Wie schon bei Entscheidung \ref{E.MetadatenDatei} aufgeführt ist der Einsatz einer Datenbank sinnvoll, welche die im Katalog enthaltenen Modelle und deren Implementationsstatus, sowie die durch die Metadaten-Datei und deren Verknüpfung mit dem KS zur Verfügung gestellten Informationen enthält. Dafür ist ein Algorithmus sinnvoll der Modelle, Implementationsstatus und Metadaten-Dateien automatisiert ausliest und die Einträge für die Modelleigenschaften und deren Werte zusätzlich auf Sinnhaftigkeit und Korrektheit in Bezug auf die Struktur des KS prüft. \\
+Zur Umsetzung der Datenbank wäre zusätzlich eine Suchfunktion sinnvoll. Datenbank und Suchfunktion würden die Erfüllung der Anforderung \ref{A.Findbarkeit} signifikant verbessern.
+
+Zudem wäre noch ein Entwurf für Darstellungsvorgaben für Modelle sinnvoll, deren Modellgleichungen nicht in ein gewöhnliches Differentialgleichungssystem erster Ordnung überführt werden können z.\,B. Modelle, deren Modellgleichungen DAEs\footnote{Differential-Algebraic-Equations (dt. Differential-Algebraische-Gleichungen)} oder PDEs\footnote{Partial-Differential-Equations (dt. Partielle Differentialgleichungen)} sind.\\
+Des Weiteren wäre dann für solche Fälle auch der Entwurf einer weiteren Vorlage für deren Implementation zu prüfen und gegebenenfalls umzusetzen.
+
+Natürlich ist eine Erweiterung des Modellumfanges des Kataloges sinnvoll.
+
+Der Entwurf der formalisierten Darstellung sollte durch qualifizierte Personen geprüft werden. Das gilt auch für die aktuelle Umsetzung der Implementierung. \\
+Eine zukünftige Veränderung beziehungsweise Anpassung der entworfenen Python-Klasse \textit{GenericModel} z.\,B. nach Tests oder zur Funktionserweiterung ist wahrscheinlich. Eine Änderung im Code birgt immer das Potenzial von Fehlern. Für eine schnelle und zuverlässige Prüfung, ob die implementierten Modellklassen nach einer Änderung der Klasse \textit{GenericModel} wie gehabt funktionieren, wäre die Implementation automatisierter Tests(sog. \textit{Unit-Tests}) sinnvoll.
+
+Zum Abschluss werden noch zwei Ideen für das \textit{Klassifikationssystem} ausgeführt.
+
+Das KS ist so entworfen worden, das es recht einfach erweiterbar ist. Nun ist es so, dass das KS Wissen, welches innerhalb eines Wissensbereiches verwendet wird über die Verknüpfung von Begriffen abbilden soll und das jeder dieser Begriffe eine in den Wissensbereichen der Mathematik und Regelungs- und Steuerungstheorie gemeinsam akzeptierte Bedeutung hat\footnote{Diesen Aspekt hat Studer 1998 in seiner Definition der Ontologie in \cite{STBEFE98} Abschnitt 6.1 formuliert.}.\\
+Dementsprechend wäre es sinnvoll einen Mechanismus einer geprüften Erweiterung des KS zu schaffen, der dafür sorgt das ein Vorschlag zur Veränderung des KS stets durch qualifizierte Personen geprüft und gegebenenfalls diskutiert wird bevor dieser übernommen wird.
+
+Wie eben schon erwähnt haben die Begriffe im KS eine bestimmte Bedeutung, die durch eine Definition festgelegt ist. Mit wenigen Ausnahmen ist eine Angabe dieser Definition oder einer Referenz zu dieser notwendig, zum Einen um sicher zu stellen, das jeder den Begriff gleich interpretiert und zum Anderen um die Unterschiede zwischen Begriffen ermitteln zu können\footnote{Hinweis: Zu den meisten Begriffen im KS ist die entsprechende Referenz bekannt. Diese befinden sich aktuell in einer zusätzlichen, relativ formlosen Datei.}.\\
+Die Referenzen für die Begriffe des KS könnten als weiteres Attribut in die Informationsblöcke(siehe \autoref{Ch:Ergebnisse:Sec:KS:SubSec:TechUmsetzung}) des KS geschrieben werden.\\
+Eine Erweiterung zu dieser Idee wäre, alle für das KS verwendeten Referenzen in einer einzelnen Datei zu sammeln und mit einer Zitier-Signatur zu versehen. Das Konzept solcher Dateien ist nicht neu und z.\,B. bei BibTex-Datenbanken, welche wiederum formatierte Textdateien sind und häufig für wissenschaftliche Arbeiten genutzt werden, Anwendung. Die Zitier-Signaturen könnten in den IB's des KS verwendet werden, was die YAML-Dateien des KS übersichtlicher machen würde. \\
+Die Einbindung des KS in die, weiter oben vorgeschlagene, Datenbank zum Katalog und der zugehörigen Suchfunktion würde eine Ausgabe der Referenzen in einheitlicher Schreibweise ermöglichen.
+
+

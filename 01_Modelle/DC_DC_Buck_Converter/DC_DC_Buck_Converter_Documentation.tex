@@ -45,25 +45,23 @@
 	
 	State Vector and Input Vector:
 	\begin{align*}
-		\underline{x} &= (i_L \ U_o)^T \\
-		\underline{u} &= d
+		\underline{x} &= (x_1 \ x_2)^T= (i_L \ U_o)^T \\
+		\underline{u} &= u_1 = d
 	\end{align*}
 
 	\noindent System Equations:		
 	\begin{subequations}
 	\begin{align}
 		\dot{x}_1 &= \frac{-(r_{son} + r_L)}{L} x_1 - \frac{1}{L} x_2 
-					+ \frac{U_{DC}}{L} d	\\      
+					+ \frac{U_{DC}}{L} u_1	\\      
 		\dot{x}_2 &= \frac{LR - CRr_c(r_{son} + r_L)}{LC(R + r_c)} x_1 
 					+ \frac{-CRr_c - L}{LC(R + r_c)} x_2 
-					+ \frac{Rr_cU_{DC}}{L(R + r_c)}	d		
+					+ \frac{Rr_cU_{DC}}{L(R + r_c)}	u_1		
 	\end{align}
 	\end{subequations}
 
-	%%%%%%%%%%%%%%%%%%%%%% INPUTS | PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%% PARAMETERS | OUTPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\noindent
-	Inputs: $d$ 
-	\\
 	Parameters: $R, ~L, ~C, ~r_L, ~r_c, ~r_{son}, ~U_{DC}$ % variables with constant, predefined value
 	\\
 	Outputs: $U_o$ % MAY

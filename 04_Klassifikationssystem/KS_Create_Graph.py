@@ -32,15 +32,13 @@ def main():
         add_nodes_from_yml(sublist[0], sublist[1], edge_name_kw)
 
     # draw graph and write it to file
-    # define style entries for the graph
-    
+    # define style entries for the graph   
     graph_style = nxv.Style(
         graph={"rankdir": "BT"},
         node=lambda u, d: {"shape": "circle", "fixedsize": "shape", 
                               "width": 1, "fontsize": 10, 
                               "label": get_node_label(u, d) },
-# TODO : Add node function for line split </br> on underscore to achieve 
-#        multiple lines in a node          
+         
         edge=lambda u, v, k, d:{"style": "solid", "arrowType": "normal", 
                      "label": get_edge_label(u, v, d, 
                                              relation_kw=edge_name_kw),}       

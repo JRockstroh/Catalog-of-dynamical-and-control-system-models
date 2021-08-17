@@ -17,11 +17,8 @@ Der Katalog besteht aus folgenden Elementen: Dem \textit{Klassifikationssystem},
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{Katalogstruktur}
-	\caption[Katalogstruktur]{Katalogstruktur}
+	\caption[Katalogstruktur]{Katalogstruktur. Elemente in Ellipsen existieren individuell für jedes Modell. Elemente in Rechtecken existieren genau ein Mal im Katalog.}
 	\label{fig:Katalogstruktur}
-	\medskip
-	\small
-	Elemente in Ellipsen existieren individuell für jedes Modell. Elemente in Rechtecken existieren genau ein Mal im Katalog.
 \end{figure}
 %
 Das \textit{Klassifikationssystem} ist eine Übersicht der Modelleigenschaften und deren Beziehungen untereinander. Die Einträge in dem Feld für die Modelleigenschaften in der Metadaten-Datei(\textit{tag\_list}) sind bevorzugt Namen von Kategorieknoten aus dem KS. Es sorgt für eine einheitliche Namensgebung der Modelleigenschaften(s. Anforderung \ref{A.Modelleigenschaften}). 
@@ -161,7 +158,7 @@ Die Nomenklatur enthält alle in der Dokumentation genutzten Variablen und eine 
 \begin{figure}[H]
 	\centering
 	\fbox{\includegraphics[trim=120 520 120 110, clip, width=0.9\linewidth]{Boost_Converter_Documentation}}
-	\caption{Nomenklatur aus der Dokumentation zum Hochsetzsteller(Boost-Converter)}
+	\caption{Nomenklatur aus der Dokumentation zum Hochsetzsteller (Boost-Converter)}
 	\label{fig:BspDok_Nomenclature}
 \end{figure}
 %
@@ -178,7 +175,7 @@ Der Abschnitt \textit{Modellgleichungen} besteht aus einer formalisierten Darste
 \begin{figure}[h]
 	\centering
 	\fbox{\includegraphics[trim=120 300 120 340, clip, width=0.9\linewidth]{Boost_Converter_Documentation}}
-	\caption{Gleichungen aus der Dokumentation zum Hochsetzsteller(Boost-Converter)\protect\footnotemark}
+	\caption{Gleichungen aus der Dokumentation zum Hochsetzsteller (Boost-Converter)\protect\footnotemark}
 	\label{fig:BspDok_ModelEquations}
 \end{figure}
 \footnotetext{Modell stammt aus \cite{ROEB17} Abschnitt 1.3}
@@ -199,7 +196,7 @@ Aus der \LaTeX-Datei der Modelldokumentation wird eine für Menschen gut lesbare
 \section{Modellimplementation}
 \label{Ch:Ergebnisse:Sec:Implementation}
 Modelle des Kataloges werden in Form einer Python-Klasse implementiert. Bei Initialisierung eines Objektes der Modellklasse können dem Konstruktor die Zustandsdimension, eine Eingangsfunktion und ein Parametervektor übergeben werden. Alle diese Variablen haben Standardwerte. Jede Modellklasse bezieht ein Standardset von Parameterwerten aus der \textit{Parameter-Datei} (die Standardparameter sind also identisch mit den beispielhaften Parameterwerten aus der Dokumentation) und hat eine Standardfunktion für die Modelleingänge bzw. die Eingangsfunktion integriert.\\ 
-Ein Modell kann also einfach über ein selbst erstelltes Python-Skript simuliert werden(vgl. \ref{A.Implementierung}), indem eine Objekt der Modellklasse erzeugt wird, ein Startvektor für den Modellzustand definiert wird und anschließend das Modell mit einer geeigneten Methode(z.\,B. \textit{solve\_ivp} des Python-Packages \textit{scipy}\footnote{SciPy-Package: \url{https://www.scipy.org/}}) simuliert wird. Die Methode \textit{get\_rhs\_func}\footnote{textit{rhs} steht für \textit{right hand side}} der Modellklasse stellt die dafür benötigte Python-Funktion zur Verfügung.
+Ein Modell kann also einfach über ein selbst erstelltes Python-Skript simuliert werden(vgl. \ref{A.Implementierung}), indem eine Objekt der Modellklasse erzeugt wird, ein Startvektor für den Modellzustand definiert wird und anschließend das Modell mit einer geeigneten Methode(z.\,B. \textit{solve\_ivp} des Python-Packages \textit{scipy}\footnote{SciPy-Package: \url{https://www.scipy.org/}}) simuliert wird. Die Methode \textit{get\_rhs\_func}\footnote{\textit{rhs} steht für \textit{right hand side}} der Modellklasse stellt die dafür benötigte Python-Funktion zur Verfügung.
 
 Die Parameter und die Eingangsfunktion eines Modellobjektes können nach Initialisierung mit den Methoden \textit{set\_parameters} und \textit{set\_input\_func} geändert werden. Die Zustandsdimension ist nur bei Initialisierung einstellbar und das auch nur bei Modellen, deren Zustandsdimension nicht festgelegt ist(z.\,B. beim N-Fach-Integrator).\\
 Die Methode \textit{get\_rhs\_symbolic} liefert die symbolischen Modellgleichungen als Rückgabewert. Zur Implementierung der symbolischen Gleichungen wird das Python-Package \textit{sympy}\footnote{SymPy-Package: \url{https://www.sympy.org/en/index.html}} verwendet.

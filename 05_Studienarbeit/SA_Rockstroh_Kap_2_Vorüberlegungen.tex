@@ -32,7 +32,7 @@ Der in \ref{Ch:Ergebnisse} vorgestellte Katalog und dem dazugehörigen Klassifik
 Die Begriffe \textit{System} und \textit{Modell} kommen in der regelungstechnischen Literatur häufig vor. Die Bedeutung kann, je nachdem in welchen Anwendungsgebiet diese verwendet werden, stark variieren. Und selbst innerhalb regelungstechnischer Literatur werden beide Begriffe eher selten extra definiert oder referenziert, sondern auf Basis eines intuitiven Verständnisses verwendet. Für diese Arbeit, die den Begriff \textit{Systemmodelle} schon im Titel trägt, sind beide Begriffe bedeutsam, weshalb an dieser Stelle beschrieben wird wie diese Begriffe in dieser Arbeit verstanden werden sollen.
 
 Ein \textit{System} ist nach \textit{DIN IEC 60050-351:2014-09}\footnote{siehe \cite{DINIEC60050-351} Seite 21} eine \glqq Menge miteinander in Beziehung stehender Elemente, die in einem bestimmten Zusammenhang als Ganzes gesehen und als von ihrer Umgebung abgegrenzt betrachtet werden\grqq.\\
-Des weiteren wird in den Anmerkungen der Norm ausgeführt, das die Elemente eines Systems \glqq natürliche oder künstliche Gegenstände sowie Arten von Denkvorgängen und deren Ergebnisse\grqq sein können und dass das System \glqq von der Umgebung und von den anderen äußeren Systemen durch eine gedachte Hüllfläche abgegrenzt betrachtet\grqq wird.
+Des Weiteren wird in den Anmerkungen der Norm ausgeführt, das die Elemente eines Systems \glqq natürliche oder künstliche Gegenstände sowie Arten von Denkvorgängen und deren Ergebnisse\grqq sein können und dass das System \glqq von der Umgebung und von den anderen äußeren Systemen durch eine gedachte Hüllfläche abgegrenzt betrachtet\grqq wird.
 
 Ein System wird in dieser Arbeit als \textit{reales System} bezeichnet, wenn dessen Element nachweisbare Bestandteile der Realität sind.
 
@@ -40,7 +40,7 @@ Ein System wird in dieser Arbeit als \textit{reales System} bezeichnet, wenn des
 
 Ein System oder Modell ist \textit{dynamisch}, wenn sich dessen Werte mit der Zeit verändern. Die Regelungstechnik beschäftigt sich unter anderem damit das zeitveränderliche Verhalten von Systemen und Modellen zu untersuchen und zu beeinflussen. Deshalb sind für diese Arbeit nur dynamische Systeme und Modelle von Interesse und die Begriffe \textit{System} und \textit{Modell} implizieren in dieser Arbeit die Eigenschaft \textit{dynamisch}. 
 
-Modelle von Systemen(\textit{Systemmodelle}) bestehen in der Regelungstechnik zum einen aus einer graphischen Repräsentation des Systems, die wiederum aus definierten Formen besteht welche die Elemente des Systems repräsentieren und zum anderen aus einem mathematischen Modell, welches das Verhalten des Systemmodells beschreibt. Ein System kann mehrere Modelle in Form einer graphischen Repräsentation haben, wobei es zu jedem Modell wiederum verschiedene mathematische Modelle geben kann(vgl. \cite{LUD95} Sektion 2.1).\\
+Modelle von Systemen(\textit{Systemmodelle}) bestehen in der Regelungstechnik zum einen aus einer graphischen Abbildung des Systems, die wiederum aus definierten Formen besteht welche die Elemente des Systems repräsentieren und zum anderen aus einem mathematischen Modell, welches das Verhalten des Systemmodells beschreibt. Ein System kann mehrere Modelle in Form einer graphischen Repräsentation haben, wobei es zu jedem Modell wiederum verschiedene mathematische Modelle geben kann(vgl. \cite{LUD95} Sektion 2.1).\\
 Ein \textit{mathematisches Modell} ist ein Modell das die Anwendung mathematischer Methoden erlaubt(\cite{GRVO16}, S.9). Das mathematische Modell ist in der Regelungstechnik üblicherweise ein System von Gleichungen. 
 
 % BILD: System --> Modelle --> Math. Modelle
@@ -62,7 +62,8 @@ Der Begriff \textit{System} bezeichnet im Folgenden dynamische Systeme. Der Begr
 % ====================================================
 \section{Aktueller Stand}
 \label{Ch:Vorbetrachtung:Sec:CurrentState}
-Für die Suche nach Modellen und Modelleigenschaften war viel Recherche notwendig, welche zu den in diesem Abschnitt beschriebenen Erkenntnisse bezüglich der Modellfindung geführt hat.
+Für die Suche nach Modellen und Modelleigenschaften war viel Recherche notwendig, welche zu den in diesem Abschnitt beschriebenen Erkenntnissen bezüglich der Modellfindung geführt hat.
+
 % ============================================================
 % ------------- Aktuelle Situation Modellfindung -------------
 % ============================================================
@@ -70,7 +71,7 @@ Für die Suche nach Modellen und Modelleigenschaften war viel Recherche notwendi
 % Auflistung von aufgefallenen Aspekten + Beispielhafte Nennung von Publikationen  
 \begin{enumerate}
 	\item Regelungstechnische Modelle finden sich aktuell meist verteilt in wissenschaftlichen Publikationen, wie z.B. Lehrbüchern, Artikeln, Dissertationen, Diplom- und Studienarbeiten.
-	\item Die Qualität der Modelldarstellung ist uneinheitlich. Das die Modellgleichungen eindeutig gekennzeichneten und gemeinsam notiert, sowie die eingeführten Variablen gut beschrieben und klar definierten Typs (Parameter, Eingangs-, Zustandsvariable) sind ist nicht immer gegeben.
+	\item Die Qualität der Modelldarstellung ist uneinheitlich. Das die Modellgleichungen eindeutig gekennzeichnet und gemeinsam notiert, sowie die eingeführten Variablen gut beschrieben und klar definierten Typs (Parameter, Eingangs-, Zustandsvariable) sind ist nicht immer gegeben.
 	\begin{itemize}[label=$\bullet$]
 		\item Beispiel 1: In \cite{LOR63} wird auf Seite 135 das Modell eines dynamischen Systems übersichtlich dargestellt. Es ist abhängig von den Parametern $\sigma$, $r$ und $b$. Die Zustandsvariablen und der Parameter $\sigma$ werden direkt nach den Modellgleichungen beschrieben. Die Parameter $r$ und $b$ haben hingegen keinen Namen und werden nur als Gleichungen repräsentiert. Der Parameter $b$ hängt wiederum von $a$ ab, welches in dem Artikel auch nicht explizit eingeführt wird.
 		\item Beispiel 2: In \cite{YIFREA09} wird eine Walzstrecke für Metalle modelliert. Die Variablen werden am Anfang alle eingeführt und danach wird das Modell ausführlich hergeleitet. Eine zusammengestellte Übersicht der Modellgleichungen fehlt jedoch. Die Zustandsvariablen müssen aus Ausgangsvektor und Abbildungen erschlossen werden. Die Modellgleichungen sind im Artikel verteilt.
@@ -94,13 +95,13 @@ Für die Suche nach Modellen und Modelleigenschaften war viel Recherche notwendi
 
 % Schlussfolgerung aus den aufgefallenen Aspekten
 \textbf{Feststellung}:\\
-Die zielgerichtete Suche nach Modellen, z.\,B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbaren Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist oft eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch eben Aspekte ist das meist aufwendig oder nicht möglich.
+Die zielgerichtete Suche nach Modellen, z.\,B. mit bestimmten Eigenschaften, ist oft eine zeitintensive und aufwendige Angelegenheit. Zudem braucht es häufig zusätzliche Eigenarbeit um zu einer brauchbaren Modelldarstellung zu gelangen. Die Implementierung muss aktuell fast immer von eigener Hand erfolgen. Für die Validierung des eigenen Codes und die Reproduktion der Resultate einer Publikation ist oft eine softwaretechnische Implementation des Modells sowie der daran angehängten Umgebung (Steuerung, Regelung, Beobachter etc.) notwendig (vgl. \cite{KNHE20b}, Seite 1). Durch die eben beschriebenen Aspekte ist das meist aufwendig oder nicht möglich.
 
 % ===============================================================
 % ------------- Aktuelle Situation Modellsammlungen -------------
 % ===============================================================
 \textbf{Aktuelle Situation von Modellsammlungen und -katalogen}: \\
-Bestehende Zusammenstellungen von regelungstechnischen Modellen sind schwer zu finden. Ein Grund dafür könnten sein, das wenige existieren. Es könnte aber auch daran liegen, das diese einfach nur schwer zu finden sind. Zum Beispiel, weil diese z.\,B. von der Suchmaschine als nicht relevant eingestuft werden und dementsprechend auf den hinteren Seiten der Suchergebnisse landen. Zudem basieren die Suchergebnisse nur auf den eingegebenen Wörtern. Ein Verständnis für den Kontext fehlt, was zu einer großen Anzahl an Suchergebnissen führt. Es ist also durchaus plausibel das mehr als die jetzt aufgeführten Zusammenstellungen existieren. 
+Bestehende Zusammenstellungen von regelungstechnischen Modellen sind schwer zu finden. Ein Grund dafür könnten sein, das wenige existieren. Es könnte aber auch daran liegen, das diese einfach nur schwer zu finden sind. Zum Beispiel, weil diese z.\,B. von der Suchmaschine als nicht relevant eingestuft werden und dementsprechend auf den hinteren Seiten der Suchergebnisse landen. Zudem basieren die Suchergebnisse nur auf den eingegebenen Wörtern. Ein Verständnis für den Kontext fehlt, was zu einer großen Anzahl an Suchergebnissen führt. Es ist also durchaus plausibel das mehr als die hier aufgeführten Zusammenstellungen existieren. 
 
 \textbf{The Automatic Control Knowledge Repository (ACKRep)}:\\
 Das in \cite{KNHE20a} vorgestellte ACKRep\footnote{ACKRep Testinstanz. \tiny{URL}\normalsize: \url{https://testing.ackrep.org/}} ist ein Tool, mit dem Ziel die implementierten Ergebnisse von Publikationen reproduzierbarer zu machen. Es besteht aus einer Datenbank von implementierten Problemspezifikationen, Lösungsmethoden und Softwareumgebungen, die in ihrem Zusammenwirken die Ergebnisse reproduzierbar machen sollen. Die Einträge vom Typ \textit{ProblemSpecification} enthalten dabei Modelle, die als Python-Quellcode repräsentiert werden bzw. implementiert sind. Weitere Informationen zu den Modellen wie der Identifikationsschlüssel, externe Referenzen und Modelleigenschaften sind in einer Metadaten-Datei im YAML-Format hinterlegt. Für die einheitliche Benennung der Modelleigenschaften wird auf die in \cite{KNHE20b} eingeführte \textit{Ontology of Control Systems Engineering (OCSE)}\footnote{Die \textit{OCSE} ist eine Wissensrepräsentation(siehe \autoref{Ch:Vorbetrachtung:Sec:Wissensrepräsentaionen}) zur Regelungs- und Steuerungstheorie.} zurück gegriffen.
@@ -114,13 +115,14 @@ Im ACKRep liegt der Fokus auf der Implementierung der Modelle. Ein weiterer Foku
 In \cite{LIYU13} liegt der Fokus auf der menschlichen Lesbarkeit. Die Modellgleichungen sind als Text bzw. Formeln repräsentiert und ermöglichen die Anwendung von analytischen Methoden. 
 
 Beide Zusammenstellungen haben gemeinsame, dass eine einheitliche Form für die Modellrepräsentation verwendet wird. Zudem findet bei beiden eine Klassifikation statt, welche sich allerdings in Umfang und Inhalt unterscheiden.
-\section{Anforderungen an den Katalog} % Alternativer Titel: Prozess der Katalogerstellung
+
+% =================================================================
+% ------------- SECTION: Anforderungen an den Katalog -------------
+% =================================================================
+\section{Anforderungen an den Katalog} 
 \label{Ch:Vorbetrachtung:Sec:Anforderungen}
-\textbf{Anforderungen an den Katalog}:\\ %Vielleicht als Enumeration schreiben?
-% =========================================
-% ------------- Anforderungen -------------
-% =========================================
-Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in \autoref{Ch:Vorbetrachtung:Sec:CurrentState} beschriebenen Schwierigkeiten nicht durchlaufen werden müssen. Daher wurden für den Katalog folgende Anforderungen formuliert.
+
+Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass die in \autoref{Ch:Vorbetrachtung:Sec:CurrentState} beschriebenen Schwierigkeiten vermieden werden. Daher wurden für den Katalog folgende Anforderungen formuliert.
 \begin{enumerate}[label=\textbf{Anforderung A.\arabic*}:, ref=\textbf{A.\arabic*}, wide=0pt, leftmargin=*]
 	\item \label{A.Findbarkeit}Neue Modelle sollen einfach und unkompliziert zu finden sein.
 	\item \label{A.Modelleigenschaften}Die Modelleigenschaften sollen so gut wie möglich erfasst sein. Das heißt:
@@ -139,9 +141,9 @@ Der Katalog soll den Prozess der Modellfindung und Nutzung vereinfachen, sodass 
 % ==========================================
 % ------------- Entscheidungen -------------
 % ==========================================
-Die Anforderung \ref{A.Erweiterbarkeit} macht es notwendig den Fall einer zukünftig großen Anzahl im Katalog existierender Modelle mitzudenken. Mit zunehmender Modellanzahl wird es aufgrund abnehmender Übersichtlichkeit schwieriger bestimmte Modelle im Katalog zu finden. Dazu kommt, das es auch wünschenswert ist nach Modellen suchen zu können, die bestimmte Kriterien erfüllen. Das macht eine Suchfunktion erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Um eine Suchfunktion zu realisieren wird eine Datenbank benötigt, die überhaupt erst mal durchsucht werden kann. Die Erstellung einer Suchfunktion und der dafür benötigten Datenbank soll durch folgende Entscheidung erleichtert werden:
+Die Anforderung \ref{A.Erweiterbarkeit} macht es notwendig den Fall einer zukünftig großen Anzahl im Katalog existierender Modelle mitzudenken. Mit zunehmender Modellanzahl wird es aufgrund abnehmender Übersichtlichkeit schwieriger bestimmte Modelle im Katalog zu finden. Dazu kommt, das es auch wünschenswert ist nach Modellen suchen zu können, die bestimmte Kriterien erfüllen. Das macht eine Suchfunktion erstrebenswert um die Anforderung \ref{A.Findbarkeit} zu erfüllen. Um eine Suchfunktion zu realisieren wird eine Datenbank benötigt, die durchsucht werden kann. Die Erstellung einer Suchfunktion und der dafür benötigten Datenbank soll durch folgende Entscheidung erleichtert werden:
 \begin{enumerate}[label=\textbf{Entscheidung E.\arabic*}:, ref=\textbf{E.\arabic*}, wide=0pt, leftmargin=*]
-	\item \label{E.MetadatenDatei}Zu jedem Modell soll eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
+	\item \label{E.MetadatenDatei}Zu jedem Modell soll es eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
 \end{enumerate}
 Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} basiert auf \cite{KNHE20a}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
 
@@ -149,7 +151,7 @@ Anforderung \ref{A.Modelleigenschaften} soll durch das in der Aufgabenstellung g
 \begin{enumerate}[resume*]
 	\item \label{E.KS_TechUmsetzung}Die Einträge des KS werden im YAML Format gespeichert. Um eine grafische Darstellung des KS zu erhalten soll ein Python-Skript geschrieben werden, welches diese als Bilddatei des KS erstellt.
 \end{enumerate}
-Wie vollständig die in der Metadaten-Datei enthaltenen Modelleigenschaften sind hängt davon ab, wie gut erforscht das Modell ist\footnote{Damit ist gemeint, das es einfach noch nicht bekannt ist, ob ein Modell bestimmte Eigenschaften hat oder nicht.} und wie viel Zeit in das Anlegen des Modells gesteckt wird.
+Wie vollständig die in der Metadaten-Datei enthaltenen Modelleigenschaften sind hängt davon ab, wie gut erforscht das Modell ist\footnote{Damit ist gemeint, das es einfach noch nicht bekannt ist, ob ein Modell bestimmte Eigenschaften hat oder nicht.} und wie viel Zeit und Sorgfalt in das Anlegen des Modells gesteckt wird. %TODO: Zeit vs Sorgfalt
 
 In Textform dargestellt Modelle haben den Vorteil das in Formeln verwendete Elemente wie Tiefsetzungen und Brüche grafisch dargestellt werden können. Im Fließtext muss die Umsetzung der Elemente über ein Notationssytem erreicht werden, welches die Lesbarkeit verringert ($1/3$ statt $\frac{1}{3}$ oder $F\_1$ statt $F_1$). Eine für Menschen gut lesbare Notation der Modellgleichungen macht die Arbeit mit diesen einfacher und ist generell erstrebenswert, weshalb folgende Entscheidung getroffen wurde. 
 \begin{enumerate}[resume*]
@@ -163,7 +165,7 @@ Anforderung \ref{A.Implementierung} fordert die Implementierung der Modelle. Dar
 \end{enumerate}
 Die Implementierung der Modelle als Klasse soll den zweiten Teil von Anforderung \ref{A.Implementierung} erfüllen. Die Modelle werden in der Verwendung als Objekt der Modellklasse instanziiert, was für das Verständnis eine einfache und intuitive Analogie zur realen Welt ist in der reale Systeme als physische Objekte existieren. Die Modellklasse ist in dieser Analogie der Bauplan und das instanziierte Objekt ein spezifischer Aufbau des Systems. Zudem können innerhalb des instanziierten Objektes eine Reihe von Informationen zu dem spezifisch implementierten Modell gespeichert werden. Die Verwendung für eigene Simulationen ist damit sehr unkompliziert, da nur noch der Code für die Simulationsparameter sowie die Aufzeichnung und grafische Darstellung der Simulationsergebnisse selbst geschrieben werden muss. Die für die Simulation benötigten Modellgleichungen können über die Methoden der Klasse direkt verwendet werden.
 
-Es stellte sich noch die Frage, ob alle Modelle des Kataloges implementiert vorliegen müssen. Denn zum Einen ist die in Anforderung \ref{A.Darstellung_Gleichungen} geforderte einheitliche Darstellung der Modellgleichungen an sich schon durch die in Entscheidung \ref{E.Textdok} beschriebene Textform gegeben. Zum Anderen sind einige Modelle recht schwer zu implementieren, wie z.\,B. Modelle deren Verhalten durch partiellen Differentialgleichungen beschrieben werden. Um eine hohe Modellvielfalt für den Katalog zu ermöglichen, wurde die folgende Entscheidung getroffen.
+Es stellte sich noch die Frage, ob alle Modelle des Kataloges implementiert vorliegen müssen. Denn zum Einen ist die in Anforderung \ref{A.Darstellung_Gleichungen} geforderte einheitliche Darstellung der Modellgleichungen an sich schon durch die in Entscheidung \ref{E.Textdok} beschriebene Textform gegeben. Zum Anderen sind einige Modelle recht schwer zu implementieren, wie z.\,B. Modelle deren Verhalten durch partielle Differentialgleichungen beschrieben werden. Um eine hohe Modellvielfalt für den Katalog zu ermöglichen, wurde die folgende Entscheidung getroffen.
 \begin{enumerate}[resume*]
 	\item \label{E.ImplementierungOptional}Die Implementierung eines Modells ist optional.
 \end{enumerate}
@@ -208,6 +210,7 @@ Die \textit{Taxonomie} ist eine der einfachsten Formen der Wissensrepräsentatio
 Semantische Netze haben häufig eine \textit{Open-World} Annahme. Das bedeutet, wenn in einem Semantischen Netz eine Aussage nicht enthalten ist wird nicht automatisch davon ausgegangen, das diese nicht gilt.
 
 Der Begriff der \textit{Ontologie} wird im Zuge von Wissensrepräsentationen häufig verwendet ist aber nicht einheitlich definiert. Nach Studer \cite{STBEFE98} ist eine Ontologie im Sinne der Informatik eine \glqq formale, explizite Spezifikation einer gemeinsamen Konzeptualisierung\grqq. Der Begriff \textit{formal} bedeutet zum Beispiel, dass die Ontologie maschinenlesbar sein soll. Eine Diskussion zu den Schwächen dieser Definition führt Stuckenschmidt in \cite{STU09} im Abschnitt \textit{1.4 Anmerkungen zur Begrifflichkeit}. 
+
 % =================================================================
 % ------------- Erstellung des Klassifikationssystems -------------
 % =================================================================
@@ -215,7 +218,7 @@ Der Begriff der \textit{Ontologie} wird im Zuge von Wissensrepräsentationen hä
 \label{Ch:Vorbetrachtung:Sec:KS}
 Das \textit{Klassifikationssystem (KS)} soll eine Wissensrepräsentation zu den Eigenschaften von regelungstechnischen Modellen darstellen. 
 
-In dieser Arbeit wird häufig davon gesprochen, dass das KS auf ein Modell angewendet wird. Damit ist gemeint, dass das geprüft wird welche Eigenschaften aus dem KS das Modell besitzt. 
+In dieser Arbeit wird häufig davon gesprochen, dass das KS auf ein Modell angewendet wird. Damit ist gemeint, dass geprüft wird welche Eigenschaften aus dem KS das Modell besitzt. 
 
 Die Frage: \glqq Welchen Umfang soll das KS haben?\grqq ist dabei eine zentrale Frage gewesen, denn Sie entscheidet welche Wissensbereiche das KS abdecken soll. Die folgende Entscheidung beantwortet diese Frage und basiert auf der Überlegung, welches Wissen nötig ist um eine einheitliche Benennung der Modelleigenschaften zu erreichen. 
 \begin{enumerate}[resume*]

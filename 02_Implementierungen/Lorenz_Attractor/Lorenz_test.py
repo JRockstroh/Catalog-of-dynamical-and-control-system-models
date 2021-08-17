@@ -24,9 +24,9 @@ xx0 = [0.1, 0.1, 0.1]
 
 t_end = 30
 tt = times = np.linspace(0, t_end, 10000) # vector of times for simulation
-sol = solve_ivp(latt_rhs, (0,t_end), xx0, t_eval=tt)
+sol = solve_ivp(latt_rhs, (0, t_end), xx0, t_eval=tt)
 
-pyplot.plot(sol.y[0],sol.y[1],label='', lw=1)
+pyplot.plot(sol.y[0], sol.y[1], label='', lw=1)
 
 pyplot.title('x-y Phaseplane')
 pyplot.xlabel('x',fontsize= 15)

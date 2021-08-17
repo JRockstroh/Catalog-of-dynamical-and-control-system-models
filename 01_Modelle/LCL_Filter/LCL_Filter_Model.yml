@@ -14,17 +14,11 @@ external_references:
     -> Cui, M. and Yao, R.; INPUT-OUTPUT FEEDBACK LINEARIZATION CONTROL
         OF GRID-CONNECTED INVERTER WITH LCL FILTER, IEEE 2013 
 tag_list: must
-    - State_Dimension_(*)
+    - State_Dimension: 3
     - State_Space_System
-    - Time_Variance
+    - Time_Variance: True
     - Time_Continuity
     - Stability
-input_domain_list:           
-    - electrical            
-state_domain_list:            
-    - eleectrical
-output_domain_list:              
-    - electrical  
 model_graphics_file: 
     
 

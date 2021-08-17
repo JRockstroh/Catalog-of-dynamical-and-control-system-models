@@ -25,8 +25,8 @@ start = time.time()
 xx0 = [0, 0, 0+0j, 0+0j, 0+0j, 0, 0+0j, 0]
 t_end = 4
 tt = np.linspace(0,t_end,1000)
-#sol = solve_ivp(MMC.MMC_model, (0, t_end), xx0, t_eval=tt)
-sol = solve_ivp(rhs_func, (0, t_end), xx0, t_eval=tt)
+sol = solve_ivp(MMC.MMC_model, (0, t_end), xx0, t_eval=tt)
+#sol = solve_ivp(rhs_func, (0, t_end), xx0, t_eval=tt)
 
 
 print("Dauer[s]: ", time.time() - start)    

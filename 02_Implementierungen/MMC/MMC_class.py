@@ -26,6 +26,8 @@ if param_module is not None:
 class Model(GenericModel): 
     ## NOTE:
         # x_dim usw vllt als keywordargs definieren - Vermeidung von effektlosen, optionelen parametern
+        
+
     def __init__(self, x_dim=None, u_func=None, pp=None):
         """
         :param x_dim:(int, positive) dimension of the state vector 
@@ -36,10 +38,9 @@ class Model(GenericModel):
         :param pp:(vector or dict-type with floats>0) parameter values
         :return:
         """
-        # Initialize all Parameters of the Model-Object with None
-#??? zur besseren lesbarkeit die Variablen Initialisierung drin lassen?        
+        # Initialize all Parameters of the Model-Object with None      
         super().__init__()
-        
+        self.has_params = True
         # Define number of inputs -- MODEL DEPENDENT
         self.u_dim = 4
         # Set fix system dimension if necessary
@@ -75,7 +76,7 @@ class Model(GenericModel):
             return  
         
         # Case: Use Default Parameters
-        if pp is None and x_dim is None:
+        if pp is None:
             self.pp_dict = params.get_default_parameters()
             return
         
@@ -135,6 +136,7 @@ class Model(GenericModel):
                                                     numerical values at time t      
         :return:(function with 2 args - t, xx_nv) default input function 
         """ 
+        print(params.get_default_parameters())
         vdc, vg, omega, Lz, Mz, R, L = list(self.pp_dict.values())
         Ind_sum = Mz + Lz
         def uu_rhs(t, xx_nv):

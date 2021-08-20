@@ -9,10 +9,7 @@ import abc
 
 class GenericModel:
     t_symb = sp.Symbol('t')
-    # determine if system has parameters
     has_params = True
-    if not 'params' in locals():
-        has_params = False
         
     def __init__(self, x_dim=None, u_func=None, pp=None):
         """
@@ -157,7 +154,7 @@ class GenericModel:
         
     # ----------- SET STATE VECTOR DIMENSION ---------- # 
     
-    def _set_dimension(self, x_dim, pp = None):
+    def _set_dimension(self, x_dim):
         """
         :param dim:(int > 0), Order of the system
         """
@@ -192,12 +189,13 @@ class GenericModel:
                                 "param pp: keys aren't of type sp.Symbol"
             self.pp_dict = pp
         else:  # pp is a vector of parameter values
-            assert pp_symb is None, "pp_symb is expected not to be None, \
+            assert pp_symb is not None, "pp_symb is expected not to be None, \
                                     because pp is not a dict type object"
             # Check if parameters are valid     
             self._validate_p_values(pp)
             # Define symbolic parameter vector
             self.pp_symb = pp_symb
+            # create parameter dict
             parameter_number = len(pp_symb)
             self.pp_dict = {self.pp_symb[i]:pp[i] for i 
                             in range(parameter_number)}

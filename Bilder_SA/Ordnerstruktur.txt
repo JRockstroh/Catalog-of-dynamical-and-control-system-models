@@ -1,0 +1,22 @@
++---Katalogue_of_dynamical_and_control_Systems
+|   +---01_Modelle
+|   |       Model_Doc_Template.tex
+|   |       Model_Template.yml 
+|   |
+|   |   +---Model_1
+|   |   |       metadata.yml
+|   |   |       Model_1_Documentation.tex
+|   |   |       Model_1_Documentation.pdf	
+|   |   |
+|   |   +---Model_2
+|   |   ...
+|   +---02_Implementierungen
+|   |   +---Model_1
+|   |   |       Model_1_Class.py
+|   |   |       Model_1_paramters.py
+|   |   |       (optional für Git) Model_1_Test.py
+|   |   |
+|   |   +---Model_2
+|   +---03_GenericModel_package
+|   +---04_Klassifikationssystem
+\---

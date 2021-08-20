@@ -1,0 +1,41 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                       
+name: Contruction Crane 5DOF                           
+short_description: Model of a construction crane with 5 degrees of freedom and 3 actuating variables
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:     
+    -> Graichen, K. and Egretzberger, M. and Kugi, A.; Ein suboptimaler Ansatz
+       zur schnellen modellprädiktiven Regelung nichtlinearer Systeme; at-automatisierungstechnik, Band 58, Heft 8, pp. 452, 2010
+tag_list: 
+    - States: 10
+    - Strictly_Non_Linear: True
+    - Modell_Predictive_Controller_Design: True
+    - Physical_Domain: True
+    - Trigonometric_Function: True
+    - Explicit_First_Order_ODE: True
+    - Real: True
+    - Stabilizability: True
+    - Controllability: True
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

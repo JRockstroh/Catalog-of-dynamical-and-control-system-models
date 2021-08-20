@@ -1,0 +1,39 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       #Key of the implemented model, If an implemented model exists.
+type: Model                        #Value-Naming Options: model, formal_Model
+name: Kapitzas Pandulum                           
+short_description: inverted pendulum with vertical oscillating suspension point
+creator: Jonathan Rockstroh   
+creation_date: 04.06.2021
+editor_list: 
+    - 
+notes: 
+external_references:          #Zu jedem Model gehört doch mind. eine Referenz oder? #Naming Options: reference_list, references, occurence_list, occurences     
+    -> Butikov, E. I.; "Kapitza’s Pendulum: A Physically Transparent Simple Treatment", unpublished, 2021
+tag_list: must
+    - States: 2
+    - Time_Variance: False
+    - Stabilizable: True
+    - Global_Lyapunov_Stability: [False, 2n*pi]
+    - Time_Continuitiy: True
+    - Physical_Domain: True
+    - Explicit_First_Order_ODE: True
+    - Strictly_Non_Linear: True
+model_graphics_file:          #Name of the file, which contains a graphical visualization/scheme of the Model with all important entities plotted
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

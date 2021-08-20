@@ -1,4 +1,3 @@
-
 # ignore temp-python files
 # ignore .pyc files
 *.pyc

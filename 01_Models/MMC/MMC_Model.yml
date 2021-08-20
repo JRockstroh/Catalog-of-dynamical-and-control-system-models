@@ -1,0 +1,29 @@
+    
+---   
+key: 
+predecessor_key: 
+model_specification_key:     
+type: Model                         
+name:'Modular Multilevel Converter'                           
+short_description: 'MMC with 3 phases, 1 Submodule per Arm and output to grid. Used to generate multilevel Voltages' 
+creator: 'Jonathan Rockstroh'
+creation_date: '03.05.2021'
+editor_list: 
+notes: 
+external_references:    
+    -> Fehr, H. and Gensior A.; 
+       Improved Energy Balancing of Grid-Side Modular
+       Multilevel Converters by Optimized Feedforward
+       Circulating Currents and Common-Mode Voltage, IEEE 2018
+tag_list:                          
+    - Electrical_Domain: True
+    - Power_Electronics: True
+    - Trajectory_Planning: True
+    - Closed_Loop_Controller_Design: Truee
+    - Controlability: True
+    - Time_Continuity: True    
+    - Explicit_First_Order_ODE: True
+    - Exponential_Function: True
+    - Complex: True         
+model_graphics_file:          
+

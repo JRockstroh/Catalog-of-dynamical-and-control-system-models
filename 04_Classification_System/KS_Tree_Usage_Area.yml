@@ -1,0 +1,112 @@
+--- 
+Safe: 
+    - Type:
+    - Pre_Node:
+    - Edge_Name:
+
+Usage_Area: #  Eigenschaft des Nutzungsgebietes
+    - Type: None
+    - Pre_Node: None
+    - Edge_Name: None
+
+Task:
+    - Type: None
+    - Pre_Node: Usage_Area
+    - Edge_Name: is a
+    
+Parameter_Identification:
+    - Type: boolean
+    - Pre_Node: Task
+    - Edge_Name: is a
+    
+System_Identification:
+    - Type: boolean
+    - Pre_Node: Parameter_Identification
+    - Edge_Name: is a
+    
+Observer_Design:
+    - Type: boolean
+    - Pre_Node: Task
+    - Edge_Name: is a
+    
+Controller_Design:
+    - Type: boolean
+    - Pre_Node: Task
+    - Edge_Name: is a
+    
+Open_Loop_Controller_Design:
+    - Type: boolean
+    - Pre_Node: Controller_Design
+    - Edge_Name: is a
+    
+Closed_Loop_Controller_Design:
+    - Type: boolean
+    - Pre_Node: Controller_Design
+    - Edge_Name: is a
+    
+Flatness_Based_Controller_Design:
+    - Type: boolean
+    - Pre_Node: Controller_Design
+    - Edge_Name: is a
+    
+Passivity_Based_Controller_Design:
+    - Type: boolean
+    - Pre_Node: Controller_Design
+    - Edge_Name: is a
+    
+Trajectory_Planning:
+    - Type: boolean
+    - Pre_Node: Task
+    - Edge_Name: is a
+    
+Research:
+    - Type: boolean
+    - Pre_Node: Usage_Area
+    - Edge_Name: is a
+    
+Education:
+    - Type: boolean
+    - Pre_Node: Usage_Area
+    - Edge_Name: is a
+    
+Industry:
+    - Type: boolean
+    - Pre_Node: Usage_Area
+    - Edge_Name: is a
+    
+Power_Electronics:
+    - Type: boolean
+    - Pre_Node: Industry
+    - Edge_Name: is a
+    
+Semiconductor_Industry:
+    - Type: boolean
+    - Pre_Node: Industry
+    - Edge_Name: is a
+    
+Steel_Production:
+    - Type: boolean
+    - Pre_Node: Industry
+    - Edge_Name: is a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

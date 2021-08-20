@@ -1,0 +1,39 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                        
+name: Czochralski Process basic                            
+short_description: Basic and relative general model of the czochralski process
+creator: Jonathan Rockstroh   
+creation_date: 19.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:    
+    -> Gevelber M. A. and Stephanopoulos, G.; Dynamics and control of the czochralski process
+       I. Modelling and dynamic characterization, Journal of Crystal Growth, Amsterdam 1987
+tag_list: 
+    - States:
+    - Strictly_Non_Linear: True
+    - Time_Continuity: True
+    - Semiconductor_Production: True
+    - Physical_Domain: True
+    - Thermical_Domain: True
+    - Controlability: True
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

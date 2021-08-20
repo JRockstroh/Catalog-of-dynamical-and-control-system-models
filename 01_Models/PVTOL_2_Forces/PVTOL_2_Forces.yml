@@ -1,0 +1,43 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       
+type: Model                        
+name: PVTOL 2 Rotors                           
+short_description: Planar Vertical takeoff and landing aircraft with 2 rotors. Simnple Model of a planar quadrocopter.
+creator: Jonathan Rockstroh   
+creation_date: 07.06.2021
+editor_list: 
+    - 
+notes: 
+external_references:            
+    -> "Knoll, C: Regelungstheoretische Analyse- und Entwurfsansätze für unteraktuierte mechanische Systeme", p. 169, TU Dresden, 2016
+tag_list: must
+    - States: 6
+    - Flatness_Based_Controler_Design: True
+    - Flatness: True
+    - Explicit_First_Order_ODE: True
+    - Trigonometric_Function: True
+    - Physical_Domain: True
+    - Time_Continuity: True
+    - Education: True
+    - Research: True
+    - Trajectory_Planning: True
+    - Underactuated
+
+model_graphics_file:          
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

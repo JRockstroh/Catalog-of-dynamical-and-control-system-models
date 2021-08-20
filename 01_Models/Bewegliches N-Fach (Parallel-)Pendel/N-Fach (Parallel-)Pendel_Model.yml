@@ -1,0 +1,37 @@
+
+---
+key: Must
+predecessor_key: 
+model_implementation_key:       
+type: Model                       
+name: Movable Nth-Degree (Parallel-)Pendulum                   ###### NAMENSGEBUNG OK???        
+short_description: N Pendulums mounted on a *starren* body, with one-dim translatorical movement.
+creator: Jonathan Rockstroh   
+creation_date: 17.05.2021
+editor_list: 
+    - 
+notes: 
+external_references:              
+    -> Reinschke, K; Lineare Regelungs -und Steuerungstheorie 2. Auflage, pp.91-95, 2014 
+tag_list: must
+    - States: n
+    - Strictly_Non_Linear: True
+    - Time_Continuity: True
+    - Explicit_First_Order_ODE: True
+    - Physical_Domain: True
+    - Real: True
+model_graphics_file: 
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

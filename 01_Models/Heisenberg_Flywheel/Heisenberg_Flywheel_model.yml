@@ -1,0 +1,38 @@
+
+---
+key: 
+predecessor_key: 
+model_implementation_key:       #Key of the implemented model, If an implemented model exists.
+type: Model                        #Value-Naming Options: model, formal_Model
+name: Heisenberg Flywheel                           
+short_description: Pointmass connected via massless rod to a flywheel
+creator: Jonathan Rockstroh   
+creation_date: 04.06.2021
+editor_list: 
+    - 
+notes: 
+external_references:      
+    -> Bagagiolo, F. and Zopello, M.; "HYSTERESIS AND CONTROLLABILITY OF AFFINE DRIFTLESS SYSTEMS: SOME CASE STUDIES", p. 10, mmnp-journal, 2020
+tag_list: must
+    - States: 3
+    - Physical_Domain: True
+    - Strictly_Non_Linear: True
+    - Time_Varaince: False
+    - Driftless: True
+    - Controllability: True
+    - Real: True
+model_graphics_file:          #Name of the file, which contains a graphical visualization/scheme of the Model with all important entities plotted
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

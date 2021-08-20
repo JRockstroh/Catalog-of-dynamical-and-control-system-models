@@ -1,0 +1,147 @@
+--- 
+Safe: 
+    - Type:
+    - Pre_Node:
+    - Edge_Name:
+
+Property_Of_Mathematical_Representation: #  Eigenschaften der Repräsentation
+    - Type: None
+    - Pre_Node: None
+    - Edge_Name: None
+
+General_Function:
+    - Type: boolean
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a
+
+DAE: 
+    - Type: boolean
+    - Pre_Node: General_Function
+    - Edge_Name: is a
+    
+General_ODE:
+    - Type: boolean
+    - Pre_Node: General_Function
+    - Edge_Name: is a
+    
+Explicit_First_Order_ODE:
+    - Type: boolean
+    - Pre_Node: General_ODE
+    - Edge_Name: is a
+    
+Linearity_Status:
+    - Type: None
+    - Pre_Node: General_Function
+    - Edge_Name: Value
+    
+Linear:
+    - Type: boolean
+    - Pre_Node: Linearity_Status
+    - Edge_Name: Value
+
+Linearized:
+    - Type: boolean
+    - Pre_Node: Linear
+    - Edge_Name: is a
+    
+Affinity: # affines System --> lineares system?
+    - Type: boolean
+    - Pre_Node: Linear
+    - Edge_Name: is a
+    
+Strictly_Non_Linear: # Nicht-Linear
+    - Type: boolean
+    - Pre_Node: Linearity_Status
+    - Edge_Name: Value
+    
+Polynomial: # grad 1 = linear
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Bilinear:
+    - Type: boolean
+    - Pre_Node: Polynomial
+    - Edge_Name: is a   
+    
+Exponential_Function:
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Backlash:
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Trigonometric_Function:
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Hammerstein_Wiener_Structure:  # Linear System with input Saturation?  passend?
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Hysteresis:
+    - Type: boolean
+    - Pre_Node: Signum_Function
+    - Edge_Name: is a 
+    
+Saturation: # Stellgrößenbeschränkung
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Signum_Function:
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+Parameter_Linear:
+    - Type: boolean
+    - Pre_Node: Strictly_Non_Linear
+    - Edge_Name: is a
+    
+PDE:
+    - Type: boolean
+    - Pre_Node: General_Function
+    - Edge_Name: is a
+    
+Complex:
+    - Type: boolean
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a
+
+Real:
+    - Type: boolean
+    - Pre_Node: Complex
+    - Edge_Name: is a
+    
+Time_Discrete:
+    - Type: boolean
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a
+    
+Time_Continuity:
+    - Type: boolean
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a
+    
+DC_Hybrid: # Time Discrete + Continuous Hybrid System_Attributes
+    - Type: boolean
+    - Pre_Node: Time_Discrete
+    - Edge_Name: is a
+    - Pre_Node: Time_Continuity
+    - Edge_Name: is a
+    
+Time_Variance: # Zeitabhängigkeit von Parametern, Eigenschaft der Darstellung oder des Systems - weg transformierbar?
+    - Type: boolean
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a  
+
+Singularities:
+    - Type: list # needs possibility to accept continuum of Singularities (e.g. for periodically functions)
+    - Pre_Node: Property_Of_Mathematical_Representation
+    - Edge_Name: is a    

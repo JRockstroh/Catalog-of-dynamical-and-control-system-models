@@ -1,0 +1,41 @@
+
+---
+key:                                    # Must
+predecessor_key:                        # may
+model_implementation_key:               # may      
+type: Model                             # Fix           
+name: Stable PT_n Element                                  # Must                           
+short_description: PT_n Element with exclusivly stable Poles                    # should
+creator: Jonathan Rockstroh                               # must   
+creation_date: 19.08.2021                         # must
+editor_list:                            # may
+    - 
+notes:                                  # may
+external_references:                    # should            
+    -> "Janschek, K.: Mechatronic Systems Design, p. 795, Springer-Verlag Berlin Heidelberg, 2012"
+tag_list:                               # must
+    - States: n
+    - Time_Continuity: True
+    - Time_Variance: False
+    - Linear: True
+    - Global_Lyapunov_Stability: True
+    - Education: True
+    - Real: True
+    - Flatness: True
+    - Chaotical_Behaviour: False
+    - Artificial_Domain: True
+model_graphics_file:                    # should         
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+

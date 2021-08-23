@@ -28,7 +28,7 @@ Das Python Package \textit{GenericModel} stellt die Python-Klasse \textit{Generi
 Die \textit{Metadaten-Datei} ist eine Datei im YAML-Format, die Felder für Informationen enthält, in die Informationen des zugehörigen Modells eingetragen werden können. Es gibt Felder für Informationen \dots 
 \begin{itemize}[label=$\bullet$]
 	\item über das Modell (Modellname, Kurzbeschreibung, Modelleigenschaften, Dateinamen eventueller Modellbilder)
-	\item für eine Umsetzung des Kataloges als Datenbank(Key, Predecessor-Key, Implementation-Key)
+	\item für eine Umsetzung des Kataloges als Datenbank (Key, Predecessor-Key, Implementation-Key)
 	\item anderer Art (Modellersteller, Erstellungsdatum, Liste der Bearbeiter, Externe Referenzen)
 \end{itemize}
 Das Konzept und die Umsetzung der Metadaten-Datei basieren auf \cite{KNHE20b}. 
@@ -42,37 +42,38 @@ Die implementierte \textit{Modellklasse} ist eine Python-Datei, welche das Model
 
 Die \textit{Vorlagen} für die Metadaten-Datei, die Parameter-Datei, die Modelldokumentation und -implementation sind Dateien, welche den Arbeitsaufwand für das Anlegen neuer Modelle verringern sollen(siehe Entscheidung \ref{E.Vorlagen}). Die repetitiven Elemente für die entsprechenden Dateien sind in den Vorlagen schon vorhanden, sodass nur die Modellspezifischen Elemente neu geschrieben werden müssen. Die Verwendung der Vorlagen stellt außerdem eine einheitliche Struktur der Dateien sicher.
 
-Die Ordnerstruktur des Kataloges liegt in einem Git-Repositorium\footnote{Der Katalog hat kein eigenes Repository, sondern liegt aktuell im Git-Repository dieser Studienarbeit. Deshalb wird an dieser Stelle kein Link zur Verfügung gestellt.}(s. Entscheidung \ref{E.Git}).  
+Die Ordnerstruktur des Kataloges liegt in einem Git-Repositorium\footnote{Der Katalog hat kein eigenes Repository, sondern liegt aktuell im Git-Repository dieser Studienarbeit. Deshalb wird an dieser Stelle kein Link zur Verfügung gestellt.} (s. Entscheidung \ref{E.Git}).  
 
 \begin{figure}[H]
 	\centering
 	\begin{adjustbox}{padding=15pt 0pt 0pt 0pt, fbox}
 		\begin{lstlisting}[basicstyle=\footnotesize, extendedchars=false]
-+---Katalogue_of_dynamical_and_control_Systems
-|   +---01_Models
-|   |       Model_Doc_Template.tex
-|   |       Model_Template.yml 
+Katalogue_of_dynamical_and_control_Systems
++---01_Models
+|   |   Model_Documentation_Template.tex
+|   |   Model_Template.yml 
 |   |
-|   |   +---Model_1
-|   |   |       metadata.yml
-|   |   |       Model_1_Documentation.tex
-|   |   |       Model_1_Documentation.pdf	
-|   |   |
-|   |   +---Model_2
-|   |   ...
-|   +---02_Implementations
-|   |   |       Model_Class_template.py
-|   |   |       parameters_template.py
-|   |   |             
-|   |   +---Model_1
-|   |   |       Model_1_Class.py
-|   |   |       Model_1_paramters.py
-|   |   |       (optional für Git) Model_1_Test.py
-|   |   |
-|   |   +---Model_2
-|   +---03_GenericModel_package
-|   +---04_Classification_System
-\---
+|   +---Model_1
+|   |       metadata.yml
+|   |       Model_1_Documentation.tex
+|   |       Model_1_Documentation.pdf	
+|   |
+|   +---Model_2
+|   ...
++---02_Implementations
+|   |   Model_Class_template.py
+|   |   parameters_template.py
+|   |             
+|   +---Model_1
+|   |       Model_1_Class.py
+|   |       Model_1_paramters.py
+|   |       (optional für Git) Model_1_Test.py
+|   |
+|   +---Model_2
+|   ...
++---03_GenericModel_package
+\---04_Classification_System
+
 		\end{lstlisting}
 	\end{adjustbox}
 	\caption[Ordnerstruktur des Kataloges]{Ordnerstruktur des Git Repositoriums des Kataloges mit schematischer Inhaltsdarstellung des Modell- und Implementationsordners.}
@@ -89,15 +90,15 @@ Es ist anzumerken, dass das KS keine vollständige Wissensrepräsentation darste
 
 Bei einem konkreten Modell im Katalog finden sich die Einträge des KS im Informationsfeld \textit{tag\_list} der Metadaten-Datei wieder. In diesem Informationsfeld werden die Modelleigenschaften und dessen Werte notiert. Für die Einträge in der \textit{tag\_list} gilt eine Open-World Annahme. Wenn eine Eigenschaft nicht in der \textit{tag\_list} enthalten ist, dann enthält der Katalog keine Aussage darüber, ob das Modell die Eigenschaft besitzt oder nicht.
 
-Das KS besteht aktuell aus 90 Knoten. \autoref{fig:KS_AttributesSnippet} zeigt einen Ausschnitt des KS.
+Das KS besteht aktuell aus 90 Knoten. \autoref{fig:KS_Snippet} zeigt einen Ausschnitt des KS.
 
 % BILD: Ausschnitt KS, aus Modelleigenschaften
 % ============================================
-\begin{figure}
+\begin{figure}[bh]
 	\centering
-	\includegraphics[width=0.9\linewidth]{Ausschnitt_KS_Attributes}
-	\caption{Auschnitt des KS aus der Hauptkategorie \textit{Modelleigenschaften}}
-	\label{fig:KS_AttributesSnippet}
+	\includegraphics[trim=0 680.7 109.5 0, clip, width=0.9\linewidth]{KS_Snippet}
+	\caption{Ausschnitt des Klassifikationssystems}
+	\label{fig:KS_Snippet}
 \end{figure}
 
 % =============================================================
@@ -105,8 +106,8 @@ Das KS besteht aktuell aus 90 Knoten. \autoref{fig:KS_AttributesSnippet} zeigt e
 % =============================================================
 \subsection{Aufbau des Klassifikationssystems}
 \label{Ch:Ergebniss:Sec:KS:SubSec:Aufbau}
-Das KS ist ein Semantisches Netz (s. \autoref{E.KS_SemantischesNetz}), welches durch einen gerichteten, kreisfreien Graphen repräsentiert wird. Es gibt folgende Knotentypen: Kategorie-, Objekt-, Werte-, und Wertetypknoten. 
-Die Kanten zeigen Beziehungen zwischen den Knoten des KS auf, die durch die Kantenbeschriftungen spezifiziert werden. Es gibt folgende Kantennamen: \glqq is a\grqq, \glqq Value\grqq, \glqq Type\grqq und \glqq Object\grqq. Der Kantenname kennzeichnet zudem den Knotentyp des Startknotens der Kante. Jeder Endknoten einer Kante ist ein Kategorieknoten. Die Beziehung zwischen Knotentypen und Kantennamen wird in \autoref{table:KS_KantenUndKnoten} gezeigt.
+Das KS ist ein Semantisches Netz (s. \autoref{E.KS_SemantischesNetz}), welches durch einen gerichteten, kreisfreien Graphen repräsentiert wird. Es gibt folgende Knotentypen: Kategorie-, Werte-, und Wertetypknoten. 
+Die Kanten zeigen Beziehungen zwischen den Knoten des KS auf, die durch die Kantenbeschriftungen spezifiziert werden. Es gibt folgende Kantennamen: \glqq is a\grqq, \glqq value of\grqq und \glqq type of\grqq.. Der Kantenname kennzeichnet zudem den Knotentyp des Startknotens der Kante. Jeder Endknoten einer Kante ist ein Kategorieknoten. Die Beziehung zwischen Knotentypen und Kantennamen wird in \autoref{table:KS_KantenUndKnoten} gezeigt.
 
 % TABELLE: Kantennamen - Knotentypen Beziehung
 % ============================================
@@ -115,19 +116,18 @@ Die Kanten zeigen Beziehungen zwischen den Knoten des KS auf, die durch die Kant
 	\begin{tabular}{l|c|l}
 		Startknotentyp & Kantenname & Endknotentyp \\ \hline
 		Kategorieknoten & is a & Kategorieknoten \\
-		Werteknoten & Value & Kategorieknoten \\
-		Wertetypknoten & Type & Kategorieknoten \\
-		Objektknoten & Object & Kategorieknoten
+		Werteknoten & value of & Kategorieknoten \\
+		Wertetypknoten & type of & Kategorieknoten 
 	\end{tabular}
 	\caption{Beziehung zwischen Kantennamen und Knotentypen}
 	\label{table:KS_KantenUndKnoten}
 \end{table}
 %
 Die Kategorieknoten, außer der Ursprungsknoten und die Knoten der Hauptkategorien, können als Modelleigenschaften interpretiert werden. \\
-Die Kategorieknoten im KS werden durch ihren eindeutigen Namen identifiziert (s. \autoref{E.KS_Namensgebung}).\\
+Die Kategorieknoten im KS werden durch ihren eindeutigen Namen identifiziert (s. \ref{E.KS_Namensgebung}).\\
 Jeder Knoten $k$, außer der Ursprungsknoten, ist entlang eines gerichteten Pfades $P(k)$ mit dem Ursprungsknoten verbunden. Wird einem Modell ein Knoten $k_i$ des KS als Modellattribut zugewiesen, dann hat das Modell auch alle Knoten, außer die Knoten der Ursprungs -und Hauptkategorie(-n), entlang des gerichteten Pfades $P(k_i)$ als Modellattribut. Aus diesem Grund wird in der \textit{tag\_list} der Metadaten-Datei immer nur die spezifischste Eigenschaft eines Pfades angegeben. % Beispiel?
 
-Der Ursprungsknoten \textit{Property\_Of\_Classification\_System} hat die drei Unterkategorien \textit{Property\_Of\_Mathematical\_Representation}, \textit{Model\_Behaviour} und \textit{Usage}. Die Unterkategorien des Ursprungsknoten werden im KS als Hauptkategorien bezeichnet, die jeweils verschiedene Teilmengen von Modellattributen enthalten. Die Hauptkategorien werden wie folgt beschrieben.
+Der Ursprungsknoten \textit{Property\_Of\_Classification\_System} hat die drei Unterkategorien \textit{Property\_Of\_Mathematical\_Representation}, \textit{Model\_Attribute} und \textit{Usage\_Area}. Die Unterkategorien des Ursprungsknoten werden im KS als Hauptkategorien bezeichnet, die jeweils verschiedene Teilmengen von Modellattributen enthalten. Die Hauptkategorien werden wie folgt beschrieben.
 
 \textbf{Eigenschaften der mathematischen Repräsentation}: \\
 Umfasst Eigenschaften der mathematischen Repräsentation des Modells.   % ... die aus der math. Rep. direkt hervor gehen. --> Äquivalenzbegriff von Willems
@@ -145,8 +145,8 @@ In \autoref{Ch:Vorbetrachtung:Sec:SystemeModelle} wurde erwähnt, dass ein Model
 % ===========================================================================
 \subsection{Technische Umsetzung des Klassifikationssystems}
 \label{Ch:Ergebnisse:Sec:KS:SubSec:TechUmsetzung}
-Das KS wird technisch durch vier Dateien im YAML-Format realisiert, welche folgende Namen haben: \textit{KS\_Tree\_main}, \textit{KS\_Tree\_Math\_Representation}, \textit{KS\_Tree\_Model\_Attributes} und \textit{KS\_Tree\_Usage}. Die Datei \textit{KS\_Tree\_main} enthält die \textit{Informationsblöcke(IB)} zu dem Ursprungsknoten und den Knoten der Hauptkategorien. Die restlichen drei Dateien enthalten jeweils die Informationsblöcke zu den Knoten der Unterkategorien der Hauptkategorien. \\ 
-Ein IB enthält alle Informationen zu genau einem Knoten des KS. Jeder IB in den YAML-Dateien ist ein Mapping. Ein Mapping, gekennzeichnet durch einen Doppelpunkt, setzt einen Schlüssel mit genau einen Wert in Beziehung. Das \textit{dictionary} ist das Python-Äquivalent zu einem Mapping. In jedem IB ist der Name des Knotens der Schlüssel und eine Sequenz ist der Wert. Eine Sequenz ist in YAML eine Folge von Zeilen, die mit einem Strich beginnen und der Inhalt der Zeile stellt einen Eintrag der Sequenz dar. \textit{List} und \textit{tuple} sind die Python-Äquivalente zur Sequenz. Jeder Eintrag der Sequenz steht für ein Attribut des Knotens und ist wiederum ein Mapping, dessen Schlüssel der Attributsname und dessen Wert der Attributswert ist. Die IB\grq s sind durch eine Leerzeile voneinander getrennt. Die Abbildung \ref{fig:IBs} zeigt einige IB\grq s aus der Datei \textit{KS\_Tree\_Math\_Representation}.
+Das KS wird technisch durch vier Dateien im YAML-Format realisiert, welche folgende Namen haben: \textit{KS\_Tree\_main}, \textit{KS\_Tree\_Math\_Representation}, \textit{KS\_Tree\_Model\_Attributes} und \textit{KS\_Tree\_Usage\_Area}. Die Datei \textit{KS\_Tree\_main} enthält die \textit{Informationsblöcke (IB)} zu dem Ursprungsknoten und den Knoten der Hauptkategorien. Die restlichen drei Dateien enthalten jeweils die Informationsblöcke zu den Knoten der Unterkategorien der Hauptkategorien. \\ 
+Ein IB enthält alle Informationen zu genau einem Knoten des KS. Jeder IB in den YAML-Dateien ist ein Mapping. Ein Mapping, gekennzeichnet durch einen Doppelpunkt, setzt einen Schlüssel mit genau einen Wert in Beziehung. Das \textit{dictionary} ist das Python-Äquivalent zu einem Mapping. In jedem IB ist der Name des Knotens der Schlüssel und eine Sequenz ist der Wert. Eine Sequenz ist in YAML eine Folge von Zeilen, die mit einem Strich beginnen und der Inhalt der Zeile stellt einen Eintrag der Sequenz dar. \textit{List} und \textit{tuple} sind die Python-Äquivalente zur Sequenz. Jeder Eintrag der Sequenz steht für ein Attribut des Knotens und ist wiederum ein Mapping, dessen Schlüssel der Attributsname und dessen Wert der Attributswert ist. Die IB\grq s sind durch eine Leerzeile voneinander getrennt. Die \autoref{fig:IBs} zeigt einige IB\grq s aus der Datei \textit{KS\_Tree\_Math\_Representation}.
 
 % BILD: Informationsblöcke
 %=========================
@@ -188,14 +188,14 @@ Die Implementierung des KS ist auch relativ einfach für eine potenzielle Integr
 Die Modelldokumentation enthält die textuelle Notation des Modells in einer Datei im \LaTeX-Format. Die Dokumentation besteht aus den Abschnitten: \textit{Nomenklatur}, \textit{Modellgleichungen}, \textit{Herleitung und Erklärungen} und \textit{Referenzen}. Der Abschnitt \textit{Herleitung und Erklärung} ist optional.
 
 \textbf{Nomenklatur}:\\
-Die Nomenklatur enthält alle in der Dokumentation genutzten Variablen und eine Beschreibung, für welche Größen diese stehen. Die Nomenklatur ist aufgeteilt in die Sektionen \textit{Nomenklatur für die Modellgleichungen} und \textit{Nomenklatur für die Herleitung}. Die Nomenklatur für die Modellgleichungen enthält die Variablen, die im gleichnamigen Abschnitt verwendet werden und muss in jeder Dokumentation enthalten sein. Die Nomenklatur für die Herleitung enthält alle Variablen, die für den Abschnitt \textit{Herleitung und Erklärung} genutzt werden, bis auf die Variablen die in der Sektion \textit{Nomenklatur für die Modellgleichungen} schon enthalten sind. Die Nomenklatur für die Herleitung ist nur zu schreiben, wenn der Abschnitt \textit{Herleitung und Erklärung} existiert.
+Die Nomenklatur enthält alle in der Dokumentation genutzten Variablen und eine Beschreibung, für welche Größen diese stehen. Die Nomenklatur ist aufgeteilt in die Sektionen \textit{Nomenklatur für die Modellgleichungen} und \textit{Nomenklatur für die Herleitung}. Die Nomenklatur für die Modellgleichungen enthält die Variablen, die im gleichnamigen Abschnitt verwendet werden und muss in jeder Dokumentation enthalten sein. Die Nomenklatur für die Herleitung enthält alle Variablen, die für den Abschnitt \textit{Herleitung und Erklärung} genutzt werden, bis auf die Variablen die in der Sektion \textit{Nomenklatur für die Modellgleichungen} schon enthalten sind. Die Nomenklatur für die Herleitung ist nur zu schreiben, wenn der Abschnitt \textit{Herleitung und Erklärung} existiert. \autoref{fig:BspDok_Nomenclature} zeigt die Nomenklatur zum Model des Hochsetzstellers.
 
 % BILD: Dokumentation Nomenklatur
 % ===============================
 \begin{figure}[H]
 	\centering
 	\fbox{\includegraphics[trim=120 520 120 110, clip, width=0.9\linewidth]{Boost_Converter_Documentation}}
-	\caption{Nomenklatur aus der Dokumentation zum Hochsetzsteller (Boost-Converter)}
+	\caption[Beispiel zur Nomenklatur der Dokumentation]{Nomenklatur aus der Dokumentation zum Hochsetzsteller (Boost-Converter)}
 	\label{fig:BspDok_Nomenclature}
 \end{figure}
 %
@@ -203,19 +203,20 @@ Die Nomenklatur enthält alle in der Dokumentation genutzten Variablen und eine 
 Der Abschnitt \textit{Modellgleichungen} besteht aus einer formalisierten Darstellung der Modellgleichungen und weiteren Sektionen, die anschließend benannt werden. Die formalisierte Darstellung der Modellgleichungen besteht aus drei Teilen:  
 \begin{itemize}[label=$\bullet$]
 	\item einer Zuordnung der Variablen zum generalisierten Zustands-, Eingangs- und (optional) Ausgangsvektor
-	\item einem Gleichungssystem von Differentialgleichungen erster Ordnung(s. \ref{E.Textdok}), das die generalisierten Zustands- und Eingangsvariablen verwendet
+	\item einem Gleichungssystem von Differentialgleichungen erster Ordnung (s. \ref{E.Textdok}), das die generalisierten Zustands- und Eingangsvariablen verwendet
 	\item der Benennung, welche Variablen Parameter sind
 \end{itemize} 
+Der Abschnitt der Modellgleichungen aus der Dokumentation des Hochsetzstellers ist in \autoref{fig:BspDok_ModelEquations} zu sehen.
 
 % BILD: Dokumentation Modellgleichungen
 % =====================================
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\fbox{\includegraphics[trim=120 300 120 340, clip, width=0.9\linewidth]{Boost_Converter_Documentation}}
-	\caption{Gleichungen aus der Dokumentation zum Hochsetzsteller (Boost-Converter)\protect\footnotemark}
+	\caption[Beispiel der Gleichungen der Dokumentation]{Gleichungen aus der Dokumentation zum Hochsetzsteller (Boost-Converter)\protect\footnotemark}
 	\label{fig:BspDok_ModelEquations}
 \end{figure}
-\footnotetext{Modell stammt aus \cite{ROEB17} Abschnitt 1.3}
+\footnotetext{Modell stammt aus \cite[Abschnitt 1.3]{ROEB17}}
 %
 Die weiteren Sektionen sind recht frei gestaltbar und sollen weitere nützliche Informationen zu dem Modell liefern. Aktuell sind in der Vorlage nur die Sektionen \textit{Annahmen} und \textit{Beispielhafte Parameterwerte} explizit formuliert. Weitere Sektionen können vom Ersteller des Modells nach eigener, subjektiver Einschätzung der Sinnhaftigkeit hinzugefügt werden. Denkbar wäre, angenommen es handelt sich um ein flaches Modell, z.\,B. ein Abschnitt, der flache Ausgänge angibt. Die Sektion \textit{Beispielhafte Parameterwerte} ist als einzige unter den weiteren Sektionen zwingend zu füllen. Dies geschieht mehr oder weniger automatisch, da die Datei \textit{paramters.tex}, die durch die \textit{Parameter-Datei} erstellt wird, dafür eingebunden wird.
 
@@ -233,9 +234,9 @@ Aus der \LaTeX-Datei der Modelldokumentation wird eine für Menschen gut lesbare
 \section{Modellimplementation}
 \label{Ch:Ergebnisse:Sec:Implementation}
 Modelle des Kataloges werden in Form einer Python-Klasse implementiert. Bei Initialisierung eines Objektes der Modellklasse können dem Konstruktor die Zustandsdimension, eine Eingangsfunktion und ein Parametervektor übergeben werden. Alle diese Variablen haben Standardwerte. Jede Modellklasse bezieht ein Standardset von Parameterwerten aus der \textit{Parameter-Datei} (die Standardparameter sind also identisch mit den beispielhaften Parameterwerten aus der Dokumentation) und hat eine Standardfunktion für die Modelleingänge bzw. die Eingangsfunktion integriert.\\ 
-Ein Modell kann also einfach über ein selbst erstelltes Python-Skript simuliert werden(vgl. \ref{A.Implementierung}), indem eine Objekt der Modellklasse erzeugt wird, ein Startvektor für den Modellzustand definiert wird und anschließend das Modell mit einer geeigneten Methode(z.\,B. \textit{solve\_ivp} des Python-Packages \textit{scipy}\footnote{SciPy-Package: \url{https://www.scipy.org/}}) simuliert wird. Die Methode \textit{get\_rhs\_func}\footnote{\textit{rhs} steht für \textit{right hand side}} der Modellklasse stellt die dafür benötigte Python-Funktion zur Verfügung.
+Ein Modell kann also einfach über ein selbst erstelltes Python-Skript simuliert werden (vgl. \ref{A.Implementierung}), indem eine Objekt der Modellklasse erzeugt wird, ein Startvektor für den Modellzustand definiert wird und anschließend das Modell mit einer geeigneten Methode (z.\,B. \textit{solve\_ivp} des Python-Packages \textit{scipy}\footnote{SciPy-Package: \url{https://www.scipy.org/}}) simuliert wird. Die Methode \textit{get\_rhs\_func}\footnote{\textit{rhs} steht für \textit{right hand side}} der Modellklasse stellt die dafür benötigte Python-Funktion zur Verfügung.
 
-Die Parameter und die Eingangsfunktion eines Modellobjektes können nach Initialisierung mit den Methoden \textit{set\_parameters} und \textit{set\_input\_func} geändert werden. Die Zustandsdimension ist nur bei Initialisierung einstellbar und das auch nur bei Modellen, deren Zustandsdimension nicht festgelegt ist(z.\,B. beim N-Fach-Integrator).\\
+Die Parameter und die Eingangsfunktion eines Modellobjektes können nach Initialisierung mit den Methoden \textit{set\_parameters} und \textit{set\_input\_func} geändert werden. Die Zustandsdimension ist nur bei Initialisierung einstellbar und das auch nur bei Modellen, deren Zustandsdimension nicht festgelegt ist (z.\,B. beim N-Fach-Integrator).\\
 Die Methode \textit{get\_rhs\_symbolic} liefert die symbolischen Modellgleichungen als Rückgabewert. Zur Implementierung der symbolischen Gleichungen wird das Python-Package \textit{sympy}\footnote{SymPy-Package: \url{https://www.sympy.org/en/index.html}} verwendet.
 
 %Obsoloter Absatz?
@@ -255,8 +256,8 @@ Die aktuell im Katalog enthaltenden Modelle sind in \autoref{table:AktuelleModel
 % TABELLE: Aktuelle Modelle
 % =========================
 \begin{table}[H]
-	\begin{tabular}{r|c|c|c}
-		Nr & Name & Modelldimension & Implementiert? \\ \hline
+	\begin{tabular}{r|l|c|c}
+		Nr & \multicolumn{1}{c|}{Modellname} & Modelldimension & Implementiert? \\ \hline
 		1 & Hochsetzsteller & 2 & Nein \\
 		2 & Brockett-Integrator & 3 & Ja \\
 		3 & DC-DC Tiefsetzsteller & 2 & Nein \\
@@ -266,7 +267,8 @@ Die aktuell im Katalog enthaltenden Modelle sind in \autoref{table:AktuelleModel
 		7 & MMC\tablefootnote{Modular Multilevel Converter} & 8 & Nein \\
 		8 & N-Fach Integrator & n & Ja \\
 		9 & PVTOL mit 2 Kräften\tablefootnote{Planar Vertical Takeoff and Landing [Vehicle] (dt. Senkrechtstarter)} & 6 & Ja \\
-		10 & Rössler Attrkator 1979a & 3 & Ja
+		10 & Rössler Attraktor 1979a & 3 & Ja \\
+		11 & Stabiles PT$_{n}$-Glied & n & Ja
 	\end{tabular}
 	\caption{Modelle des Kataloges}
 	\label{table:AktuelleModelle}
@@ -281,7 +283,7 @@ Die letzte Anforderung an den Katalog war, das dieser erweiterbar sein soll (Anf
 
 Der Katalog wird über das Hinzufügen neuer Modelle erweitert.
 
-Wir treffen folgende Annahmen:
+Es werden folgende Annahmen getroffen:
 \begin{enumerate}
 	\item Die Recherche für das hinzuzufügende Modell ist abgeschlossen. Die nötigen Informationen zu dem Modell wie Modellgleichungen, beispielhafte Parameterwerte, Beschreibung der Variablen und die dazugehörigen Referenzen sind also schon bekannt.
 	\item Der Modellersteller hat sich mit der Ordnerstruktur des Kataloges vertraut gemacht.
@@ -289,7 +291,7 @@ Wir treffen folgende Annahmen:
 
 Für das Anlegen eines neuen Modells im Katalog sind folgende Schritte notwendig:
 \begin{enumerate}
-	\item Git installieren und das Git-Repositorium(siehe \ref{E.Git}) des Kataloges herunterladen um eine lokale Kopie des Kataloges und der Vorlagen(siehe Abschnitt \ref{Ch:Ergebnisse:Sec:Struktur} \nameref{Ch:Ergebnisse:Sec:Struktur}) zu erhalten.
+	\item Git installieren und das Git-Repositorium (siehe \ref{E.Git}) des Kataloges herunterladen um eine lokale Kopie des Kataloges und der Vorlagen (siehe \autoref{Ch:Ergebnisse:Sec:Struktur}) zu erhalten.
 	\item Anlegen und benennen eines neuen Modell- und Implementationsordners.
 	\item Erstellen der \textit{Metadaten-Datei} im Modellordner mithilfe der Vorlage und Umbenennung dieser in \textit{metadata.yml}.
 	\item Erstellen der \textit{Modelldokumentation} im Modellordner mithilfe der Vorlage.

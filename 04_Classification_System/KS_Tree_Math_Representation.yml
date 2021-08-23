@@ -9,19 +9,19 @@ Property_Of_Mathematical_Representation: #  Eigenschaften der Repräsentation
     - Pre_Node: None
     - Edge_Name: None
 
-General_Function:
-    - Type: boolean
+General_Equation:
+    - Type: Enum
     - Pre_Node: Property_Of_Mathematical_Representation
     - Edge_Name: is a
 
 DAE: 
     - Type: boolean
-    - Pre_Node: General_Function
+    - Pre_Node: General_Equation
     - Edge_Name: is a
     
 General_ODE:
     - Type: boolean
-    - Pre_Node: General_Function
+    - Pre_Node: General_Equation
     - Edge_Name: is a
     
 Explicit_First_Order_ODE:
@@ -31,13 +31,13 @@ Explicit_First_Order_ODE:
     
 Linearity_Status:
     - Type: None
-    - Pre_Node: General_Function
-    - Edge_Name: Value
+    - Pre_Node: General_Equation
+    - Edge_Name: value of
     
 Linear:
     - Type: boolean
     - Pre_Node: Linearity_Status
-    - Edge_Name: Value
+    - Edge_Name: value of
 
 Linearized:
     - Type: boolean
@@ -52,11 +52,11 @@ Affinity: # affines System --> lineares system?
 Strictly_Non_Linear: # Nicht-Linear
     - Type: boolean
     - Pre_Node: Linearity_Status
-    - Edge_Name: Value
+    - Edge_Name: value of
     
-Polynomial: # grad 1 = linear
+Polynomial: # No information
     - Type: boolean
-    - Pre_Node: Strictly_Non_Linear
+    - Pre_Node: General_Equation
     - Edge_Name: is a
     
 Bilinear:
@@ -106,7 +106,7 @@ Parameter_Linear:
     
 PDE:
     - Type: boolean
-    - Pre_Node: General_Function
+    - Pre_Node: General_Equation
     - Edge_Name: is a
     
 Complex:

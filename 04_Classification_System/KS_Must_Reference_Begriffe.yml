@@ -141,7 +141,7 @@ Dissipative:
     - Lossless:
         - Stored Energy at Start + input Energy = Stored Enery at End
         - References:
-            - "Willems, J. C.: Dissipative Dynamical Systems Part 1, p. 332, Archive for Rational Mechanics and Analysis Vol. 45, 1972" Deefinition 6
+            - "Willems, J. C.: Dissipative Dynamical Systems Part 1, p. 332, Archive for Rational Mechanics and Analysis Vol. 45, 1972" Definition 6
     
     
 Reciprocal:
@@ -171,7 +171,11 @@ Autonom:
         - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 3, Springer Verlag Berlin Heidelberg, 2014"
     
     
-Driftless
+Driftless:
+    - system without momentum a(x) 
+    - References:
+        - "Adamy, J.: Nichtlineare Systeme und Regelungen, p. 172, Springer Verlag Berlin Heidelberg, 2014" Subsection 3.1.5
+    
 positive System:
     - has positive output for positive input, Gewichtsfunktion g(t) >= 0
     - References:

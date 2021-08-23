@@ -40,7 +40,7 @@ def main():
     # define style entries for the graph
     
     graph_style = nxv.Style(
-        graph={"rankdir": "BT"},
+        graph={"rankdir": "RL"},
         node=lambda u, d: get_node_style(u, d),
 # TODO : Add node function for line split </br> on underscore to achieve 
 #        multiple lines in a node          

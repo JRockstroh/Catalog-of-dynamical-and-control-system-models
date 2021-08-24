@@ -37,26 +37,19 @@ class Model(GenericModel):
         """
         # Initialize all Parameters of the Model-Object with None     
         super().__init__()
-     
-        # Define number of inputs -- MODEL DEPENDENT
-        self.u_dim = 0
-        # Set "sys_dim" to constant value, if system dimension is constant 
-        # else set "sys_dim" to x_dim -- MODEL DEPENDENT
-        sys_dim = 3
-        # Adjust sys_dim to dimension fitting to default parameters
-        # only needed for n extendable systems -- MODEL DEPENDENT
-        default_param_sys_dim = None
-        if x_dim is None and sys_dim is None:
-            sys_dim = default_param_sys_dim
         # check existance of params file -> if not: System is defined to hasn't 
         # parameters
         self.has_params = True
         try:
             params.get_default_parameters()
         except NameError:
-            self.has_params = False     
+            self.has_params = False        
+        # Define number of inputs -- MODEL DEPENDENT
+        self.u_dim = 0
+        # Set fix system dimension if necessary
+        x_dim = 3
         # Set self.n
-        self._set_dimension(sys_dim)        
+        self._set_dimension(x_dim)        
         # Create symbolic input vector
         self._create_symb_uu(self.u_dim)
         # Create symbolic xx and xxuu
@@ -70,7 +63,50 @@ class Model(GenericModel):
         # choose input function
         self.set_input_func(self.uu_default_func())
         if u_func is not None:
-            self.set_input_func(u_func)       
+            self.set_input_func(u_func)
+
+
+    # ----------- SET_PARAMETERS ---------- #
+    # ------------- MODEL DEPENDENT, if Parameter Number = f(x_dim)
+ 
+    def set_parameters(self, pp, x_dim=None):
+        """
+        :param pp:(vector or dict-type with floats>0) parameter values
+        :param x_dim:(positive int)
+        """ 
+        # Case: System doesn't have parameters
+        if not self.has_params:
+            return  
+        
+        # Case: Use Default Parameters
+        if pp is None and x_dim is None:
+            self.pp_dict = params.get_default_parameters()
+            return
+        
+        # Case: Use individual parameters, but parameter number + symbols 
+        # are equal to the Default Parameters
+        if pp is not None and x_dim is None:
+            parameter_number = len(params.get_default_parameters())
+            assert len(pp) == parameter_number, \
+                        ":param pp: hasn't length of " + str(parameter_number)
+            pp_symb = params.get_symbolic_parameters()            
+            self._create_individual_p_dict(pp, pp_symb)
+            return
+        
+    # - BEGIN: MODEL DEPENDENT PART -
+        # Case: parameter number = f(x_dim) , x_dim != default dim
+        # --> define symbolic parameters for n extendible System
+        # and use individual parameter values in pp
+        if pp is not None and x_dim is not None:
+            # Create symbolic parameters - skip, if pp is dict/mapping
+            pp_symb = None
+            self._create_individual_p_dict(pp, pp_symb)
+            return
+    # - END: MODEL DEPENDENT PART -
+        
+        # Case: individual x_dim but no individual parameters given 
+        raise Exception("Individual Dimension given, but no individual \
+                        parameter vector pp given.")            
 
 
     # ----------- VALIDATE PARAMETER VALUES ---------- #
@@ -88,7 +124,8 @@ class Model(GenericModel):
                                  
         # Check if values are in required range --- MODEL DEPENDENT                         
         assert not any(flag <= 0 for flag in p_value_list), \
-                        ":param pp: does have values <= 0"                             
+                        ":param pp: does have values <= 0"
+                                
 
 
     # ----------- SET DEFAULT INPUT FUNCTION ---------- # 
@@ -129,66 +166,4 @@ class Model(GenericModel):
         self.dxx_dt_symb = [dx_dt, dy_dt, dz_dt]
         
         return self.dxx_dt_symb
-
-
-    # ----------- SET_PARAMETERS ---------- #
-    # ------------- MODEL INDEPENDENT
-    # ------------- Reason for not being in Class GenericModel: 
-    # -------------                         Uses imported params module
- 
-    def set_parameters(self, pp):
-        """
-        :param pp:(vector or dict-type with floats>0) parameter values
-        :param x_dim:(positive int)
-        """       
-        # Case: System doesn't have parameters
-        if not self.has_params:
-            return  
-        
-        # Case: No symbolic parameters created
-        if self.pp_symb is None: 
-            try:
-                symb_pp = self._create_n_dim_symb_parameters()
-            except AttributeError: # To ensure compatibility with old classes
-                symb_pp = None
-            # Check if system has constant dimension
-            if  symb_pp is None:
-                symb_pp = list(params.get_default_parameters().keys())
-            self._create_symb_pp(symb_pp)
-
-        # Case: Use Default Parameters
-        if pp is None:
-            pp_dict = params.get_default_parameters()
-            # Check if a possibly given system dimension fits to the default
-            # parameter length
-            assert len(self.pp_symb) == len(pp_dict), \
-                "Expected :param pp: to be given, because the amount of \
-                    parameters needed (" + str(len(self.pp_symb)) +") \
-                    for the system of given dimension (" + str(self.n) + ") \
-                    doesn't fit to the number of default parameters (" \
-                        + str(len(pp_dict)) + ")."
-            self.pp_dict = pp_dict
-            return
-        
-        # Check if pp is list or dict type
-        assert isinstance(pp, dict) or isinstance(pp, list),\
-                            ":param pp: must be a dict or list type object"
-                            
-        # Case: Individual parameter (list or dict type) variable is given
-        if pp is not None:
-            # Check if pp has correct length                    
-            assert len(self.pp_symb) == len(pp), \
-                    ":param pp: Given Dimension: " + str(len(pp)) \
-                    + ", Expected Dimension: " + str(len(self.pp_symb))
-            # Case: parameter dict ist given -> individual parameter symbols 
-            # and values
-            if isinstance(pp, dict):
-                self._create_individual_p_dict(pp)
-                return
-            # Case: Use individual parameter values
-            else:                     
-                self._create_individual_p_dict(pp, self.pp_symb)
-                return
-        
-        # Case: Should never happen.
-        raise Exception("Critical Error: Check Source Code of set_parameters.")             
+    

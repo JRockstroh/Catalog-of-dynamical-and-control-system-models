@@ -60,15 +60,16 @@ def main():
     
     # write small, grey, unlabeled graph to file
     style = nxv.Style(
-    graph={"rankdir": "BT", "nodesep": 0.05},
-    node=lambda u, d: {
-        "shape": "point",
-        "fixedsize": True,
-        "width": 0.1,
-        "fontsize": 10,
-    },
-    edge=lambda u, v, k, d: {"style": "solid", "arrowhead": "none", "color": "#959595ff"},
-    )
+        graph={"rankdir": "BT", "nodesep": 0.05},
+        node=lambda u, d: {
+            "shape": "point",
+            "fixedsize": True,
+            "width": 0.1,
+            "fontsize": 10,
+        },
+        edge=lambda u, v, k, d: {"style": "solid", "arrowhead": "none", 
+                                 "color": "#959595ff"},
+        )
     file_name = "KS_grey"
     write_graph_to_file(full_KS_graph, style, file_name)
     

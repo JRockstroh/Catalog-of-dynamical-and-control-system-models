@@ -121,7 +121,7 @@ def main():
     # Change Directory to the Folder of the Model. 
     cwd = os.path.dirname(os.path.abspath(__file__))
     parent2_cwd = os.path.dirname(os.path.dirname(cwd))
-    path_base = os.path.join(parent2_cwd, "01_Modelle", model_name) 
+    path_base = os.path.join(parent2_cwd, "01_Models", model_name) 
     os.chdir(path_base)
     # Write tabular to Parameter File.
     file = open("parameters.tex", 'w')

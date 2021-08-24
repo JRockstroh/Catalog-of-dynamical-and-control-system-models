@@ -9,7 +9,6 @@ import abc
 
 class GenericModel:
     t_symb = sp.Symbol('t')
-    has_params = True
         
     def __init__(self, x_dim=None, u_func=None, pp=None):
         """
@@ -55,7 +54,7 @@ class GenericModel:
                 list of lists: input vectors at the times in t
         
         
-        pp : list[float] or dict{sympy.Symbol:float}
+        pp : list[float] or dict{sympy.symbol:float}
             Parameters of the model.
             
         Notes:
@@ -65,7 +64,9 @@ class GenericModel:
         can be changed.
 
         """
-        # Initialize all Parameters of the Model-Object with None    
+        # Initialize all Parameters of the Model-Object with None 
+        # Indicator for the existance of parameters
+        self.has_params = None
         # System Dimension
         self.n = None
         # Symbolic State Vector
@@ -176,8 +177,9 @@ class GenericModel:
         Function which creates the parameter dict, in case that individual
         parameters are given to the model.
         
-        :param pp:(list(float) or dict{sp.object:float}) parameters 
-        """     
+        :param pp: (list(float) or dict{sympy.symbol:float}) parameters 
+        :param pp_symb: list(sympy.symbol) symbolic parameters
+        """
         # Check if pp is a dictionary type object        
         if isinstance(pp, dict):
             p_values = list(pp.values())
@@ -188,7 +190,7 @@ class GenericModel:
             assert isinstance(self.pp_symb, sp.Symbol), \
                                 "param pp: keys aren't of type sp.Symbol"
             self.pp_dict = pp
-        else:  # pp is a vector of parameter values
+        else:  # --> pp is a list type object
             assert pp_symb is not None, "pp_symb is expected not to be None, \
                                     because pp is not a dict type object"
             # Check if parameters are valid     
@@ -272,20 +274,26 @@ class GenericModel:
     # ----------- CREATE SYMBOLIC INPUT VECTOR ---------- #
     
     def _create_symb_uu(self, u_dim):
-        self.uu_symb = [sp.Symbol('u'+ str(i)) for i in range(0, self.u_dim)]
+        self.uu_symb = [sp.Symbol('u' + str(i)) for i in range(0, self.u_dim)]
 
     
     # ----------- CREATE SYMBOLIC STATE AND COMBINED VECTOR ---------- #
     
     def _create_symb_xx_xxuu(self):
         # create new symbolic state vector
-        self.xx_symb = [sp.Symbol('x'+ str(i)) for i in range(0, self.n)]
+        self.xx_symb = [sp.Symbol('x' + str(i)) for i in range(0, self.n)]
         self._xxuu_symb = self.xx_symb + self.uu_symb   
         
         
     # ----------- CREATE SYMBOLIC PARAMETER VECTOR ---------- #
     
-    def _create_symb_pp(self):
+    def _create_symb_pp(self, symb_pp_list=None):
+        if symb_pp_list is not None:
+            assert isinstance(symb_pp_list, list), \
+                        ":param symb_pp_list: is not a list type object"
+            self.pp_symb = symb_pp_list
+            return            
+        
         if self.pp_dict is None:
             return
         self.pp_symb = list(self.pp_dict.keys())

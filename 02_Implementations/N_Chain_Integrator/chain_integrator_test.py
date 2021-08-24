@@ -12,17 +12,14 @@ from matplotlib import pyplot
 from scipy.integrate import solve_ivp
 import time
 
-if 'np' in locals():
-    print('YES YES YES')
 
 start = time.time()
-
-chain_int = cic.Model()
 
 # Initial State values       
 xx0 = [0, 0, 0, 0, 0]
 
-chain_int.set_order(len(xx0))
+chain_int = cic.Model(x_dim=len(xx0))
+
 
 print("xxuu_symb: ", chain_int._xxuu_symb)
 rhs_symb = chain_int.get_rhs_symbolic()

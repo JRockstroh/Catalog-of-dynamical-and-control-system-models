@@ -6,7 +6,6 @@ Created on Thu May 27 14:46:19 2021
 """
 
 import numpy as np
-import Kapitza as Kapi
 from matplotlib import pyplot
 from scipy.integrate import solve_ivp
 from matplotlib import rc
@@ -24,12 +23,9 @@ xx0 = [200/360*2*np.pi,0]
 
 t_end = 1
 tt = times = np.linspace(0,t_end,10000) # vector of times for simulation
-sol1 = solve_ivp(Kapi.kapitza_model,(0,t_end),xx0,t_eval=tt)
 sol = solve_ivp(rhs_func, (0, t_end), xx0, t_eval=tt)
 
-sol_diff = sol1.y - sol.y
 
-uu = Kapi.uu(sol.y, sol.t) + 180
 uu = model.uu_func(sol.t, xx0)[0] *0.005 +180
 
 
@@ -39,7 +35,6 @@ fig1, axs = pyplot.subplots(nrows=2, ncols=1, figsize=(12.8,9.6))
 # print in axes top left
 axs[0].plot(sol.t, np.real(sol.y[0]*360/(2*np.pi)), label = 'Phi')
 #axs[0].plot(sol.t, np.real(sol1.y[0]*360/(2*np.pi)), label = 'Phi_old')
-#axs[0].plot(sol.t, np.real(sol_diff[0] ), label = 'Diff')
 axs[0].plot(sol.t, list(uu), label ='z(t)')
 #axs[0].set_yticks([-np.pi, -np.pi/2, 0, np.pi/2, np.pi])
 #axs[0].set_yticklabels([r'-$\pi$', r'$-\frac{\pi}{2}$', '0', r'$\frac{\pi}{2}$', r'$\pi$'])

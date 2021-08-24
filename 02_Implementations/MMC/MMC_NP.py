@@ -10,8 +10,8 @@ import time
 
 
 # Parameter Values
-p_dict = {'vdc':300,'vg':0,'omega':2*np.pi*5,'Mz':0.94/1000,\
-          'Lz':1.2/1000,'R':26,'L':3/1000}
+p_dict = {'vdc':300, 'vg':235, 'omega':2*np.pi*5, 'Mz':0.94/1000,\
+          'Lz':1.2/1000, 'R':26, 'L':3/1000}
 p_list = list(p_dict.items())
 
 vdc = p_dict['vdc']
@@ -34,25 +34,25 @@ Ind_sum = Lz + Mz
         uu (4dlist): input vector
     
 """
-def uu(xx_nv,t,p=None):
+def uu(xx_nv, t, p=None):
     es0, ed0, es, ed, iss, iss0, i, theta = xx_nv
     # Define Input Functions
-    Kp = 5
+    Kp = 10
         # define reference trajectory for i
-    T_dur = 1.5
+    T_dur = 1.1
     tau = t/T_dur
-    i_max = 10
+    i_max = 20
 
-    i_ref = 10
+    i_ref = i_max
     dt_i_ref = 0
     if (tau < 1):
         i_ref = 4 + (i_max - 4) *np.sin( 0.5*tau *np.pi) *np.sin( 0.5*tau *np.pi)
-        dt_i_ref = np.pi/T_dur * np.sin( 0.5*tau *np.pi) * np.cos( 0.5*tau *np.pi)
+        dt_i_ref = np.pi/T_dur * np.sin( 0.5*tau *np.pi) *np.cos( 0.5*tau *np.pi)
     if (t < 1):
         i_ref = 4
         dt_i_ref = 0  
     
-    vy = vg - (R+1j*omega*L) *i + 1*(i_ref - i) + L *dt_i_ref
+    vy = vg + (R+1j*omega*L) *i + 1*(i_ref - i) + L *dt_i_ref
     vy = complex( vy)
     vy0 = -1/6 *np.absolute( vy) *np.real( np.exp( 3*1j*(theta + np.angle( vy) ) ) )
     vx = 1j *omega*Ind_sum*iss - Kp*iss # p- controller to get iss
@@ -93,7 +93,7 @@ dur_theta = 0
 dur_uu = 0
 calls = 0
   
-def MMC_model(t,xx_nv):    
+def MMC_model(t, xx_nv):    
     
     global dur_es0 
     global dur_ed0 
@@ -106,7 +106,7 @@ def MMC_model(t,xx_nv):
     global dur_uu 
     
     start = time.time()    
-    vy, vy0, vx, vx0 = uu(xx_nv,t)
+    vy, vy0, vx, vx0 = uu(xx_nv, t)
     dur_uu = dur_uu + time.time() - start
 #    vy = 4+0j
 #    vy0 = 1

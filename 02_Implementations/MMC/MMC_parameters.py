@@ -31,7 +31,7 @@ pp_symb = [vdc, vg, omega, Lz, Mz, R, L] \
 # ------------ useful for a clean looking parameter table in the Documentation     
 vdc_sf = 300
 vg_sf = 235
-omega_sf = 2*sp.pi*50
+omega_sf = 2*sp.pi*5
 Lz_sf = 1.5
 Mz_sf = 0.94
 R_sf = 26
@@ -125,7 +125,7 @@ def main():
     # Change Directory to the Folder of the Model. 
     cwd = os.path.dirname(os.path.abspath(__file__))
     parent2_cwd = os.path.dirname(os.path.dirname(cwd))
-    path_base = os.path.join(parent2_cwd, "01_Modelle", model_name) 
+    path_base = os.path.join(parent2_cwd, "01_Models", model_name) 
     os.chdir(path_base)
     # Write tabular to Parameter File.
     file = open("parameters.tex", 'w')
@@ -139,6 +139,12 @@ def get_default_parameters():
     """
     :return:(dict) with parameter_symbol:parameter_value pairs
     """
+    Lz_sf_loc = Lz_sf/1000
+    Mz_sf_loc = Mz_sf/1000
+    L_sf_loc = L_sf/1000
+    pp_sf = [vdc_sf, vg_sf, omega_sf, Lz_sf_loc, Mz_sf_loc, R_sf, L_sf_loc]
+    pp_nv = list(sp.Matrix(pp_sf).subs(pp_subs_list))
+    pp_dict = {pp_symb[i]:pp_nv[i] for i in range(len(pp_symb))}
     return pp_dict
 
 

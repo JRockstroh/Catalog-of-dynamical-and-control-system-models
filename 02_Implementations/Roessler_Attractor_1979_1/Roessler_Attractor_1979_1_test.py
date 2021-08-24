@@ -9,7 +9,6 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from matplotlib import pyplot 
 from mpl_toolkits.mplot3d import Axes3D
-import Roessler_Attractor_1979_1_model as RA79
 import Roessler_class as rs
 import time
 
@@ -24,7 +23,6 @@ t_end = 300
 tt = np.linspace(0,t_end,6000)
 
 start = time.time()
-#sol = solve_ivp(RA79.roessler_1979_1, (0, t_end), xx0, t_eval=tt)
 sol = solve_ivp(rhs_func, (0, t_end), xx0, t_eval=tt)
 
 print("Duration: ", time.time()-start)

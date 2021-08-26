@@ -36,10 +36,10 @@ Des Weiteren wird in den Anmerkungen der Norm (\cite[S. 21]{DINIEC60050-351}) au
 
 Ein System wird in dieser Arbeit als \textit{reales System} bezeichnet, wenn dessen Elemente nachweisbare Bestandteile der Realität sind.
 
-\textit{Modelle} sind (nach Stachowiak\cite[S. 13ff]{STA73}) Abbildungen oder Repräsentationen natürlicher oder künstlicher Originale, welche selbst wieder Modelle sein können (\textit{Abbildungsmerkmal}). Zudem haben Modelle immer nur eine Auswahl der Attribute des Originals, welche dem Modellersteller und/oder dem Modellnutzer als relevant erscheinen (\textit{Verkürzungsmerkmal}) und Modelle dienen einem bestimmten Zweck (\textit{pragmatisches Merkmal}). 
+\textit{Modelle} sind (nach Stachowiak \cite[S. 13ff]{STA73}) Abbildungen oder Repräsentationen natürlicher oder künstlicher Originale, welche selbst wieder Modelle sein können (\textit{Abbildungsmerkmal}). Zudem haben Modelle immer nur eine Auswahl der Attribute des Originals, welche dem Modellersteller und/oder dem Modellnutzer als relevant erscheinen (\textit{Verkürzungsmerkmal}) und Modelle dienen einem bestimmten Zweck (\textit{pragmatisches Merkmal}). 
 
-Modelle von Systemen (\textit{Systemmodelle}) bestehen in der Regelungstechnik aus einem mathematischen Modell, welches das Verhalten des Systemmodells beschreibt. Oft gibt es eine oder mehrere grafische Abbildungen des Systems, die wiederum aus definierten Formen bestehen, welche die Elemente des Systems repräsentieren. Ein System kann mehrere Modelle haben, wobei es zu jedem Modell wiederum verschiedene mathematische Modelle geben kann (vgl. \cite[Abschnitt 2.1]{LUD95} ).\\
-Ein \textit{mathematisches Modell} ist ein Modell, das die Anwendung mathematischer Methoden erlaubt (\cite[S.9]{GRVO16}). Das mathematische Modell ist in der Regelungstechnik üblicherweise ein System von Gleichungen. 
+Modelle von Systemen (\textit{Systemmodelle}) bestehen in der Regelungstechnik aus einem mathematischen Modell, welches das Verhalten des Systemmodells beschreibt. Oft gibt es eine oder mehrere grafische Abbildungen des Systems, die wiederum aus definierten Formen bestehen, welche die Elemente des Systems repräsentieren. Ein System kann mehrere Modelle haben, wobei es zu jedem Modell wiederum verschiedene mathematische Modelle geben kann (vgl. \cite[Abschnitt 2.1]{LUD95}).\\
+Ein \textit{mathematisches Modell} ist ein Modell, das die Anwendung mathematischer Methoden erlaubt (s. \cite[S.9]{GRVO16}). Das mathematische Modell ist in der Regelungstechnik üblicherweise ein System von Gleichungen. 
 
 % BILD: System --> Modelle --> Math. Modelle
 % ==========================================
@@ -49,7 +49,7 @@ Ein \textit{mathematisches Modell} ist ein Modell, das die Anwendung mathematisc
 	\caption{Zusammenhang Systeme, Modelle und mathematische Modelle\protect\footnotemark}
 	\label{fig:SysModelleSkizze}
 \end{figure}
-\footnotetext{Basierend auf \cite[Bild 2.4, S. 11]{LUD95}}.
+\footnotetext{Basierend auf \cite[S. 11, Bild 2.4]{LUD95}}
 
 Zudem gibt es in der Regelungstechnik Modelle, die ausschließlich aus dem mathematischen Modell, also einer Beschreibung des dynamischen Verhaltens, bestehen. Diese Modelle basieren auf keinem realen System und werden in dieser Arbeit als \textit{abstrakte Modelle} bezeichnet. %Der Vollständigkeit halber sei erwähnt, das abstrakte Modelle mit der Defninition nach Stachowiak im Einklang stehen, da Originale auch Gedankengänge sein können. Ein abstraktes Modell ist damit eine verkürzte Repräsentation der Gedankengänge des Modellautors. 
 
@@ -79,13 +79,13 @@ Dieser Abschnitt beschreibt die Erkenntnisse aus einer umfangreichen Literaturre
 	\end{itemize}
 	\item Die mathematische Darstellungsform der Modellgleichungen kann sich unterscheiden.
 	\begin{itemize}[label=$\bullet$]
-		\item Beispiel 3: In \cite{SILEEA12} Seite 14 werden die Gleichungen des Modells als Gleichungssystem von gewöhnlichen Differentialgleichungen(DGLn) erster Ordnung dargestellt. Die Gleichungen sind jedoch nicht wie üblich umgestellt\footnote{Üblicherweise werden die Modellgleichungen so umgestellt, das sich die Zeitableitungen der Zustände möglichst allein auf der linken Seite und dass sich die restlichen Variablen und nicht-abgeleiteten Zustände auf der rechten Seite der Gleichung befinden.}, denn auf der linken Seite der Gleichungen befinden sich Summen aus Zeitableitungen und nicht-abgeleiteten Zustandsgrößen.
-		\item Beispiel 4: In \cite{BUT21} Seite 3 besteht das mathematische Modell des Systems aus einer gewöhnlichen DGL zweiter Ordnung
-		\item Beispiel 5: In \cite{KNO16} Seite 168f, Beispiel B.3 besteht das mathematische Modell des betrachteten Systems aus einem gewöhnlichen Differentialgleichungssystem zweiter Ordnung, wobei wie in Bsp. 3 diese nicht wie üblich umgestellt worden sind.
+		\item Beispiel 3: In \cite[Seite 14]{SILEEA12} werden die Gleichungen des Modells als Gleichungssystem von gewöhnlichen Differentialgleichungen(DGLn) erster Ordnung dargestellt. Die Gleichungen sind jedoch nicht wie üblich umgestellt\footnote{Üblicherweise werden die Modellgleichungen so umgestellt, das sich die Zeitableitungen der Zustände möglichst allein auf der linken Seite und dass sich die restlichen Variablen und nicht-abgeleiteten Zustände auf der rechten Seite der Gleichung befinden.}, denn auf der linken Seite der Gleichungen befinden sich Summen aus Zeitableitungen und nicht-abgeleiteten Zustandsgrößen.
+		\item Beispiel 4: In \cite[Seite 3]{BUT21} besteht das mathematische Modell des Systems aus einer gewöhnlichen DGL zweiter Ordnung
+		\item Beispiel 5: In \cite[Seite 168f]{KNO16}, Beispiel B.3 besteht das mathematische Modell des betrachteten Systems aus einem gewöhnlichen Differentialgleichungssystem zweiter Ordnung, wobei wie in Bsp. 3 diese nicht wie üblich umgestellt worden sind.
 	\end{itemize}
 	\item  Die Modelleigenschaften sind oft nur implizit gegeben. So kann z.\,B. kann bei einem Steuerungsentwurf geschlussfolgert werden, dass das untersuchte System stabil ist. Die explizite Nennung von Modelleigenschaften erfolgt meist nur, wenn diese für die in der Publikation untersuchte Fragestellung von Relevanz sind. 
 	\begin{itemize}[label=$\bullet$]
-		\item Beispiel 6: Im Artikel \cite{PEGUEA16} Seite 761, letzter Abschnitt wird auf die Steuerbarkeit der Modelldarstellung eingegangen. Andere Eigenschaften finden keine Erwähnung.
+		\item Beispiel 6: Im Artikel \cite{PEGUEA16} Seite 761, letzter Abschnitt, wird auf die Steuerbarkeit der Modelldarstellung eingegangen. Andere Eigenschaften finden keine Erwähnung.
 	\end{itemize}
 	\item In nahezu allen Publikationen erfolgt die Erprobung der Ergebnisse mittels Simulation. 
 	\begin{itemize}[label=$\bullet$]
@@ -111,12 +111,17 @@ Das in \cite{KNHE20a} vorgestellte ACKRep\footnote{ACKRep Testinstanz. \tiny{URL
 \textbf{Beispiele unteraktuierter mechanischer Systeme in \cite{LIYU13}}:\\
 Im Zuge der Betrachtung unteraktuierter mechanischer Systeme werden in dem Artikel die Modellgleichungen von 11 Beispielen tabellarisch in einer vereinheitlichten Form aufgeführt, deren mathematisches Modell aus gewöhnlichen DGLn zweiter Ordnung besteht. Zudem werden die Systeme bezüglich ihrer Beschränkungen, ihrer Konfigurationscharakteristik und ihrer regelungstechnischen Problemstellung klassifiziert.
 
-% Vergleich der beiden Beispiele
-Die beiden Zusammenstellungen haben einen unterschiedlichen Fokus.\\
-Im ACKRep liegt der Fokus auf der Implementierung der Modelle. Ein weiterer Fokus liegt auf der Auffindbarkeit der Modelle innerhalb des ACKReps. Dafür ist eine Suchfunktion angedacht, die eine gefilterte Ausgabe der Elemente ermöglichen soll.\\
-In \cite{LIYU13} liegt der Fokus auf der menschlichen Lesbarkeit. Die Modellgleichungen sind als Text bzw. Formeln repräsentiert und ermöglichen die Anwendung von analytischen Methoden. 
+\textbf{A Catalog of [flat, mechanical] Prototype Systems in \cite{MURASL95}}:\\
+Der Artikel \cite{MURASL95} beschäftigt sich mit flachen, mechanischen Systemen. Dabei wird in Tabelle 1 auf Seite 5 der Fall eines Starrkörpers betrachtet, auf den unterschiedliche Kombinationen, von maximal zwei Kräften und einem Drehmoment als beeinflussende Größen, wirken. Jeder Fall wird bezüglich der Eigenschaft der Steuerbarkeit und der Flachheit klassifiziert. Nur ein einziger Fall wird auf derselben Seite mathematisch beschrieben. Des Weiteren findet sich Tabelle 2 auf Seite 8 eine Sammlung flacher, mechanischer Systeme, wobei zum einen 11 mechanische Systeme und zum anderen 5 Systemklassen betrachtet werden, welche sich durch die Erfüllung einer Bedingung (z.\,B. Eingangs-Ausgangs-Linearisierbarkeit) auszeichnen. Zusätzlich, wird zu jedem Eintrag ein flacher Ausgang in Worten beschrieben (z.\,B. center of oscillation) und mindestens eine Referenz gegeben. Konkrete mathematische Modelle sind nicht enthalten.
 
-Beide Zusammenstellungen haben gemeinsam, dass eine einheitliche Form für die Modellrepräsentation verwendet wird. Zudem findet bei beiden eine Klassifikation statt, welche sich allerdings in Umfang und Inhalt unterscheiden.
+% Vergleich der beiden Beispiele
+Die Zusammenstellungen haben einen unterschiedlichen Fokus.\\
+Im ACKRep liegt der Fokus auf der Implementierung der Modelle. Ein weiterer Fokus liegt auf der Auffindbarkeit der Modelle innerhalb des ACKReps. Dafür ist eine Suchfunktion angedacht, die eine gefilterte Ausgabe der Elemente ermöglichen soll.\\
+In \cite{LIYU13} liegt der Fokus auf der menschlichen Lesbarkeit. Die Modellgleichungen sind als Text bzw. Formeln repräsentiert und ermöglichen die Anwendung von analytischen Methoden. \\
+In \cite{MURASL95} ist der Fokus die Informationsvermittlung, dass die enthaltenen Systeme existieren, einen flachen Ausgang besitzen und in welchen Publikationen diese genauer beschrieben werden.
+
+Das ACKRep und \cite{LIYU13} haben gemeinsam, dass eine einheitliche Form für die Modellrepräsentation verwendet wird. \\
+In allen Zusammenstellungen findet eine Klassifikation statt, welche sich allerdings in Umfang und Inhalt unterscheidet.
 
 % =================================================================
 % ------------- SECTION: Anforderungen an den Katalog -------------
@@ -150,6 +155,12 @@ Die Anforderung \ref{A.Erweiterbarkeit} macht es notwendig, den Fall einer zukü
 	\item \label{E.MetadatenDatei}Zu jedem Modell soll es eine Datei \textit{(Metadaten-Datei)} geben, in der wichtige Informationen wie der Modellschlüssel und -Name, die Modelleigenschaften und der Modellersteller hinterlegt werden. Die Metadaten-Datei soll im einfach les- und editierbaren YAML Format vorliegen.
 \end{enumerate}
 Die Idee und Umsetzung von Entscheidung \ref{E.MetadatenDatei} orientiert sich an dem Vorgehen in \cite{KNHE20a}. Die Struktur der Metadaten-Datei wurde aus dem \textit{ACKRep} übernommen und leicht angepasst.
+
+\label{YAML_Erklärung}
+YAML\footnote{Akronym für: YAML Ain\textquotesingle t Markup Language} \cite{YAMLDocUrl} ist ein Standard zur serialisierten Datendarstellung, also der Darstellung von Daten mittels strukturierten Textes. YAML bedient sich nur weniger Strukturelement, was es für Menschen einfach les- und verstehbar macht. Zwei wesentlichen Strukturelement von YAML sind \textit{Mappings} und \textit{Sequences}.\\
+Ein \textit{Mapping} ist ein Schlüssel-Wert-Paar und wird durch einen Doppelpunkt (:) gekennzeichnet. Es ordnet dem Wert einen spezifischen Schlüssel zu. Der Wert und der Schlüssel können eine skalare Zahlen, eine Zeichenkette aber auch eine Datenstruktur, also eine Sequence oder ein Mapping selbst, sein. In Python ist der Datentyp des \textit{dictionarys}, das Äquivalent zum Mapping.\\
+Eine \textit{Sequence} ist eine Liste von Werten und wird durch eine Menge identisch eingerückter Zeilen, die mit Anführungsstrichen (-) beginnen gekennzeichnet. Die möglichen Wertetypen der Sequence, sind identisch zum Mapping. In Python sind die Datentypen \textit{list} und \textit{tuple}, das Äquivalent zur Sequence.\\
+Die beschriebene Darstellungsweise, der Sequence und des Mappings, entspricht dem sogenannten \textit{Block-Style}. Daneben gibt es noch den \textit{Flow-Style}, in dem diese beiden Datenstrukturen etwas anders dargestellt werden. In den YAML-Dateien des Kataloges (s. \autoref{Ch:Ergebnisse}) wurde ausschließlich der Block-Style verwendet, weshalb auch nur dieser hier beschrieben wurde. Ein Beispiel für Text im YAML-Format, befindet sich in \autoref{Ch:Ergebnisse:Sec:KS:SubSec:TechUmsetzung}.
 
 Die Anforderung \ref{A.Modelleigenschaften} soll durch das in der Aufgabenstellung geforderte \textit{Klassifikationssystems (KS)} (siehe \autoref{Ch:Vorbetrachtung:Sec:KS} und \autoref{Ch:Ergebnisse:Sec:KS}) und die Anwendung dessen auf die Modelle erfüllt werden. Die Auflistung der Modelleigenschaften eines Modells erfolgt in der Metadaten-Datei. Die Verwendung der im KS verwendeten Namen für die Modelleigenschaften sorgt für eine einheitliche Namensgebung. Die Definition der Modelleigenschaften und der Beziehungen zwischen diesen basieren auf im KS enthaltenen Referenzen. Die folgende Entscheidung befasst sich mit der technischen Umsetzung des KS.
 \begin{enumerate}[resume*]

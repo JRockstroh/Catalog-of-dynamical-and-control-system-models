@@ -28,7 +28,7 @@ Vorlage_Modellklasse:
     - Node_Shape: Box
     - Pre_Node: GeneralModel_Package
     
-GeneralModel_Package:
+GenericModel_Package:
     - Node_Shape: Box
     
 Parameter_Datei:

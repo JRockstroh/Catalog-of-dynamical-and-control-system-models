@@ -264,7 +264,8 @@
 <g id="node20" class="node">
 <title>node0019</title>
 <ellipse fill="none" stroke="black" cx="848" cy="-528" rx="36" ry="36"/>
-<text text-anchor="middle" x="848" y="-525.5" font-family="Times New Roman,serif" font-size="10.00">Stability</text>
+<text text-anchor="middle" x="848" y="-531" font-family="Times New Roman,serif" font-size="10.00">Stable_</text>
+<text text-anchor="middle" x="848" y="-520" font-family="Times New Roman,serif" font-size="10.00">EP</text>
 </g>
 <!-- node0019&#45;&gt;node0016 -->
 <g id="edge19" class="edge">

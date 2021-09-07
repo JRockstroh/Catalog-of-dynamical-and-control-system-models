@@ -6,47 +6,47 @@ Model_Attribute:
     - Edge_Name: None
     
 Flatness:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
     
 Controllability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
     
 Bifurcation:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
     
 Local_Controllability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Controllability
     - Edge_Name: is a
     
 Global_Controllability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Local_Controllability
     - Edge_Name: is a
     
 Full_Controllability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Controllability
     - Edge_Name: is a
     
 Stabilizability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
     
 BIBO_Stability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Model_Attribute
     - Edge_Name: is a
     
 BIBS_Stability:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: BIBO_Stability
     - Edge_Name: is a
     
@@ -95,14 +95,14 @@ Global_Attractivity:
     - Pre_Node: Local_Attractivity
     - Edge_Name: is a
 
-Stability:
+Stable_EP:
     - Type: list
     - Pre_Node: Equilibrium_Points
     - Edge_Name: is a
     
 Local_Lyapunov_Stability:
     - Type: list
-    - Pre_Node: Stability
+    - Pre_Node: Stable_EP
     - Edge_Name: is a
     
 Global_Lyapunov_Stability:

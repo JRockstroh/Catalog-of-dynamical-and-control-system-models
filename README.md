@@ -8,4 +8,4 @@ Prototype for a catalog of control systems, which contains:
 - templates for the creation of new models
 - a classification system for model related attributes to classify the models in their metadata file
 
-For further information reach out to CKnoll from the TU Dresden."# Catalog-of-dynamical-and-control-systems" 
+For further information reach out to CKnoll from the TU Dresden.

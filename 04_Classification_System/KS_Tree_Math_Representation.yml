@@ -10,7 +10,7 @@ Property_Of_Mathematical_Representation: #  Eigenschaften der Repräsentation
     - Edge_Name: None
 
 General_Equation:
-    - Type: Enum
+    - Type: enum
     - Pre_Node: Property_Of_Mathematical_Representation
     - Edge_Name: is a
 

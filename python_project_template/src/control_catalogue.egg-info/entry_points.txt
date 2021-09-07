@@ -1,3 +1,0 @@
-[console_scripts]
-control_catalogue = control_catalogue.script:main
-

@@ -1,4 +1,4 @@
-# Catalog of dynamical and control systems
+# Catalog of dynamical and control system models
 
 Created in the scope of a scientific thesis at the Institute of Control Theory, TU Dresden.
 

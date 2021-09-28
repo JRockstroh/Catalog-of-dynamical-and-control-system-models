@@ -71,10 +71,10 @@ start_columns_list = [col_1]
 
 # Define Entries of the columns after the Value-Column
 # --- Entries need to be latex code
-col_4 = [r"$\frac{m}{s^2}$", 
+col_4 = [r"$\frac{\mathrm{m}}{\mathrm{s}^2}$", 
          "m",
          "kg",
-         r"$kg \cdot m^2$"
+         r"$\mathrm{kg} \cdot \mathrm{m}^2$"
          ]
 # contains all lists of columns after the FIX ENTRIES
 # --- Empty list, if there are no columns after the "Value" column

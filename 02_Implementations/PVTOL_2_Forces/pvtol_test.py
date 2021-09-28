@@ -36,7 +36,7 @@ axs[0, 0].plot(sol.t, np.real(sol.y[0] ), label = 'x-Position' )
 axs[0, 0].plot(sol.t, np.real(sol.y[2] ), label = 'y-Position' )
 axs[0, 0].plot(sol.t, np.real(sol.y[4]*180/np.pi ), label = 'angle' )
 axs[0, 0].set_title('Position')
-axs[0, 0].set_ylabel('Pos[m]') # y-label Nr 1
+axs[0, 0].set_ylabel('Position[m]') # y-label Nr 1
 axs[0, 0].set_xlabel('Time[s]') # x-Label für Figure linke Seite
 axs[0, 0].grid()
 axs[0, 0].legend()

@@ -20,14 +20,14 @@
 	
 	%variables for model equations
 	\begin{tabular}{ll}
-		x & horizontal displacement \\
-		y & vertical displacement \\
+		$x$ & horizontal displacement \\
+		$y$ & vertical displacement \\
 		$\theta$ & roll angle \\
 		$F_1$, $F_2$ & Forces on the left and right site of the PVTOL \\
-		g & acceleration due to gravity \\
-		l & distance between mass center of PVTOL and target point of the forces \\
-		m & mass of the PVTOL \\
-		J & moment of inertia of the PVTOL		
+		$g$ & acceleration due to gravity \\
+		$l$ & distance between mass center of PVTOL and target point of the forces \\
+		$m$ & mass of the PVTOL \\
+		$J$ & moment of inertia of the PVTOL		
 	\end{tabular}
 	
 	\subsection{Nomenclature for Derivation} % SHOULD 
@@ -49,12 +49,12 @@
 	\noindent Model Equations:	
 	\begin{subequations}
 	\begin{align}
-		\dot{x_1} &= x_2 	\\ 
-		\dot{x_2} &= -\frac{\sin(x_5)}{m} (u_1 + u_2)  \\
-		\dot{x_3} &= x_4 \\
-		\dot{x_4} &= \frac{\cos(x_5)}{m} (u_1 + u_2) - g \\
-		\dot{x_5} &= x_6 \\
-		\dot{x_6} &= \frac{l}{J} (u_2 - u_1)
+		\dot{x}_1 &= x_2 	\\ 
+		\dot{x}_2 &= -\frac{\sin(x_5)}{m} (u_1 + u_2)  \\
+		\dot{x}_3 &= x_4 \\
+		\dot{x}_4 &= \frac{\cos(x_5)}{m} (u_1 + u_2) - g \\
+		\dot{x}_5 &= x_6 \\
+		\dot{x}_6 &= \frac{l}{J} (u_2 - u_1)
 	\end{align}
 	\end{subequations}
 
